@@ -1,0 +1,44 @@
+{
+  "bundle_type": "initial_training",
+  "excluded": [
+    "ood_pilot.npz and its per-map records",
+    "id_holdout.npz and its per-map records",
+    "ood_test_sealed.npz and its per-map records"
+  ],
+  "files": {
+    "README_upload.md": {
+      "bytes": 1069,
+      "sha256": "6f8eb50664dfa238787a5e2a3ee1502f8cedfd6ce07c496cad8d4d092b2ea25a"
+    },
+    "configs/adaptive_sensitivity_ablations.json": {
+      "bytes": 1446,
+      "sha256": "ffc29b9daeb662ab37c7796956b7cc26809d603f60b2e619ca4a8c6bc8dc03b6"
+    },
+    "dataset/id_pilot.npz": {
+      "bytes": 91219,
+      "sha256": "471279746c104b36c5d47b3f4619faec38d6c69e4a903c5ef8b21fa12242c1d1"
+    },
+    "dataset/manifest.json": {
+      "bytes": 2296227,
+      "sha256": "ceb4e029ee791ec5bc620c1cd48b87f71b5f2f88268bfec4f7de194043ac94c0"
+    },
+    "dataset/training.npz": {
+      "bytes": 1253120,
+      "sha256": "fa8eb991ac3ad79111340e4beda8c631fccbd10d89e5f04e94a7450e1a4a5ff3"
+    },
+    "dataset/validation_calibration.npz": {
+      "bytes": 259317,
+      "sha256": "6847105762043792858d74e5ee4e3a175cfce8cb84f13e55262d06a929820221"
+    },
+    "notebooks/kaggle_experiments_64x64_rectangles.ipynb": {
+      "bytes": 22707,
+      "sha256": "68ddae89de6d61b7bae7b29a3c83cb2eb8364465462e7e50c41c915fe741259c"
+    },
+    "project_code.zip": {
+      "bytes": 187967,
+      "sha256": "b1027f249340008ad0167a70910a9352a4cfc90e9bb8bb764660b4c5c861ffea"
+    }
+  },
+  "npz_handling": "opaque byte copy and SHA-256 only",
+  "run_id": "64x64_rectangles_v1"
+}

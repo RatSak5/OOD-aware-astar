@@ -1,0 +1,47 @@
+{
+  "bytes": 112478,
+  "files": {
+    "README_ood_pilot.md": {
+      "bytes": 651,
+      "sha256": "d34229220ed2c359551e81089d7a06eeb2711deb4f4a66814c294b6e80c8e9a8"
+    },
+    "dataset/manifest.json": {
+      "bytes": 156418,
+      "sha256": "1fa98c4e670e83dedcb75d2fa35d45e1e83a9210973aec9b5b8d66f976b46fab"
+    },
+    "dataset/ood_pilot.npz": {
+      "bytes": 101256,
+      "sha256": "ddfd02b5a8af2db0f0f9df59211ae1fc7afcb735a27399767efd1bafcfeee6fa"
+    },
+    "upload_manifest.json": {
+      "bytes": 921,
+      "sha256": "aa3a128e5bfeee691168bc2cfcb7ced1a4350508c64f89f647f8793baa956af2"
+    }
+  },
+  "manifest_counts": {
+    "ood_pilot": 60
+  },
+  "npz_handling": "opaque byte copy and hashing; no NPZ parsing",
+  "path": "C:\\Users\\ratul\\OneDrive\\Documents\\AI_project_backup\\results\\64x64_rectangles_v1\\64x64_rectangles_v1_ood_pilot.zip",
+  "premature_header_inspection": "Headers and array shapes inspected prematurely earlier; no evaluation, training, detector fitting, or D95 calibration used it.",
+  "sha256": "4f31c60927a644b1496130b2e59fd0a004e0f687f88516baf8a2a268765bbc1c",
+  "uploaded_or_attached": false,
+  "zip_contents": [
+    {
+      "bytes": 651,
+      "path": "README_ood_pilot.md"
+    },
+    {
+      "bytes": 156418,
+      "path": "dataset/manifest.json"
+    },
+    {
+      "bytes": 101256,
+      "path": "dataset/ood_pilot.npz"
+    },
+    {
+      "bytes": 921,
+      "path": "upload_manifest.json"
+    }
+  ]
+}

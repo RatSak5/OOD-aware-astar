@@ -1,0 +1,797 @@
+{
+  "benchmark_config": {
+    "base_seed": 20261106,
+    "bootstrap_repetitions": 10000,
+    "cpu_threads": 4,
+    "device": "cpu",
+    "height": 32,
+    "heuristic_batch_size": 16,
+    "heuristic_epochs": 50,
+    "id_holdout_count": 90,
+    "k_bounds": [
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        16
+      ],
+      [
+        8,
+        32
+      ]
+    ],
+    "map_generation": {
+      "allow_unreachable": false,
+      "cluster_count": 6,
+      "cluster_size": 7,
+      "corridor_spacing": null,
+      "corridor_width": 2,
+      "distribution": "D1",
+      "height": 32,
+      "max_attempts": 128,
+      "obstacle_density": null,
+      "seed": 0,
+      "width": 32
+    },
+    "neural_astar_batch_size": 1,
+    "neural_astar_epochs": 10,
+    "ood_batch_size": 32,
+    "ood_epochs": 40,
+    "ood_test_count": 90,
+    "original_seeastar_k": 16,
+    "output_directory": "results/prompt8",
+    "permutation_repetitions": 100000,
+    "pilot_maps_per_distribution": 3,
+    "pilot_sampling_seeds": [
+      11,
+      23
+    ],
+    "primary_fixed_ks": [
+      4,
+      5,
+      10,
+      16
+    ],
+    "primary_heuristic": "H1",
+    "primary_k_bounds": [
+      4,
+      16
+    ],
+    "sampling_seeds": [
+      11,
+      23,
+      47,
+      89,
+      131
+    ],
+    "secondary_heuristics": [
+      "H2",
+      "H3"
+    ],
+    "smooth_adaptive_k_note": "Finite smooth scores stay below 1; for (4,16), adaptive K is 5..16. K=4 is retained as the nominal lower-bound reference.",
+    "split_counts": {
+      "id_holdout": 90,
+      "ood_test": 90,
+      "train": 300,
+      "validation_calibration": 90
+    },
+    "timeout_seconds": null,
+    "train_count": 300,
+    "validation_count": 90,
+    "width": 32
+  },
+  "cost_model": {
+    "model": "unit_move_count",
+    "prevent_diagonal_corner_cutting": true
+  },
+  "distribution_counts": {
+    "id_holdout": {
+      "D1": 30,
+      "D2": 30,
+      "D3": 30,
+      "D4": 0,
+      "D5": 0,
+      "D6": 0
+    },
+    "ood_test": {
+      "D1": 0,
+      "D2": 0,
+      "D3": 0,
+      "D4": 30,
+      "D5": 30,
+      "D6": 30
+    },
+    "train": {
+      "D1": 100,
+      "D2": 100,
+      "D3": 100,
+      "D4": 0,
+      "D5": 0,
+      "D6": 0
+    },
+    "validation": {
+      "D1": 30,
+      "D2": 30,
+      "D3": 30,
+      "D4": 0,
+      "D5": 0,
+      "D6": 0
+    }
+  },
+  "distribution_statistics": {
+    "by_distribution": {
+      "D1": {
+        "map_count": 160,
+        "metrics": {
+          "free_cell_fraction": {
+            "maximum": 0.900390625,
+            "mean": 0.900390625,
+            "mean_ci95": [
+              0.900390625,
+              0.900390625
+            ],
+            "minimum": 0.900390625,
+            "std": 0.0
+          },
+          "free_cells_degree_le_3_fraction": {
+            "maximum": 0.10629067245119306,
+            "mean": 0.08432077006507592,
+            "mean_ci95": [
+              0.08310042706073753,
+              0.0854867136659436
+            ],
+            "minimum": 0.0650759219088937,
+            "std": 0.007631794699713411
+          },
+          "free_legal_degree_mean": {
+            "maximum": 6.3383947939262475,
+            "mean": 6.219210954446854,
+            "mean_ci95": [
+              6.212144793926247,
+              6.2260720580260305
+            ],
+            "minimum": 6.114967462039045,
+            "std": 0.04602092914328672
+          },
+          "full_span_corridor_fraction": {
+            "maximum": 0.109375,
+            "mean": 0.03125,
+            "mean_ci95": [
+              0.0279296875,
+              0.03447265625
+            ],
+            "minimum": 0.0,
+            "std": 0.020660644347230975
+          },
+          "local_density_std_3x3": {
+            "maximum": 0.11151705865481483,
+            "mean": 0.0973445879158473,
+            "mean_ci95": [
+              0.09660935007056105,
+              0.09804806388294074
+            ],
+            "minimum": 0.08608096015325709,
+            "std": 0.004613497692547965
+          },
+          "obstacle_density": {
+            "maximum": 0.099609375,
+            "mean": 0.099609375,
+            "mean_ci95": [
+              0.099609375,
+              0.099609375
+            ],
+            "minimum": 0.099609375,
+            "std": 0.0
+          },
+          "obstacle_neighbor_fraction": {
+            "maximum": 0.14925373134328357,
+            "mean": 0.09578801971897463,
+            "mean_ci95": [
+              0.09268999935691846,
+              0.09896184706042799
+            ],
+            "minimum": 0.05012531328320802,
+            "std": 0.020328772599730965
+          },
+          "obstacle_pair_rate_4_neighbor": {
+            "maximum": 0.015120967741935484,
+            "mean": 0.009541960685483871,
+            "mean_ci95": [
+              0.009233162172379033,
+              0.00985383064516129
+            ],
+            "minimum": 0.005040322580645161,
+            "std": 0.0020398610493986336
+          },
+          "optimal_path_cost": {
+            "maximum": 32.0,
+            "mean": 15.89375,
+            "mean_ci95": [
+              14.68125,
+              17.10015625
+            ],
+            "minimum": 1.0,
+            "std": 7.722870449995998
+          }
+        }
+      },
+      "D2": {
+        "map_count": 160,
+        "metrics": {
+          "free_cell_fraction": {
+            "maximum": 0.75,
+            "mean": 0.75,
+            "mean_ci95": [
+              0.75,
+              0.75
+            ],
+            "minimum": 0.75,
+            "std": 0.0
+          },
+          "free_cells_degree_le_3_fraction": {
+            "maximum": 0.3697916666666667,
+            "mean": 0.3255859375,
+            "mean_ci95": [
+              0.3229571533203125,
+              0.32824747721354164
+            ],
+            "minimum": 0.2838541666666667,
+            "std": 0.016899532590313016
+          },
+          "free_legal_degree_mean": {
+            "maximum": 4.692708333333333,
+            "mean": 4.497639973958333,
+            "mean_ci95": [
+              4.4855948893229165,
+              4.509213053385417
+            ],
+            "minimum": 4.341145833333333,
+            "std": 0.07943402203760311
+          },
+          "full_span_corridor_fraction": {
+            "maximum": 0.015625,
+            "mean": 9.765625e-05,
+            "mean_ci95": [
+              0.0,
+              0.00029296875
+            ],
+            "minimum": 0.0,
+            "std": 0.0012352647110032732
+          },
+          "local_density_std_3x3": {
+            "maximum": 0.16039157981363775,
+            "mean": 0.14356920506566662,
+            "mean_ci95": [
+              0.14258393837279873,
+              0.14452826820197087
+            ],
+            "minimum": 0.12546814275301119,
+            "std": 0.006302974023914734
+          },
+          "obstacle_density": {
+            "maximum": 0.25,
+            "mean": 0.25,
+            "mean_ci95": [
+              0.25,
+              0.25
+            ],
+            "minimum": 0.25,
+            "std": 0.0
+          },
+          "obstacle_neighbor_fraction": {
+            "maximum": 0.30474268415741673,
+            "mean": 0.2521272359405796,
+            "mean_ci95": [
+              0.24967987889854568,
+              0.25465308368954825
+            ],
+            "minimum": 0.21479229989868287,
+            "std": 0.016307736501527052
+          },
+          "obstacle_pair_rate_4_neighbor": {
+            "maximum": 0.07610887096774194,
+            "mean": 0.06301033266129033,
+            "mean_ci95": [
+              0.062373991935483875,
+              0.06365612399193549
+            ],
+            "minimum": 0.05342741935483871,
+            "std": 0.004116565874982353
+          },
+          "optimal_path_cost": {
+            "maximum": 42.0,
+            "mean": 19.2625,
+            "mean_ci95": [
+              17.82484375,
+              20.719218749999996
+            ],
+            "minimum": 1.0,
+            "std": 9.246782544289859
+          }
+        }
+      },
+      "D3": {
+        "map_count": 160,
+        "metrics": {
+          "free_cell_fraction": {
+            "maximum": 0.599609375,
+            "mean": 0.599609375,
+            "mean_ci95": [
+              0.599609375,
+              0.599609375
+            ],
+            "minimum": 0.599609375,
+            "std": 0.0
+          },
+          "free_cells_degree_le_3_fraction": {
+            "maximum": 0.6726384364820847,
+            "mean": 0.6118485342019544,
+            "mean_ci95": [
+              0.6082451140065148,
+              0.6154929254885994
+            ],
+            "minimum": 0.5456026058631922,
+            "std": 0.023364704161837495
+          },
+          "free_legal_degree_mean": {
+            "maximum": 3.3387622149837135,
+            "mean": 3.124918566775244,
+            "mean_ci95": [
+              3.1114612174267102,
+              3.1389255903908797
+            ],
+            "minimum": 2.8892508143322475,
+            "std": 0.09011970690168779
+          },
+          "full_span_corridor_fraction": {
+            "maximum": 0.0,
+            "mean": 0.0,
+            "mean_ci95": [
+              0.0,
+              0.0
+            ],
+            "minimum": 0.0,
+            "std": 0.0
+          },
+          "local_density_std_3x3": {
+            "maximum": 0.18009403943320818,
+            "mean": 0.16509044556409663,
+            "mean_ci95": [
+              0.16414138347196572,
+              0.16606915744584025
+            ],
+            "minimum": 0.15053034303459037,
+            "std": 0.006180833758264135
+          },
+          "obstacle_density": {
+            "maximum": 0.400390625,
+            "mean": 0.400390625,
+            "mean_ci95": [
+              0.400390625,
+              0.400390625
+            ],
+            "minimum": 0.400390625,
+            "std": 0.0
+          },
+          "obstacle_neighbor_fraction": {
+            "maximum": 0.4345648090169067,
+            "mean": 0.4007460544000551,
+            "mean_ci95": [
+              0.39878156563823036,
+              0.4028619605131911
+            ],
+            "minimum": 0.3731155778894472,
+            "std": 0.0131208680021365
+          },
+          "obstacle_pair_rate_4_neighbor": {
+            "maximum": 0.1748991935483871,
+            "mean": 0.1604586693548387,
+            "mean_ci95": [
+              0.1596522177419355,
+              0.1612778792842742
+            ],
+            "minimum": 0.14919354838709678,
+            "std": 0.005360530195419822
+          },
+          "optimal_path_cost": {
+            "maximum": 90.0,
+            "mean": 23.60625,
+            "mean_ci95": [
+              21.08734375,
+              26.206718749999997
+            ],
+            "minimum": 1.0,
+            "std": 16.600786855261905
+          }
+        }
+      },
+      "D4": {
+        "map_count": 30,
+        "metrics": {
+          "free_cell_fraction": {
+            "maximum": 0.7197265625,
+            "mean": 0.7197265625,
+            "mean_ci95": [
+              0.7197265625,
+              0.7197265625
+            ],
+            "minimum": 0.7197265625,
+            "std": 0.0
+          },
+          "free_cells_degree_le_3_fraction": {
+            "maximum": 0.09226594301221167,
+            "mean": 0.050384441429217545,
+            "mean_ci95": [
+              0.04378109452736319,
+              0.057169832654907285
+            ],
+            "minimum": 0.0203527815468114,
+            "std": 0.01984178411367624
+          },
+          "free_legal_degree_mean": {
+            "maximum": 7.128900949796472,
+            "mean": 6.893260967887833,
+            "mean_ci95": [
+              6.841967435549525,
+              6.943376300316598
+            ],
+            "minimum": 6.586160108548168,
+            "std": 0.13737604297920616
+          },
+          "full_span_corridor_fraction": {
+            "maximum": 0.375,
+            "mean": 0.1421875,
+            "mean_ci95": [
+              0.11510416666666666,
+              0.17291666666666666
+            ],
+            "minimum": 0.03125,
+            "std": 0.07810883453443399
+          },
+          "local_density_std_3x3": {
+            "maximum": 0.39586373076738257,
+            "mean": 0.365837784647467,
+            "mean_ci95": [
+              0.36131240284542143,
+              0.37040231612108804
+            ],
+            "minimum": 0.3412440414505383,
+            "std": 0.013196378847108682
+          },
+          "obstacle_density": {
+            "maximum": 0.2802734375,
+            "mean": 0.2802734375,
+            "mean_ci95": [
+              0.2802734375,
+              0.2802734375
+            ],
+            "minimum": 0.2802734375,
+            "std": 0.0
+          },
+          "obstacle_neighbor_fraction": {
+            "maximum": 0.8939526730937774,
+            "mean": 0.8390057154495237,
+            "mean_ci95": [
+              0.8261422871551092,
+              0.8517169409979101
+            ],
+            "minimum": 0.7688219663418955,
+            "std": 0.03721199269085351
+          },
+          "obstacle_pair_rate_4_neighbor": {
+            "maximum": 0.25705645161290325,
+            "mean": 0.23749999999999996,
+            "mean_ci95": [
+              0.23340011760752688,
+              0.24153225806451614
+            ],
+            "minimum": 0.2162298387096774,
+            "std": 0.011380649815774455
+          },
+          "optimal_path_cost": {
+            "maximum": 36.0,
+            "mean": 20.466666666666665,
+            "mean_ci95": [
+              18.033333333333335,
+              23.0
+            ],
+            "minimum": 7.0,
+            "std": 6.821534529219458
+          }
+        }
+      },
+      "D5": {
+        "map_count": 30,
+        "metrics": {
+          "free_cell_fraction": {
+            "maximum": 0.6875,
+            "mean": 0.6424479166666667,
+            "mean_ci95": [
+              0.628515625,
+              0.6548177083333333
+            ],
+            "minimum": 0.5703125,
+            "std": 0.03565016629751157
+          },
+          "free_cells_degree_le_3_fraction": {
+            "maximum": 0.0783132530120482,
+            "mean": 0.054231825686325195,
+            "mean_ci95": [
+              0.048697425559646026,
+              0.05987137111526863
+            ],
+            "minimum": 0.022857142857142857,
+            "std": 0.015538503202562563
+          },
+          "free_legal_degree_mean": {
+            "maximum": 5.4,
+            "mean": 5.34472905704627,
+            "mean_ci95": [
+              5.329815578339798,
+              5.359047239441527
+            ],
+            "minimum": 5.260273972602739,
+            "std": 0.042225905402297745
+          },
+          "full_span_corridor_fraction": {
+            "maximum": 0.4375,
+            "mean": 0.40208333333333335,
+            "mean_ci95": [
+              0.390625,
+              0.4125
+            ],
+            "minimum": 0.34375,
+            "std": 0.029284450190988826
+          },
+          "local_density_std_3x3": {
+            "maximum": 0.25343986780848193,
+            "mean": 0.21969216157259935,
+            "mean_ci95": [
+              0.21394374115755882,
+              0.225425084703754
+            ],
+            "minimum": 0.19233993738135466,
+            "std": 0.016284660281965593
+          },
+          "obstacle_density": {
+            "maximum": 0.4296875,
+            "mean": 0.3575520833333333,
+            "mean_ci95": [
+              0.3450520833333333,
+              0.3703125
+            ],
+            "minimum": 0.3125,
+            "std": 0.03565016629751157
+          },
+          "obstacle_neighbor_fraction": {
+            "maximum": 0.7231503579952268,
+            "mean": 0.6654237044170943,
+            "mean_ci95": [
+              0.653700377893369,
+              0.6778552684063351
+            ],
+            "minimum": 0.6086956521739131,
+            "std": 0.03371736776777085
+          },
+          "obstacle_pair_rate_4_neighbor": {
+            "maximum": 0.30544354838709675,
+            "mean": 0.23783602150537633,
+            "mean_ci95": [
+              0.22597362231182794,
+              0.24986727150537635
+            ],
+            "minimum": 0.1905241935483871,
+            "std": 0.03443222960277313
+          },
+          "optimal_path_cost": {
+            "maximum": 45.0,
+            "mean": 18.666666666666668,
+            "mean_ci95": [
+              15.333333333333334,
+              22.134166666666662
+            ],
+            "minimum": 5.0,
+            "std": 9.46256994082778
+          }
+        }
+      },
+      "D6": {
+        "map_count": 30,
+        "metrics": {
+          "free_cell_fraction": {
+            "maximum": 0.80859375,
+            "mean": 0.70849609375,
+            "mean_ci95": [
+              0.7012947591145833,
+              0.7181966145833333
+            ],
+            "minimum": 0.68359375,
+            "std": 0.025057850693739666
+          },
+          "free_cells_degree_le_3_fraction": {
+            "maximum": 0.45467224546722457,
+            "mean": 0.17709415324905767,
+            "mean_ci95": [
+              0.12098618860980727,
+              0.23289276496291633
+            ],
+            "minimum": 0.02789400278940028,
+            "std": 0.16135277772396805
+          },
+          "free_legal_degree_mean": {
+            "maximum": 7.023709902370991,
+            "mean": 5.6837359206450495,
+            "mean_ci95": [
+              5.245223797792463,
+              6.085227930731883
+            ],
+            "minimum": 3.8493723849372383,
+            "std": 1.1763060083516834
+          },
+          "full_span_corridor_fraction": {
+            "maximum": 0.5625,
+            "mean": 0.12916666666666668,
+            "mean_ci95": [
+              0.06822916666666666,
+              0.19585937499999986
+            ],
+            "minimum": 0.0,
+            "std": 0.1792328549888978
+          },
+          "local_density_std_3x3": {
+            "maximum": 0.3910787626577517,
+            "mean": 0.2639908262084642,
+            "mean_ci95": [
+              0.22853694071405867,
+              0.30041816975060326
+            ],
+            "minimum": 0.12055502419225235,
+            "std": 0.10168049700750949
+          },
+          "obstacle_density": {
+            "maximum": 0.31640625,
+            "mean": 0.29150390625,
+            "mean_ci95": [
+              0.28105305989583335,
+              0.29925130208333334
+            ],
+            "minimum": 0.19140625,
+            "std": 0.025057850693739666
+          },
+          "obstacle_neighbor_fraction": {
+            "maximum": 0.8922056384742952,
+            "mean": 0.6005546368647355,
+            "mean_ci95": [
+              0.5209905219250355,
+              0.6814946997951795
+            ],
+            "minimum": 0.2594776748104465,
+            "std": 0.22928505335230345
+          },
+          "obstacle_pair_rate_4_neighbor": {
+            "maximum": 0.2711693548387097,
+            "mean": 0.17452956989247312,
+            "mean_ci95": [
+              0.14786458333333333,
+              0.19904401881720435
+            ],
+            "minimum": 0.07056451612903226,
+            "std": 0.07134590083587833
+          },
+          "optimal_path_cost": {
+            "maximum": 44.0,
+            "mean": 18.566666666666666,
+            "mean_ci95": [
+              15.0325,
+              22.367499999999996
+            ],
+            "minimum": 1.0,
+            "std": 10.698641013709635
+          }
+        }
+      }
+    },
+    "id_vs_ood_family_comparisons": {
+      "free_cell_fraction": {
+        "difference_ci95": [
+          0.04527764214409723,
+          0.07344438340928824
+        ],
+        "id_mean": 0.75,
+        "id_minus_ood_mean_difference": 0.05977647569444444,
+        "ood_mean": 0.6902235243055556
+      },
+      "free_cells_degree_le_3_fraction": {
+        "difference_ci95": [
+          0.2166108595700343,
+          0.2760900610669598
+        ],
+        "id_mean": 0.3405850805890101,
+        "id_minus_ood_mean_difference": 0.24668160713414328,
+        "ood_mean": 0.09390347345486681
+      },
+      "free_legal_degree_mean": {
+        "difference_ci95": [
+          -1.608541711713479,
+          -1.1346046855139182
+        ],
+        "id_mean": 4.613923165060144,
+        "id_minus_ood_mean_difference": -1.3599854834662404,
+        "ood_mean": 5.973908648526384
+      },
+      "full_span_corridor_fraction": {
+        "difference_ci95": [
+          -0.2483292643229167,
+          -0.18066324869791667
+        ],
+        "id_mean": 0.01044921875,
+        "id_minus_ood_mean_difference": -0.21402994791666669,
+        "ood_mean": 0.22447916666666667
+      },
+      "local_density_std_3x3": {
+        "difference_ci95": [
+          -0.16606285842985252,
+          -0.1309742110164311
+        ],
+        "id_mean": 0.13533474618187022,
+        "id_minus_ood_mean_difference": -0.14783884462764,
+        "ood_mean": 0.2831735908095102
+      },
+      "obstacle_density": {
+        "difference_ci95": [
+          -0.07430592854817707,
+          -0.04700985378689233
+        ],
+        "id_mean": 0.25,
+        "id_minus_ood_mean_difference": -0.05977647569444444,
+        "ood_mean": 0.30977647569444444
+      },
+      "obstacle_neighbor_fraction": {
+        "difference_ci95": [
+          -0.486713624849383,
+          -0.41474068173902195
+        ],
+        "id_mean": 0.2495537700198698,
+        "id_minus_ood_mean_difference": -0.45210758222391456,
+        "ood_mean": 0.7016613522437843
+      },
+      "obstacle_pair_rate_4_neighbor": {
+        "difference_ci95": [
+          -0.15129716551859315,
+          -0.12588188144041218
+        ],
+        "id_mean": 0.07767032090053763,
+        "id_minus_ood_mean_difference": -0.13895154289874553,
+        "ood_mean": 0.21662186379928317
+      },
+      "optimal_path_cost": {
+        "difference_ci95": [
+          -1.775555555555554,
+          2.45753472222222
+        ],
+        "id_mean": 19.5875,
+        "id_minus_ood_mean_difference": 0.3541666666666643,
+        "ood_mean": 19.233333333333334
+      }
+    },
+    "interpretation": "Generated-map structural diagnostics only; no model or adaptive-policy selection uses these values."
+  },
+  "ood_test_sealed_until_training_and_calibration_complete": true,
+  "schema_version": 1,
+  "split_counts": {
+    "id_holdout": 90,
+    "ood_test": 90,
+    "train": 300,
+    "validation": 90
+  },
+  "split_files": {
+    "id_holdout": "id_holdout.npz",
+    "ood_test": "ood_test_sealed.npz",
+    "train": "train.npz",
+    "validation": "validation_calibration.npz"
+  },
+  "split_fingerprints_disjoint": true,
+  "unique_obstacle_layouts": 570
+}

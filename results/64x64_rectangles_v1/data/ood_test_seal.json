@@ -1,0 +1,9 @@
+{
+  "archive": "ood_test_sealed.npz",
+  "map_count": 180,
+  "read_only": true,
+  "run_id": "64x64_rectangles_v1",
+  "seal_created_utc": "2026-11-06T10:14:50.217581+00:00",
+  "sealed_after_generation_and_in_memory_validation": true,
+  "sha256": "50b01617def47bc27e09e27d45f2e48e62f0b7690e7cb5950db5a7776f521e6a"
+}

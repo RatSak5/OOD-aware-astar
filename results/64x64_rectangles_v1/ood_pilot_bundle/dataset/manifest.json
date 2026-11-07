@@ -1,0 +1,9453 @@
+{
+  "base_seed": 20261106,
+  "bundle_scope": "separate gated OOD pilot only",
+  "channel_order": [
+    "obstacle_occupancy",
+    "start_one_hot",
+    "goal_one_hot"
+  ],
+  "density_intervals_percent": {
+    "D4": [
+      3,
+      8
+    ],
+    "D5": [
+      33,
+      37
+    ],
+    "D6": [
+      38,
+      42
+    ]
+  },
+  "generation_config": {
+    "base_seed": 20261106,
+    "density": "union occupied cells / 4096, checked against the assigned interval",
+    "height": 64,
+    "max_candidate_attempts_per_map": 1000,
+    "maximum_rectangles_per_candidate": 1000,
+    "minimum_chebyshev_separation": 24,
+    "movement": {
+      "model": "unit_move_count",
+      "prevent_diagonal_corner_cutting": true
+    },
+    "rectangle_height_max": 14,
+    "rectangle_height_min": 2,
+    "rectangle_placement": "uniform valid top-left coordinate; rectangles may overlap",
+    "rectangle_size_distribution": "width and height independently uniform integer 2..14",
+    "rectangle_width_max": 14,
+    "rectangle_width_min": 2,
+    "run_id": "64x64_rectangles_v1",
+    "width": 64
+  },
+  "generator_version": "rectangles-v1",
+  "map_shape": [
+    64,
+    64
+  ],
+  "maps": [
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 5.1025390625,
+      "actual_obstacle_density": 0.051025390625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "075cb4a4da308304bbd018f458f3082dac7c50a8",
+      "generation_seed": 13773015878178004170,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        63
+      ],
+      "layout_hash": "2db4a46d7c982ea13554718ed2cd229fddcba0e0",
+      "map_id": "ood_pilot_D4_0000",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          42,
+          38,
+          2,
+          11
+        ],
+        [
+          12,
+          20,
+          11,
+          8
+        ],
+        [
+          44,
+          18,
+          9,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        38
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 4.638671875,
+      "actual_obstacle_density": 0.04638671875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "a10b19db2ea7022150fbadbad9106c536e746f51",
+      "generation_seed": 9047999195896213178,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        46,
+        0
+      ],
+      "layout_hash": "382ddb63fdbf28f8f6ef273696ab421e1da42291",
+      "map_id": "ood_pilot_D4_0001",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 12,
+      "reachable": true,
+      "rectangle_count": 2,
+      "rectangles_top_left_height_width": [
+        [
+          27,
+          34,
+          12,
+          4
+        ],
+        [
+          26,
+          37,
+          14,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        36,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 3.076171875,
+      "actual_obstacle_density": 0.03076171875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "b00c7500312bd37e85b8429f3d7ee0c6c382c4fd",
+      "generation_seed": 12896022446701345632,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        37
+      ],
+      "layout_hash": "85505e0205d3185fd357820c20bb905e9c955b48",
+      "map_id": "ood_pilot_D4_0002",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 1,
+      "rectangles_top_left_height_width": [
+        [
+          43,
+          40,
+          9,
+          14
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 4.4677734375,
+      "actual_obstacle_density": 0.044677734375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "204e15071908d35e1db72d5830ff4eb0c5e90e5a",
+      "generation_seed": 7701832220255586538,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        28
+      ],
+      "layout_hash": "00b447adb6165340c62b46bff7cd24fbe6eeb23a",
+      "map_id": "ood_pilot_D4_0003",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 5,
+      "rectangles_top_left_height_width": [
+        [
+          27,
+          53,
+          11,
+          3
+        ],
+        [
+          40,
+          17,
+          7,
+          8
+        ],
+        [
+          8,
+          28,
+          3,
+          3
+        ],
+        [
+          41,
+          43,
+          5,
+          3
+        ],
+        [
+          32,
+          26,
+          10,
+          7
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        4
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 3.3203125,
+      "actual_obstacle_density": 0.033203125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "a97812554f5f72846652f6e1ef0676cc1bc4d16a",
+      "generation_seed": 16873919927674303779,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        13
+      ],
+      "layout_hash": "2d09e0274b6fcefbdcdfdf6f376372a32e71d17c",
+      "map_id": "ood_pilot_D4_0004",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          20,
+          26,
+          10,
+          4
+        ],
+        [
+          46,
+          46,
+          14,
+          3
+        ],
+        [
+          4,
+          17,
+          6,
+          9
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        32
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 5.517578125,
+      "actual_obstacle_density": 0.05517578125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "25a0f6945324c9eca13d029d97aed946cd092559",
+      "generation_seed": 15023483479722542902,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        32,
+        63
+      ],
+      "layout_hash": "49d8e44688155eaa7d350edc180748fe8b05b3d7",
+      "map_id": "ood_pilot_D4_0005",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          18,
+          58,
+          6,
+          2
+        ],
+        [
+          45,
+          49,
+          8,
+          4
+        ],
+        [
+          25,
+          29,
+          13,
+          14
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        61,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 4.0283203125,
+      "actual_obstacle_density": 0.040283203125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "18591e110d459b1ba4f378f01e5de2699d67f994",
+      "generation_seed": 14881859055092067847,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        39,
+        63
+      ],
+      "layout_hash": "dabf54e001c6f3b0afc9a3e2b6ec35936cfdc466",
+      "map_id": "ood_pilot_D4_0006",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 4,
+      "rectangles_top_left_height_width": [
+        [
+          7,
+          44,
+          5,
+          7
+        ],
+        [
+          30,
+          23,
+          10,
+          6
+        ],
+        [
+          6,
+          21,
+          3,
+          2
+        ],
+        [
+          49,
+          13,
+          8,
+          8
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        10,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 3.4912109375,
+      "actual_obstacle_density": 0.034912109375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "d192db9c9395b199d2a21cbebebed31c9561e6f0",
+      "generation_seed": 1999684134357919273,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        37,
+        63
+      ],
+      "layout_hash": "bdd5a27e79324ec8dff7d7f3b25b0adb6fb8ec5d",
+      "map_id": "ood_pilot_D4_0007",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 1,
+      "rectangles_top_left_height_width": [
+        [
+          46,
+          44,
+          13,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        6,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 3.1982421875,
+      "actual_obstacle_density": 0.031982421875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "604bc11d07ad799c5cf1fba589bcb03053d393e1",
+      "generation_seed": 10557550622643021162,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        60,
+        63
+      ],
+      "layout_hash": "c79686ff9a2a85f66056605e156827944d90ccfd",
+      "map_id": "ood_pilot_D4_0008",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 2,
+      "rectangles_top_left_height_width": [
+        [
+          32,
+          22,
+          8,
+          13
+        ],
+        [
+          42,
+          61,
+          9,
+          3
+        ]
+      ],
+      "shortest_path_distance": 64.0,
+      "split": "ood_pilot",
+      "start": [
+        7,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 3.3447265625,
+      "actual_obstacle_density": 0.033447265625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "043b12a2ebb43ffc7975a953322c06d847cd12ba",
+      "generation_seed": 11013922004013198544,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        32
+      ],
+      "layout_hash": "4d702a6ef7c46d0e7530a27486e8d906a07a2362",
+      "map_id": "ood_pilot_D4_0009",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 6,
+      "rectangles_top_left_height_width": [
+        [
+          56,
+          45,
+          2,
+          6
+        ],
+        [
+          39,
+          16,
+          2,
+          2
+        ],
+        [
+          7,
+          37,
+          10,
+          7
+        ],
+        [
+          21,
+          35,
+          4,
+          3
+        ],
+        [
+          48,
+          52,
+          3,
+          5
+        ],
+        [
+          46,
+          23,
+          8,
+          3
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        20
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 4.638671875,
+      "actual_obstacle_density": 0.04638671875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "3323f9bdef9aa1b30fbf94a5f73da3330dce5314",
+      "generation_seed": 1137661952629823409,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        11,
+        63
+      ],
+      "layout_hash": "5b608ab92dca3d132c4179d07f307807ee190a00",
+      "map_id": "ood_pilot_D4_0010",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          17,
+          2,
+          6,
+          11
+        ],
+        [
+          5,
+          10,
+          6,
+          6
+        ],
+        [
+          2,
+          23,
+          8,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        26,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 3.2958984375,
+      "actual_obstacle_density": 0.032958984375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "b2b059cf07134bec3f192104252ceab6a07e6b7e",
+      "generation_seed": 9963370063267420376,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        20,
+        63
+      ],
+      "layout_hash": "7c1c6cbb619c9a7baa4c857fa99eb71e762246e6",
+      "map_id": "ood_pilot_D4_0011",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 2,
+      "rectangles_top_left_height_width": [
+        [
+          14,
+          34,
+          11,
+          9
+        ],
+        [
+          10,
+          22,
+          12,
+          3
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        1,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 5.810546875,
+      "actual_obstacle_density": 0.05810546875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "ef6e7c82e08383d6c284a7b9c3743315faec40fe",
+      "generation_seed": 13578857634676192133,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        11
+      ],
+      "layout_hash": "cbbe80fd2024301d0ec4e7c31234bb4b2e147a95",
+      "map_id": "ood_pilot_D4_0012",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 2,
+      "rectangles_top_left_height_width": [
+        [
+          16,
+          28,
+          14,
+          7
+        ],
+        [
+          20,
+          42,
+          10,
+          14
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        41
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 5.56640625,
+      "actual_obstacle_density": 0.0556640625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "dd502daa655c85183ae024bf9c97790b53474372",
+      "generation_seed": 1141326233105620500,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        3,
+        0
+      ],
+      "layout_hash": "dd886a842fba16bd053410410da113b8e09bc29b",
+      "map_id": "ood_pilot_D4_0013",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          49,
+          10,
+          6,
+          9
+        ],
+        [
+          0,
+          20,
+          9,
+          6
+        ],
+        [
+          7,
+          52,
+          10,
+          12
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        61,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 5.517578125,
+      "actual_obstacle_density": 0.05517578125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "324b4a966cc647ac18f4c72c615744cc90c1fc04",
+      "generation_seed": 1446932514618261376,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        15
+      ],
+      "layout_hash": "dbaeb648720a3c1045fdbfdad196489c12904645",
+      "map_id": "ood_pilot_D4_0014",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          15,
+          55,
+          10,
+          6
+        ],
+        [
+          1,
+          50,
+          4,
+          10
+        ],
+        [
+          46,
+          1,
+          14,
+          9
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        17
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 4.4677734375,
+      "actual_obstacle_density": 0.044677734375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "12283190c624047ee0ae36ca648a83f941ffc5e9",
+      "generation_seed": 5425961717995788227,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        6
+      ],
+      "layout_hash": "78e555cfc670326443ea0c905728fcac712e0923",
+      "map_id": "ood_pilot_D4_0015",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 4,
+      "rectangles_top_left_height_width": [
+        [
+          4,
+          51,
+          7,
+          2
+        ],
+        [
+          19,
+          26,
+          8,
+          11
+        ],
+        [
+          19,
+          58,
+          3,
+          5
+        ],
+        [
+          30,
+          5,
+          6,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        19
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 5.615234375,
+      "actual_obstacle_density": 0.05615234375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "3efc17688dd8f8feda0beaede4e9bc03fd0fcdba",
+      "generation_seed": 10365592884597348754,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        38,
+        0
+      ],
+      "layout_hash": "e6f33fef89aeff638ce98ef70fa2bac2b7fad7cd",
+      "map_id": "ood_pilot_D4_0016",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 2,
+      "rectangles_top_left_height_width": [
+        [
+          16,
+          17,
+          14,
+          7
+        ],
+        [
+          20,
+          26,
+          12,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        14,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 4.98046875,
+      "actual_obstacle_density": 0.0498046875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "2b6cd74903969edbbb3744304638f73d0c2a9d7b",
+      "generation_seed": 13129598785891257540,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        1,
+        63
+      ],
+      "layout_hash": "18c05c27054f66d5f8772db3b723212216b94594",
+      "map_id": "ood_pilot_D4_0017",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 9,
+      "reachable": true,
+      "rectangle_count": 4,
+      "rectangles_top_left_height_width": [
+        [
+          51,
+          42,
+          9,
+          2
+        ],
+        [
+          34,
+          21,
+          9,
+          4
+        ],
+        [
+          37,
+          15,
+          3,
+          9
+        ],
+        [
+          10,
+          10,
+          12,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        6,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 4.736328125,
+      "actual_obstacle_density": 0.04736328125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "54fc982c8eabe9bd4e61f28720f17a3fc95d0135",
+      "generation_seed": 6800698575032516441,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        22,
+        63
+      ],
+      "layout_hash": "e8161049dfed9ae55914e7d98fc7c9f08203cd08",
+      "map_id": "ood_pilot_D4_0018",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          55,
+          46,
+          7,
+          14
+        ],
+        [
+          11,
+          39,
+          3,
+          8
+        ],
+        [
+          14,
+          8,
+          8,
+          9
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        19,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 3.955078125,
+      "actual_obstacle_density": 0.03955078125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D4",
+      "endpoint_hash": "d3d0cbf9b524a764b3afd9c7a9e5e8d895f93f79",
+      "generation_seed": 341502908024094554,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        54,
+        0
+      ],
+      "layout_hash": "cec9bdad4c3061af0b65486b4f87ac7939c2dfb6",
+      "map_id": "ood_pilot_D4_0019",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 0,
+      "reachable": true,
+      "rectangle_count": 3,
+      "rectangles_top_left_height_width": [
+        [
+          16,
+          17,
+          10,
+          6
+        ],
+        [
+          23,
+          27,
+          6,
+          9
+        ],
+        [
+          37,
+          51,
+          8,
+          6
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        20,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.251953125,
+      "actual_obstacle_density": 0.33251953125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "1658330c797dac91b4c69248d953e1239882a538",
+      "generation_seed": 8381114876860346600,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        25
+      ],
+      "layout_hash": "62a201e4fbce6fde9c737393b3db35cbe13828ce",
+      "map_id": "ood_pilot_D5_0000",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 231,
+      "reachable": true,
+      "rectangle_count": 29,
+      "rectangles_top_left_height_width": [
+        [
+          49,
+          42,
+          14,
+          8
+        ],
+        [
+          44,
+          57,
+          2,
+          7
+        ],
+        [
+          12,
+          12,
+          2,
+          2
+        ],
+        [
+          50,
+          22,
+          3,
+          9
+        ],
+        [
+          7,
+          34,
+          3,
+          14
+        ],
+        [
+          49,
+          3,
+          6,
+          9
+        ],
+        [
+          13,
+          18,
+          2,
+          11
+        ],
+        [
+          55,
+          20,
+          8,
+          11
+        ],
+        [
+          23,
+          61,
+          8,
+          3
+        ],
+        [
+          10,
+          7,
+          6,
+          12
+        ],
+        [
+          1,
+          45,
+          13,
+          14
+        ],
+        [
+          45,
+          20,
+          7,
+          3
+        ],
+        [
+          46,
+          32,
+          3,
+          8
+        ],
+        [
+          32,
+          10,
+          4,
+          12
+        ],
+        [
+          49,
+          4,
+          3,
+          11
+        ],
+        [
+          55,
+          25,
+          4,
+          8
+        ],
+        [
+          8,
+          25,
+          12,
+          3
+        ],
+        [
+          47,
+          13,
+          4,
+          7
+        ],
+        [
+          12,
+          18,
+          10,
+          10
+        ],
+        [
+          35,
+          10,
+          11,
+          9
+        ],
+        [
+          55,
+          37,
+          4,
+          7
+        ],
+        [
+          48,
+          22,
+          8,
+          7
+        ],
+        [
+          46,
+          4,
+          5,
+          4
+        ],
+        [
+          0,
+          27,
+          8,
+          12
+        ],
+        [
+          11,
+          33,
+          12,
+          14
+        ],
+        [
+          18,
+          53,
+          3,
+          5
+        ],
+        [
+          0,
+          48,
+          5,
+          7
+        ],
+        [
+          18,
+          33,
+          2,
+          11
+        ],
+        [
+          39,
+          39,
+          7,
+          13
+        ]
+      ],
+      "shortest_path_distance": 89.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        55
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.642578125,
+      "actual_obstacle_density": 0.33642578125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "cb26710ddab34a7ae5790d19e0c0f2cf55ca3618",
+      "generation_seed": 11212276659060234474,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        18,
+        0
+      ],
+      "layout_hash": "5a0ef95c5512ddcb1a3f1e413c3354c65f33511a",
+      "map_id": "ood_pilot_D5_0001",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 427,
+      "reachable": true,
+      "rectangle_count": 27,
+      "rectangles_top_left_height_width": [
+        [
+          8,
+          37,
+          10,
+          11
+        ],
+        [
+          50,
+          53,
+          5,
+          9
+        ],
+        [
+          25,
+          56,
+          8,
+          6
+        ],
+        [
+          31,
+          51,
+          14,
+          6
+        ],
+        [
+          20,
+          18,
+          8,
+          3
+        ],
+        [
+          41,
+          26,
+          13,
+          8
+        ],
+        [
+          52,
+          48,
+          4,
+          13
+        ],
+        [
+          26,
+          54,
+          14,
+          8
+        ],
+        [
+          18,
+          47,
+          11,
+          3
+        ],
+        [
+          46,
+          15,
+          3,
+          5
+        ],
+        [
+          1,
+          0,
+          5,
+          8
+        ],
+        [
+          11,
+          43,
+          6,
+          8
+        ],
+        [
+          30,
+          11,
+          4,
+          4
+        ],
+        [
+          49,
+          10,
+          12,
+          14
+        ],
+        [
+          50,
+          8,
+          12,
+          4
+        ],
+        [
+          16,
+          28,
+          7,
+          6
+        ],
+        [
+          21,
+          44,
+          9,
+          2
+        ],
+        [
+          38,
+          1,
+          11,
+          13
+        ],
+        [
+          46,
+          11,
+          14,
+          9
+        ],
+        [
+          11,
+          16,
+          13,
+          12
+        ],
+        [
+          32,
+          44,
+          11,
+          6
+        ],
+        [
+          23,
+          15,
+          3,
+          12
+        ],
+        [
+          32,
+          21,
+          6,
+          2
+        ],
+        [
+          29,
+          43,
+          3,
+          13
+        ],
+        [
+          46,
+          29,
+          10,
+          5
+        ],
+        [
+          16,
+          46,
+          7,
+          2
+        ],
+        [
+          49,
+          1,
+          12,
+          13
+        ]
+      ],
+      "shortest_path_distance": 66.0,
+      "split": "ood_pilot",
+      "start": [
+        58,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.7646484375,
+      "actual_obstacle_density": 0.337646484375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "685ccb2b25b1ec61eb7a15f68f21e3f4460d3ff6",
+      "generation_seed": 1265852279340600767,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        22,
+        63
+      ],
+      "layout_hash": "ea9ab67ebe05a25d4e7c08f2831e3694e14dde23",
+      "map_id": "ood_pilot_D5_0002",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 289,
+      "reachable": true,
+      "rectangle_count": 22,
+      "rectangles_top_left_height_width": [
+        [
+          2,
+          40,
+          14,
+          6
+        ],
+        [
+          15,
+          41,
+          11,
+          6
+        ],
+        [
+          44,
+          35,
+          10,
+          10
+        ],
+        [
+          4,
+          41,
+          8,
+          4
+        ],
+        [
+          12,
+          52,
+          10,
+          11
+        ],
+        [
+          39,
+          25,
+          9,
+          4
+        ],
+        [
+          6,
+          29,
+          10,
+          12
+        ],
+        [
+          47,
+          38,
+          11,
+          14
+        ],
+        [
+          27,
+          15,
+          6,
+          8
+        ],
+        [
+          10,
+          51,
+          10,
+          9
+        ],
+        [
+          56,
+          18,
+          8,
+          13
+        ],
+        [
+          40,
+          24,
+          4,
+          14
+        ],
+        [
+          5,
+          13,
+          5,
+          7
+        ],
+        [
+          57,
+          35,
+          6,
+          8
+        ],
+        [
+          2,
+          2,
+          8,
+          13
+        ],
+        [
+          28,
+          15,
+          11,
+          6
+        ],
+        [
+          1,
+          15,
+          2,
+          8
+        ],
+        [
+          38,
+          46,
+          5,
+          9
+        ],
+        [
+          61,
+          32,
+          2,
+          13
+        ],
+        [
+          48,
+          38,
+          4,
+          13
+        ],
+        [
+          23,
+          3,
+          14,
+          7
+        ],
+        [
+          43,
+          1,
+          14,
+          13
+        ]
+      ],
+      "shortest_path_distance": 68.0,
+      "split": "ood_pilot",
+      "start": [
+        29,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 34.4482421875,
+      "actual_obstacle_density": 0.344482421875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "6000dd7d52388a22763d2779d9ac485f96ac660c",
+      "generation_seed": 5415344295574621191,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        10,
+        63
+      ],
+      "layout_hash": "3b11a9d32cd30bfcebb4339808334967c4b67e4f",
+      "map_id": "ood_pilot_D5_0003",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 251,
+      "reachable": true,
+      "rectangle_count": 28,
+      "rectangles_top_left_height_width": [
+        [
+          2,
+          43,
+          2,
+          10
+        ],
+        [
+          21,
+          47,
+          4,
+          10
+        ],
+        [
+          59,
+          33,
+          3,
+          6
+        ],
+        [
+          42,
+          8,
+          5,
+          7
+        ],
+        [
+          52,
+          16,
+          7,
+          12
+        ],
+        [
+          35,
+          49,
+          11,
+          5
+        ],
+        [
+          48,
+          44,
+          2,
+          4
+        ],
+        [
+          19,
+          46,
+          5,
+          12
+        ],
+        [
+          20,
+          31,
+          11,
+          7
+        ],
+        [
+          46,
+          22,
+          8,
+          7
+        ],
+        [
+          0,
+          50,
+          6,
+          12
+        ],
+        [
+          30,
+          22,
+          10,
+          3
+        ],
+        [
+          14,
+          49,
+          9,
+          6
+        ],
+        [
+          7,
+          0,
+          7,
+          10
+        ],
+        [
+          16,
+          19,
+          11,
+          13
+        ],
+        [
+          50,
+          55,
+          5,
+          8
+        ],
+        [
+          4,
+          43,
+          8,
+          3
+        ],
+        [
+          8,
+          25,
+          6,
+          8
+        ],
+        [
+          8,
+          20,
+          6,
+          6
+        ],
+        [
+          10,
+          13,
+          7,
+          13
+        ],
+        [
+          22,
+          0,
+          4,
+          2
+        ],
+        [
+          39,
+          40,
+          13,
+          10
+        ],
+        [
+          47,
+          49,
+          5,
+          9
+        ],
+        [
+          44,
+          20,
+          14,
+          8
+        ],
+        [
+          9,
+          57,
+          8,
+          4
+        ],
+        [
+          18,
+          57,
+          14,
+          5
+        ],
+        [
+          19,
+          6,
+          5,
+          10
+        ],
+        [
+          43,
+          2,
+          14,
+          11
+        ]
+      ],
+      "shortest_path_distance": 79.0,
+      "split": "ood_pilot",
+      "start": [
+        51,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.8134765625,
+      "actual_obstacle_density": 0.338134765625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "3fcd170243d620a2dbf941afb56b8dfab932b476",
+      "generation_seed": 6312040938678955808,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        9,
+        63
+      ],
+      "layout_hash": "88e422c9601fbc0d47794374c0d39ae35060e0b1",
+      "map_id": "ood_pilot_D5_0004",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 307,
+      "reachable": true,
+      "rectangle_count": 30,
+      "rectangles_top_left_height_width": [
+        [
+          31,
+          27,
+          6,
+          10
+        ],
+        [
+          37,
+          32,
+          5,
+          5
+        ],
+        [
+          22,
+          48,
+          4,
+          3
+        ],
+        [
+          33,
+          41,
+          3,
+          2
+        ],
+        [
+          26,
+          24,
+          11,
+          8
+        ],
+        [
+          49,
+          23,
+          12,
+          7
+        ],
+        [
+          6,
+          10,
+          12,
+          5
+        ],
+        [
+          5,
+          33,
+          8,
+          3
+        ],
+        [
+          46,
+          32,
+          13,
+          5
+        ],
+        [
+          42,
+          14,
+          11,
+          6
+        ],
+        [
+          39,
+          11,
+          5,
+          14
+        ],
+        [
+          50,
+          16,
+          3,
+          9
+        ],
+        [
+          42,
+          51,
+          5,
+          8
+        ],
+        [
+          30,
+          14,
+          7,
+          10
+        ],
+        [
+          38,
+          18,
+          2,
+          14
+        ],
+        [
+          19,
+          32,
+          6,
+          5
+        ],
+        [
+          48,
+          22,
+          2,
+          13
+        ],
+        [
+          28,
+          21,
+          2,
+          10
+        ],
+        [
+          30,
+          26,
+          11,
+          13
+        ],
+        [
+          1,
+          28,
+          5,
+          6
+        ],
+        [
+          43,
+          23,
+          7,
+          8
+        ],
+        [
+          53,
+          9,
+          11,
+          11
+        ],
+        [
+          47,
+          45,
+          9,
+          7
+        ],
+        [
+          26,
+          13,
+          9,
+          10
+        ],
+        [
+          4,
+          17,
+          14,
+          8
+        ],
+        [
+          0,
+          30,
+          11,
+          14
+        ],
+        [
+          24,
+          47,
+          2,
+          3
+        ],
+        [
+          48,
+          37,
+          13,
+          2
+        ],
+        [
+          16,
+          60,
+          12,
+          3
+        ],
+        [
+          33,
+          51,
+          9,
+          6
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        26,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.2275390625,
+      "actual_obstacle_density": 0.332275390625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "d72192a7bead709b422638969f5372e31844d791",
+      "generation_seed": 7623189950608802003,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        17
+      ],
+      "layout_hash": "f36394392af578616fdde543f91799ce8d955049",
+      "map_id": "ood_pilot_D5_0005",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 190,
+      "reachable": true,
+      "rectangle_count": 35,
+      "rectangles_top_left_height_width": [
+        [
+          47,
+          27,
+          9,
+          4
+        ],
+        [
+          14,
+          17,
+          6,
+          9
+        ],
+        [
+          58,
+          9,
+          6,
+          10
+        ],
+        [
+          46,
+          19,
+          7,
+          6
+        ],
+        [
+          40,
+          25,
+          2,
+          4
+        ],
+        [
+          6,
+          46,
+          4,
+          4
+        ],
+        [
+          45,
+          10,
+          8,
+          2
+        ],
+        [
+          2,
+          19,
+          9,
+          7
+        ],
+        [
+          52,
+          33,
+          7,
+          4
+        ],
+        [
+          55,
+          7,
+          6,
+          12
+        ],
+        [
+          55,
+          48,
+          7,
+          12
+        ],
+        [
+          7,
+          37,
+          2,
+          6
+        ],
+        [
+          12,
+          20,
+          10,
+          3
+        ],
+        [
+          25,
+          21,
+          9,
+          5
+        ],
+        [
+          1,
+          34,
+          3,
+          11
+        ],
+        [
+          32,
+          31,
+          10,
+          4
+        ],
+        [
+          22,
+          26,
+          9,
+          10
+        ],
+        [
+          55,
+          49,
+          9,
+          5
+        ],
+        [
+          9,
+          47,
+          13,
+          12
+        ],
+        [
+          20,
+          44,
+          4,
+          14
+        ],
+        [
+          4,
+          60,
+          6,
+          4
+        ],
+        [
+          7,
+          52,
+          3,
+          2
+        ],
+        [
+          34,
+          8,
+          3,
+          6
+        ],
+        [
+          39,
+          15,
+          5,
+          7
+        ],
+        [
+          20,
+          43,
+          14,
+          6
+        ],
+        [
+          18,
+          56,
+          2,
+          6
+        ],
+        [
+          2,
+          15,
+          3,
+          3
+        ],
+        [
+          15,
+          4,
+          5,
+          9
+        ],
+        [
+          14,
+          6,
+          3,
+          10
+        ],
+        [
+          14,
+          59,
+          6,
+          5
+        ],
+        [
+          44,
+          51,
+          9,
+          13
+        ],
+        [
+          1,
+          30,
+          9,
+          3
+        ],
+        [
+          52,
+          6,
+          5,
+          4
+        ],
+        [
+          41,
+          8,
+          9,
+          6
+        ],
+        [
+          18,
+          23,
+          6,
+          9
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        21
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.59375,
+      "actual_obstacle_density": 0.3359375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "2013012c9f4bc49117f1f57db7cbb26306a8fe6d",
+      "generation_seed": 8739249768533870881,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        36,
+        63
+      ],
+      "layout_hash": "bf73c60cbb29821ff539e5eae986236d2d4e8d34",
+      "map_id": "ood_pilot_D5_0006",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 488,
+      "reachable": true,
+      "rectangle_count": 24,
+      "rectangles_top_left_height_width": [
+        [
+          56,
+          15,
+          8,
+          3
+        ],
+        [
+          27,
+          37,
+          12,
+          8
+        ],
+        [
+          22,
+          6,
+          8,
+          12
+        ],
+        [
+          31,
+          2,
+          14,
+          12
+        ],
+        [
+          49,
+          9,
+          14,
+          4
+        ],
+        [
+          28,
+          4,
+          11,
+          10
+        ],
+        [
+          8,
+          16,
+          2,
+          14
+        ],
+        [
+          17,
+          40,
+          7,
+          10
+        ],
+        [
+          1,
+          53,
+          12,
+          5
+        ],
+        [
+          54,
+          38,
+          5,
+          11
+        ],
+        [
+          26,
+          37,
+          11,
+          13
+        ],
+        [
+          13,
+          5,
+          3,
+          14
+        ],
+        [
+          39,
+          25,
+          3,
+          4
+        ],
+        [
+          59,
+          42,
+          5,
+          13
+        ],
+        [
+          32,
+          36,
+          10,
+          8
+        ],
+        [
+          31,
+          32,
+          7,
+          8
+        ],
+        [
+          22,
+          17,
+          12,
+          2
+        ],
+        [
+          49,
+          31,
+          10,
+          8
+        ],
+        [
+          41,
+          41,
+          14,
+          10
+        ],
+        [
+          5,
+          44,
+          5,
+          9
+        ],
+        [
+          41,
+          5,
+          10,
+          12
+        ],
+        [
+          39,
+          9,
+          12,
+          14
+        ],
+        [
+          20,
+          5,
+          14,
+          6
+        ],
+        [
+          25,
+          15,
+          3,
+          14
+        ]
+      ],
+      "shortest_path_distance": 88.0,
+      "split": "ood_pilot",
+      "start": [
+        48,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.984375,
+      "actual_obstacle_density": 0.33984375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "8beee9c9a49329808896b7bc672903ac13c5705b",
+      "generation_seed": 10790471877491790139,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        28
+      ],
+      "layout_hash": "36b8d08243de37375a70cb02a5624270c78770e3",
+      "map_id": "ood_pilot_D5_0007",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 393,
+      "reachable": true,
+      "rectangle_count": 27,
+      "rectangles_top_left_height_width": [
+        [
+          6,
+          3,
+          11,
+          11
+        ],
+        [
+          45,
+          29,
+          2,
+          6
+        ],
+        [
+          11,
+          42,
+          9,
+          4
+        ],
+        [
+          8,
+          8,
+          11,
+          10
+        ],
+        [
+          30,
+          37,
+          8,
+          5
+        ],
+        [
+          3,
+          35,
+          14,
+          8
+        ],
+        [
+          9,
+          54,
+          2,
+          9
+        ],
+        [
+          10,
+          58,
+          10,
+          2
+        ],
+        [
+          27,
+          23,
+          5,
+          3
+        ],
+        [
+          37,
+          59,
+          13,
+          5
+        ],
+        [
+          4,
+          54,
+          12,
+          4
+        ],
+        [
+          21,
+          0,
+          9,
+          3
+        ],
+        [
+          33,
+          56,
+          10,
+          7
+        ],
+        [
+          10,
+          28,
+          8,
+          4
+        ],
+        [
+          4,
+          54,
+          11,
+          10
+        ],
+        [
+          13,
+          28,
+          14,
+          8
+        ],
+        [
+          0,
+          25,
+          12,
+          3
+        ],
+        [
+          37,
+          1,
+          5,
+          9
+        ],
+        [
+          11,
+          51,
+          7,
+          9
+        ],
+        [
+          33,
+          23,
+          6,
+          7
+        ],
+        [
+          13,
+          0,
+          14,
+          11
+        ],
+        [
+          49,
+          29,
+          14,
+          4
+        ],
+        [
+          2,
+          2,
+          2,
+          6
+        ],
+        [
+          34,
+          46,
+          5,
+          8
+        ],
+        [
+          42,
+          25,
+          8,
+          13
+        ],
+        [
+          27,
+          31,
+          12,
+          14
+        ],
+        [
+          38,
+          31,
+          13,
+          9
+        ]
+      ],
+      "shortest_path_distance": 67.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        7
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.1787109375,
+      "actual_obstacle_density": 0.331787109375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "f523dac8c2e93b5d977a3cc6d2e307c6747c15b7",
+      "generation_seed": 5041192009201051857,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        56,
+        0
+      ],
+      "layout_hash": "63422341c677917703640491c8af52aedc9a6b2b",
+      "map_id": "ood_pilot_D5_0008",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 202,
+      "reachable": true,
+      "rectangle_count": 21,
+      "rectangles_top_left_height_width": [
+        [
+          8,
+          46,
+          10,
+          8
+        ],
+        [
+          17,
+          11,
+          12,
+          4
+        ],
+        [
+          16,
+          44,
+          8,
+          9
+        ],
+        [
+          39,
+          11,
+          12,
+          13
+        ],
+        [
+          1,
+          27,
+          12,
+          4
+        ],
+        [
+          58,
+          31,
+          5,
+          2
+        ],
+        [
+          23,
+          22,
+          12,
+          11
+        ],
+        [
+          37,
+          23,
+          9,
+          12
+        ],
+        [
+          30,
+          40,
+          13,
+          12
+        ],
+        [
+          20,
+          24,
+          13,
+          8
+        ],
+        [
+          44,
+          50,
+          10,
+          7
+        ],
+        [
+          2,
+          33,
+          14,
+          12
+        ],
+        [
+          45,
+          1,
+          6,
+          10
+        ],
+        [
+          54,
+          19,
+          4,
+          13
+        ],
+        [
+          3,
+          23,
+          4,
+          7
+        ],
+        [
+          60,
+          6,
+          2,
+          10
+        ],
+        [
+          12,
+          38,
+          13,
+          2
+        ],
+        [
+          47,
+          54,
+          12,
+          7
+        ],
+        [
+          6,
+          35,
+          6,
+          11
+        ],
+        [
+          15,
+          4,
+          11,
+          5
+        ],
+        [
+          4,
+          21,
+          9,
+          2
+        ]
+      ],
+      "shortest_path_distance": 67.0,
+      "split": "ood_pilot",
+      "start": [
+        28,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 35.009765625,
+      "actual_obstacle_density": 0.35009765625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "87de3c23880fd0c04157ba78816f9f89aa36d4ee",
+      "generation_seed": 12776782290598819651,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        33,
+        0
+      ],
+      "layout_hash": "6757a4c27a651f502bab8374fd4c24aaf987e014",
+      "map_id": "ood_pilot_D5_0009",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 362,
+      "reachable": true,
+      "rectangle_count": 30,
+      "rectangles_top_left_height_width": [
+        [
+          24,
+          9,
+          11,
+          2
+        ],
+        [
+          41,
+          34,
+          2,
+          11
+        ],
+        [
+          39,
+          33,
+          14,
+          2
+        ],
+        [
+          0,
+          41,
+          12,
+          8
+        ],
+        [
+          17,
+          12,
+          3,
+          5
+        ],
+        [
+          13,
+          4,
+          3,
+          3
+        ],
+        [
+          21,
+          27,
+          12,
+          14
+        ],
+        [
+          39,
+          21,
+          2,
+          12
+        ],
+        [
+          5,
+          40,
+          13,
+          5
+        ],
+        [
+          48,
+          47,
+          13,
+          2
+        ],
+        [
+          6,
+          48,
+          11,
+          9
+        ],
+        [
+          48,
+          14,
+          11,
+          2
+        ],
+        [
+          50,
+          38,
+          7,
+          5
+        ],
+        [
+          23,
+          46,
+          12,
+          9
+        ],
+        [
+          44,
+          1,
+          5,
+          3
+        ],
+        [
+          0,
+          53,
+          6,
+          6
+        ],
+        [
+          0,
+          16,
+          2,
+          9
+        ],
+        [
+          12,
+          14,
+          10,
+          14
+        ],
+        [
+          19,
+          11,
+          12,
+          14
+        ],
+        [
+          46,
+          4,
+          6,
+          12
+        ],
+        [
+          14,
+          15,
+          13,
+          9
+        ],
+        [
+          43,
+          10,
+          2,
+          7
+        ],
+        [
+          24,
+          36,
+          7,
+          9
+        ],
+        [
+          10,
+          42,
+          7,
+          2
+        ],
+        [
+          2,
+          25,
+          9,
+          6
+        ],
+        [
+          56,
+          45,
+          5,
+          6
+        ],
+        [
+          29,
+          17,
+          10,
+          7
+        ],
+        [
+          13,
+          24,
+          2,
+          10
+        ],
+        [
+          19,
+          8,
+          6,
+          12
+        ],
+        [
+          40,
+          40,
+          11,
+          14
+        ]
+      ],
+      "shortest_path_distance": 65.0,
+      "split": "ood_pilot",
+      "start": [
+        47,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 34.6923828125,
+      "actual_obstacle_density": 0.346923828125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "e7dd5c1f39d9e09180d4796094eceea231b55f87",
+      "generation_seed": 6301373065954948140,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        16
+      ],
+      "layout_hash": "03afe82c27dab84b55570e1b6224edb25923dfdd",
+      "map_id": "ood_pilot_D5_0010",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 133,
+      "reachable": true,
+      "rectangle_count": 23,
+      "rectangles_top_left_height_width": [
+        [
+          6,
+          57,
+          7,
+          7
+        ],
+        [
+          22,
+          28,
+          5,
+          14
+        ],
+        [
+          54,
+          1,
+          10,
+          11
+        ],
+        [
+          50,
+          25,
+          7,
+          11
+        ],
+        [
+          26,
+          7,
+          6,
+          3
+        ],
+        [
+          36,
+          29,
+          12,
+          13
+        ],
+        [
+          9,
+          56,
+          3,
+          7
+        ],
+        [
+          49,
+          15,
+          14,
+          5
+        ],
+        [
+          48,
+          37,
+          12,
+          14
+        ],
+        [
+          10,
+          12,
+          11,
+          2
+        ],
+        [
+          39,
+          12,
+          6,
+          4
+        ],
+        [
+          12,
+          49,
+          2,
+          5
+        ],
+        [
+          24,
+          21,
+          14,
+          10
+        ],
+        [
+          14,
+          53,
+          5,
+          4
+        ],
+        [
+          20,
+          8,
+          10,
+          5
+        ],
+        [
+          1,
+          11,
+          11,
+          12
+        ],
+        [
+          41,
+          14,
+          12,
+          4
+        ],
+        [
+          33,
+          36,
+          3,
+          5
+        ],
+        [
+          9,
+          10,
+          7,
+          6
+        ],
+        [
+          10,
+          7,
+          12,
+          3
+        ],
+        [
+          11,
+          39,
+          3,
+          4
+        ],
+        [
+          28,
+          8,
+          14,
+          12
+        ],
+        [
+          8,
+          41,
+          8,
+          12
+        ]
+      ],
+      "shortest_path_distance": 75.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        35
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.4228515625,
+      "actual_obstacle_density": 0.334228515625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "f0c7ced082397f97af0f805803ab9899ff52555e",
+      "generation_seed": 6161231707988896049,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        6,
+        63
+      ],
+      "layout_hash": "9fb1682b7ed5fd2e7f385fae93a5291bdbb6016a",
+      "map_id": "ood_pilot_D5_0011",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 277,
+      "reachable": true,
+      "rectangle_count": 25,
+      "rectangles_top_left_height_width": [
+        [
+          2,
+          43,
+          12,
+          7
+        ],
+        [
+          1,
+          27,
+          5,
+          14
+        ],
+        [
+          58,
+          60,
+          6,
+          4
+        ],
+        [
+          20,
+          45,
+          8,
+          4
+        ],
+        [
+          45,
+          42,
+          7,
+          8
+        ],
+        [
+          42,
+          45,
+          14,
+          4
+        ],
+        [
+          45,
+          37,
+          2,
+          6
+        ],
+        [
+          41,
+          18,
+          14,
+          3
+        ],
+        [
+          28,
+          3,
+          13,
+          14
+        ],
+        [
+          6,
+          48,
+          9,
+          3
+        ],
+        [
+          52,
+          45,
+          8,
+          7
+        ],
+        [
+          43,
+          6,
+          14,
+          14
+        ],
+        [
+          8,
+          41,
+          7,
+          2
+        ],
+        [
+          22,
+          53,
+          6,
+          11
+        ],
+        [
+          24,
+          44,
+          11,
+          9
+        ],
+        [
+          18,
+          4,
+          13,
+          5
+        ],
+        [
+          12,
+          24,
+          12,
+          14
+        ],
+        [
+          18,
+          26,
+          2,
+          13
+        ],
+        [
+          57,
+          29,
+          2,
+          3
+        ],
+        [
+          32,
+          50,
+          4,
+          3
+        ],
+        [
+          41,
+          18,
+          5,
+          6
+        ],
+        [
+          31,
+          45,
+          11,
+          14
+        ],
+        [
+          50,
+          19,
+          3,
+          9
+        ],
+        [
+          7,
+          45,
+          8,
+          9
+        ],
+        [
+          9,
+          23,
+          5,
+          14
+        ]
+      ],
+      "shortest_path_distance": 77.0,
+      "split": "ood_pilot",
+      "start": [
+        60,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 34.4970703125,
+      "actual_obstacle_density": 0.344970703125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "5f6db10f6adaaaf4ea8c9407ae0eb533f55f1165",
+      "generation_seed": 10940764883483872806,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        48,
+        63
+      ],
+      "layout_hash": "397b06ccf768fec0032289451a12c019ff893649",
+      "map_id": "ood_pilot_D5_0012",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 203,
+      "reachable": true,
+      "rectangle_count": 22,
+      "rectangles_top_left_height_width": [
+        [
+          14,
+          56,
+          12,
+          6
+        ],
+        [
+          42,
+          48,
+          10,
+          10
+        ],
+        [
+          51,
+          29,
+          13,
+          14
+        ],
+        [
+          8,
+          58,
+          12,
+          5
+        ],
+        [
+          37,
+          3,
+          7,
+          11
+        ],
+        [
+          47,
+          28,
+          6,
+          10
+        ],
+        [
+          42,
+          8,
+          13,
+          8
+        ],
+        [
+          57,
+          39,
+          3,
+          9
+        ],
+        [
+          27,
+          5,
+          9,
+          10
+        ],
+        [
+          45,
+          15,
+          14,
+          8
+        ],
+        [
+          41,
+          17,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          10,
+          13
+        ],
+        [
+          9,
+          60,
+          4,
+          4
+        ],
+        [
+          8,
+          47,
+          8,
+          9
+        ],
+        [
+          12,
+          48,
+          9,
+          5
+        ],
+        [
+          35,
+          34,
+          13,
+          9
+        ],
+        [
+          17,
+          26,
+          3,
+          9
+        ],
+        [
+          45,
+          35,
+          7,
+          3
+        ],
+        [
+          1,
+          39,
+          6,
+          7
+        ],
+        [
+          29,
+          5,
+          5,
+          14
+        ],
+        [
+          6,
+          38,
+          12,
+          7
+        ],
+        [
+          33,
+          16,
+          13,
+          8
+        ]
+      ],
+      "shortest_path_distance": 80.0,
+      "split": "ood_pilot",
+      "start": [
+        60,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.154296875,
+      "actual_obstacle_density": 0.33154296875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "83219712b0cc7022a7f0b2dffbcb1ccb1a66b6dc",
+      "generation_seed": 3868837401482448091,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        52
+      ],
+      "layout_hash": "23be938fd7b02e2796a44c68c54908c5f99ac250",
+      "map_id": "ood_pilot_D5_0013",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 339,
+      "reachable": true,
+      "rectangle_count": 25,
+      "rectangles_top_left_height_width": [
+        [
+          48,
+          6,
+          10,
+          2
+        ],
+        [
+          43,
+          16,
+          6,
+          2
+        ],
+        [
+          33,
+          24,
+          8,
+          11
+        ],
+        [
+          31,
+          19,
+          2,
+          12
+        ],
+        [
+          7,
+          29,
+          12,
+          14
+        ],
+        [
+          53,
+          37,
+          11,
+          9
+        ],
+        [
+          36,
+          17,
+          6,
+          9
+        ],
+        [
+          38,
+          52,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          11,
+          11
+        ],
+        [
+          8,
+          28,
+          9,
+          8
+        ],
+        [
+          50,
+          22,
+          13,
+          6
+        ],
+        [
+          29,
+          25,
+          11,
+          3
+        ],
+        [
+          36,
+          6,
+          12,
+          3
+        ],
+        [
+          6,
+          43,
+          7,
+          7
+        ],
+        [
+          31,
+          19,
+          6,
+          8
+        ],
+        [
+          35,
+          29,
+          14,
+          7
+        ],
+        [
+          32,
+          55,
+          11,
+          8
+        ],
+        [
+          32,
+          28,
+          13,
+          13
+        ],
+        [
+          14,
+          16,
+          8,
+          6
+        ],
+        [
+          22,
+          41,
+          6,
+          14
+        ],
+        [
+          12,
+          43,
+          4,
+          14
+        ],
+        [
+          5,
+          10,
+          10,
+          6
+        ],
+        [
+          46,
+          38,
+          8,
+          5
+        ],
+        [
+          18,
+          18,
+          8,
+          13
+        ],
+        [
+          30,
+          37,
+          3,
+          12
+        ]
+      ],
+      "shortest_path_distance": 69.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        26
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.59375,
+      "actual_obstacle_density": 0.3359375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "1485d449a4226f1c0cecd4cec9836a7bd7d80400",
+      "generation_seed": 6361826137350565136,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        41,
+        63
+      ],
+      "layout_hash": "b552a9f4c3271ea05f263c1d95e141ff2a558e3c",
+      "map_id": "ood_pilot_D5_0014",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 391,
+      "reachable": true,
+      "rectangle_count": 26,
+      "rectangles_top_left_height_width": [
+        [
+          40,
+          14,
+          6,
+          7
+        ],
+        [
+          42,
+          49,
+          6,
+          11
+        ],
+        [
+          3,
+          27,
+          2,
+          11
+        ],
+        [
+          37,
+          9,
+          10,
+          8
+        ],
+        [
+          5,
+          40,
+          14,
+          4
+        ],
+        [
+          11,
+          38,
+          9,
+          6
+        ],
+        [
+          23,
+          2,
+          14,
+          7
+        ],
+        [
+          52,
+          60,
+          8,
+          4
+        ],
+        [
+          16,
+          13,
+          11,
+          8
+        ],
+        [
+          45,
+          35,
+          13,
+          13
+        ],
+        [
+          49,
+          32,
+          5,
+          7
+        ],
+        [
+          5,
+          18,
+          12,
+          13
+        ],
+        [
+          45,
+          37,
+          8,
+          13
+        ],
+        [
+          30,
+          35,
+          9,
+          2
+        ],
+        [
+          21,
+          18,
+          6,
+          14
+        ],
+        [
+          11,
+          28,
+          8,
+          6
+        ],
+        [
+          43,
+          21,
+          12,
+          12
+        ],
+        [
+          56,
+          25,
+          2,
+          11
+        ],
+        [
+          5,
+          24,
+          10,
+          8
+        ],
+        [
+          12,
+          39,
+          2,
+          6
+        ],
+        [
+          21,
+          51,
+          13,
+          3
+        ],
+        [
+          4,
+          19,
+          8,
+          7
+        ],
+        [
+          28,
+          1,
+          3,
+          7
+        ],
+        [
+          25,
+          27,
+          12,
+          11
+        ],
+        [
+          6,
+          10,
+          9,
+          9
+        ],
+        [
+          23,
+          57,
+          4,
+          7
+        ]
+      ],
+      "shortest_path_distance": 71.0,
+      "split": "ood_pilot",
+      "start": [
+        29,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.251953125,
+      "actual_obstacle_density": 0.33251953125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "b706544b3c03d16d2883fd9a0e2da9c040ef591d",
+      "generation_seed": 12200989338322042540,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        31
+      ],
+      "layout_hash": "23b97dfd57ce63b092bb485fb0d57dbfdfb66bcd",
+      "map_id": "ood_pilot_D5_0015",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 365,
+      "reachable": true,
+      "rectangle_count": 26,
+      "rectangles_top_left_height_width": [
+        [
+          30,
+          20,
+          6,
+          4
+        ],
+        [
+          16,
+          33,
+          8,
+          14
+        ],
+        [
+          52,
+          31,
+          6,
+          5
+        ],
+        [
+          23,
+          47,
+          7,
+          9
+        ],
+        [
+          52,
+          47,
+          5,
+          5
+        ],
+        [
+          49,
+          12,
+          12,
+          5
+        ],
+        [
+          51,
+          28,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          11,
+          9
+        ],
+        [
+          12,
+          40,
+          7,
+          3
+        ],
+        [
+          27,
+          48,
+          7,
+          6
+        ],
+        [
+          18,
+          35,
+          4,
+          2
+        ],
+        [
+          34,
+          5,
+          3,
+          6
+        ],
+        [
+          46,
+          12,
+          12,
+          13
+        ],
+        [
+          17,
+          43,
+          3,
+          14
+        ],
+        [
+          35,
+          42,
+          12,
+          10
+        ],
+        [
+          37,
+          32,
+          5,
+          11
+        ],
+        [
+          15,
+          52,
+          7,
+          12
+        ],
+        [
+          16,
+          6,
+          3,
+          13
+        ],
+        [
+          47,
+          43,
+          14,
+          13
+        ],
+        [
+          5,
+          25,
+          13,
+          3
+        ],
+        [
+          28,
+          39,
+          14,
+          9
+        ],
+        [
+          51,
+          5,
+          2,
+          14
+        ],
+        [
+          30,
+          11,
+          3,
+          8
+        ],
+        [
+          42,
+          16,
+          4,
+          3
+        ],
+        [
+          46,
+          45,
+          13,
+          11
+        ],
+        [
+          4,
+          50,
+          10,
+          14
+        ]
+      ],
+      "shortest_path_distance": 72.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        56
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.5205078125,
+      "actual_obstacle_density": 0.335205078125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "cc8dcd458a31bff5b5679235371d8e4da44bbf34",
+      "generation_seed": 8062660533414568967,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        62
+      ],
+      "layout_hash": "2096a17856397e85db0028936f980ebb34ec6f9f",
+      "map_id": "ood_pilot_D5_0016",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 718,
+      "reachable": true,
+      "rectangle_count": 27,
+      "rectangles_top_left_height_width": [
+        [
+          23,
+          18,
+          6,
+          14
+        ],
+        [
+          28,
+          28,
+          11,
+          12
+        ],
+        [
+          4,
+          26,
+          12,
+          10
+        ],
+        [
+          27,
+          35,
+          3,
+          5
+        ],
+        [
+          8,
+          48,
+          10,
+          8
+        ],
+        [
+          21,
+          21,
+          4,
+          8
+        ],
+        [
+          45,
+          10,
+          12,
+          8
+        ],
+        [
+          24,
+          18,
+          7,
+          10
+        ],
+        [
+          49,
+          22,
+          8,
+          14
+        ],
+        [
+          11,
+          22,
+          10,
+          14
+        ],
+        [
+          51,
+          10,
+          9,
+          6
+        ],
+        [
+          40,
+          48,
+          11,
+          3
+        ],
+        [
+          3,
+          58,
+          10,
+          2
+        ],
+        [
+          2,
+          0,
+          9,
+          10
+        ],
+        [
+          17,
+          23,
+          2,
+          9
+        ],
+        [
+          11,
+          41,
+          8,
+          14
+        ],
+        [
+          44,
+          34,
+          3,
+          2
+        ],
+        [
+          25,
+          20,
+          9,
+          12
+        ],
+        [
+          59,
+          35,
+          3,
+          13
+        ],
+        [
+          8,
+          48,
+          10,
+          11
+        ],
+        [
+          26,
+          59,
+          14,
+          3
+        ],
+        [
+          30,
+          22,
+          13,
+          14
+        ],
+        [
+          42,
+          7,
+          11,
+          14
+        ],
+        [
+          9,
+          22,
+          7,
+          10
+        ],
+        [
+          8,
+          26,
+          10,
+          7
+        ],
+        [
+          41,
+          28,
+          10,
+          6
+        ],
+        [
+          26,
+          7,
+          7,
+          6
+        ]
+      ],
+      "shortest_path_distance": 72.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        21
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.69140625,
+      "actual_obstacle_density": 0.3369140625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "61b6c01908d84037f80f8990281795a4bd023279",
+      "generation_seed": 12217386804378087882,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        11
+      ],
+      "layout_hash": "eea45a83702ef0440759d07d8cb053897d093ed2",
+      "map_id": "ood_pilot_D5_0017",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 193,
+      "reachable": true,
+      "rectangle_count": 24,
+      "rectangles_top_left_height_width": [
+        [
+          16,
+          19,
+          6,
+          12
+        ],
+        [
+          9,
+          44,
+          2,
+          5
+        ],
+        [
+          40,
+          49,
+          5,
+          12
+        ],
+        [
+          1,
+          9,
+          10,
+          8
+        ],
+        [
+          49,
+          33,
+          11,
+          6
+        ],
+        [
+          30,
+          12,
+          4,
+          5
+        ],
+        [
+          2,
+          40,
+          12,
+          10
+        ],
+        [
+          31,
+          12,
+          10,
+          8
+        ],
+        [
+          34,
+          39,
+          6,
+          11
+        ],
+        [
+          38,
+          38,
+          13,
+          14
+        ],
+        [
+          27,
+          46,
+          4,
+          4
+        ],
+        [
+          16,
+          34,
+          8,
+          12
+        ],
+        [
+          20,
+          51,
+          5,
+          12
+        ],
+        [
+          4,
+          30,
+          11,
+          9
+        ],
+        [
+          0,
+          45,
+          12,
+          4
+        ],
+        [
+          44,
+          29,
+          5,
+          5
+        ],
+        [
+          36,
+          53,
+          10,
+          2
+        ],
+        [
+          13,
+          32,
+          9,
+          6
+        ],
+        [
+          14,
+          8,
+          14,
+          7
+        ],
+        [
+          44,
+          2,
+          7,
+          8
+        ],
+        [
+          40,
+          52,
+          7,
+          7
+        ],
+        [
+          51,
+          43,
+          13,
+          11
+        ],
+        [
+          18,
+          47,
+          7,
+          2
+        ],
+        [
+          22,
+          34,
+          13,
+          3
+        ]
+      ],
+      "shortest_path_distance": 65.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        56
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 33.4228515625,
+      "actual_obstacle_density": 0.334228515625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "8b4d7eb95ca61457e40ce44e76e50ab591f50960",
+      "generation_seed": 3222903045877066742,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        61
+      ],
+      "layout_hash": "da0352a9aef40e74734b0ade04d29178d81e28c7",
+      "map_id": "ood_pilot_D5_0018",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 390,
+      "reachable": true,
+      "rectangle_count": 30,
+      "rectangles_top_left_height_width": [
+        [
+          22,
+          41,
+          5,
+          7
+        ],
+        [
+          1,
+          9,
+          4,
+          5
+        ],
+        [
+          0,
+          11,
+          7,
+          7
+        ],
+        [
+          15,
+          49,
+          3,
+          6
+        ],
+        [
+          40,
+          49,
+          13,
+          3
+        ],
+        [
+          27,
+          18,
+          3,
+          11
+        ],
+        [
+          4,
+          28,
+          11,
+          2
+        ],
+        [
+          51,
+          19,
+          4,
+          14
+        ],
+        [
+          11,
+          47,
+          6,
+          12
+        ],
+        [
+          27,
+          54,
+          12,
+          5
+        ],
+        [
+          37,
+          41,
+          4,
+          12
+        ],
+        [
+          20,
+          30,
+          9,
+          5
+        ],
+        [
+          6,
+          57,
+          5,
+          4
+        ],
+        [
+          25,
+          42,
+          12,
+          14
+        ],
+        [
+          27,
+          19,
+          12,
+          7
+        ],
+        [
+          24,
+          17,
+          6,
+          9
+        ],
+        [
+          3,
+          46,
+          8,
+          9
+        ],
+        [
+          46,
+          61,
+          11,
+          2
+        ],
+        [
+          5,
+          21,
+          14,
+          5
+        ],
+        [
+          25,
+          50,
+          9,
+          3
+        ],
+        [
+          24,
+          13,
+          8,
+          11
+        ],
+        [
+          28,
+          53,
+          13,
+          10
+        ],
+        [
+          30,
+          39,
+          3,
+          8
+        ],
+        [
+          24,
+          49,
+          8,
+          13
+        ],
+        [
+          28,
+          5,
+          8,
+          12
+        ],
+        [
+          6,
+          31,
+          9,
+          9
+        ],
+        [
+          58,
+          15,
+          3,
+          9
+        ],
+        [
+          44,
+          7,
+          4,
+          13
+        ],
+        [
+          33,
+          25,
+          11,
+          4
+        ],
+        [
+          2,
+          34,
+          9,
+          11
+        ]
+      ],
+      "shortest_path_distance": 83.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        17
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 34.3505859375,
+      "actual_obstacle_density": 0.343505859375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D5",
+      "endpoint_hash": "1de061e95af446bb55a9c3686e40162e6c3d064b",
+      "generation_seed": 9196492101715112989,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        32,
+        63
+      ],
+      "layout_hash": "019663cb292f80d94052eb4446d98eed6ccde060",
+      "map_id": "ood_pilot_D5_0019",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 279,
+      "reachable": true,
+      "rectangle_count": 27,
+      "rectangles_top_left_height_width": [
+        [
+          0,
+          9,
+          13,
+          5
+        ],
+        [
+          45,
+          50,
+          8,
+          12
+        ],
+        [
+          48,
+          7,
+          2,
+          7
+        ],
+        [
+          25,
+          47,
+          6,
+          8
+        ],
+        [
+          29,
+          33,
+          2,
+          13
+        ],
+        [
+          56,
+          26,
+          4,
+          13
+        ],
+        [
+          10,
+          42,
+          8,
+          8
+        ],
+        [
+          52,
+          18,
+          11,
+          7
+        ],
+        [
+          31,
+          5,
+          7,
+          11
+        ],
+        [
+          52,
+          2,
+          7,
+          9
+        ],
+        [
+          23,
+          41,
+          2,
+          6
+        ],
+        [
+          42,
+          50,
+          14,
+          8
+        ],
+        [
+          33,
+          28,
+          11,
+          11
+        ],
+        [
+          31,
+          48,
+          5,
+          2
+        ],
+        [
+          31,
+          3,
+          5,
+          11
+        ],
+        [
+          23,
+          41,
+          9,
+          13
+        ],
+        [
+          34,
+          23,
+          12,
+          3
+        ],
+        [
+          0,
+          49,
+          12,
+          6
+        ],
+        [
+          35,
+          49,
+          3,
+          12
+        ],
+        [
+          18,
+          48,
+          12,
+          13
+        ],
+        [
+          27,
+          12,
+          4,
+          7
+        ],
+        [
+          23,
+          19,
+          9,
+          12
+        ],
+        [
+          45,
+          16,
+          3,
+          14
+        ],
+        [
+          51,
+          36,
+          2,
+          6
+        ],
+        [
+          10,
+          22,
+          5,
+          8
+        ],
+        [
+          60,
+          29,
+          3,
+          9
+        ],
+        [
+          38,
+          14,
+          10,
+          12
+        ]
+      ],
+      "shortest_path_distance": 75.0,
+      "split": "ood_pilot",
+      "start": [
+        31,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.76953125,
+      "actual_obstacle_density": 0.3876953125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "9855b69a4199beff270ba24c24897504323b6b20",
+      "generation_seed": 15454540466121032989,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        46,
+        0
+      ],
+      "layout_hash": "69c78ae474e9c9730d41b0c0cd480c55e83aa359",
+      "map_id": "ood_pilot_D6_0000",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 420,
+      "reachable": true,
+      "rectangle_count": 28,
+      "rectangles_top_left_height_width": [
+        [
+          25,
+          52,
+          14,
+          8
+        ],
+        [
+          29,
+          36,
+          9,
+          8
+        ],
+        [
+          36,
+          32,
+          4,
+          2
+        ],
+        [
+          10,
+          28,
+          6,
+          7
+        ],
+        [
+          3,
+          48,
+          11,
+          11
+        ],
+        [
+          5,
+          28,
+          13,
+          9
+        ],
+        [
+          4,
+          29,
+          5,
+          11
+        ],
+        [
+          36,
+          50,
+          9,
+          5
+        ],
+        [
+          42,
+          48,
+          10,
+          13
+        ],
+        [
+          0,
+          23,
+          13,
+          5
+        ],
+        [
+          18,
+          19,
+          14,
+          6
+        ],
+        [
+          14,
+          13,
+          12,
+          9
+        ],
+        [
+          46,
+          11,
+          12,
+          11
+        ],
+        [
+          42,
+          51,
+          13,
+          3
+        ],
+        [
+          36,
+          52,
+          4,
+          7
+        ],
+        [
+          11,
+          61,
+          8,
+          2
+        ],
+        [
+          18,
+          28,
+          6,
+          9
+        ],
+        [
+          9,
+          23,
+          6,
+          8
+        ],
+        [
+          7,
+          4,
+          13,
+          12
+        ],
+        [
+          5,
+          20,
+          7,
+          6
+        ],
+        [
+          8,
+          57,
+          9,
+          5
+        ],
+        [
+          50,
+          0,
+          14,
+          11
+        ],
+        [
+          3,
+          43,
+          12,
+          9
+        ],
+        [
+          9,
+          24,
+          12,
+          2
+        ],
+        [
+          30,
+          46,
+          6,
+          2
+        ],
+        [
+          53,
+          14,
+          11,
+          7
+        ],
+        [
+          3,
+          43,
+          4,
+          12
+        ],
+        [
+          14,
+          39,
+          6,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        20,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.671875,
+      "actual_obstacle_density": 0.38671875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "6bfcc4ac57d1fb98003a3159de8ec15875d2004b",
+      "generation_seed": 1196156167127465957,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        61
+      ],
+      "layout_hash": "8cc291bf7ee884e3d85d408852050777724d16e0",
+      "map_id": "ood_pilot_D6_0001",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 412,
+      "reachable": true,
+      "rectangle_count": 40,
+      "rectangles_top_left_height_width": [
+        [
+          50,
+          43,
+          5,
+          10
+        ],
+        [
+          33,
+          8,
+          5,
+          14
+        ],
+        [
+          42,
+          31,
+          5,
+          8
+        ],
+        [
+          8,
+          17,
+          10,
+          9
+        ],
+        [
+          39,
+          18,
+          2,
+          12
+        ],
+        [
+          42,
+          5,
+          5,
+          3
+        ],
+        [
+          0,
+          10,
+          2,
+          14
+        ],
+        [
+          53,
+          2,
+          2,
+          9
+        ],
+        [
+          10,
+          27,
+          9,
+          7
+        ],
+        [
+          53,
+          4,
+          7,
+          10
+        ],
+        [
+          34,
+          60,
+          14,
+          4
+        ],
+        [
+          17,
+          27,
+          7,
+          12
+        ],
+        [
+          42,
+          2,
+          3,
+          9
+        ],
+        [
+          20,
+          19,
+          13,
+          9
+        ],
+        [
+          6,
+          1,
+          8,
+          3
+        ],
+        [
+          5,
+          31,
+          5,
+          9
+        ],
+        [
+          20,
+          25,
+          13,
+          6
+        ],
+        [
+          53,
+          21,
+          7,
+          6
+        ],
+        [
+          29,
+          38,
+          8,
+          2
+        ],
+        [
+          7,
+          30,
+          8,
+          12
+        ],
+        [
+          16,
+          51,
+          10,
+          5
+        ],
+        [
+          31,
+          48,
+          9,
+          14
+        ],
+        [
+          47,
+          0,
+          4,
+          3
+        ],
+        [
+          21,
+          42,
+          6,
+          3
+        ],
+        [
+          27,
+          19,
+          3,
+          13
+        ],
+        [
+          5,
+          25,
+          7,
+          12
+        ],
+        [
+          30,
+          45,
+          14,
+          6
+        ],
+        [
+          56,
+          27,
+          2,
+          12
+        ],
+        [
+          5,
+          51,
+          5,
+          10
+        ],
+        [
+          7,
+          41,
+          14,
+          8
+        ],
+        [
+          25,
+          14,
+          14,
+          5
+        ],
+        [
+          28,
+          21,
+          3,
+          10
+        ],
+        [
+          34,
+          13,
+          2,
+          14
+        ],
+        [
+          53,
+          37,
+          3,
+          14
+        ],
+        [
+          29,
+          61,
+          7,
+          2
+        ],
+        [
+          44,
+          24,
+          7,
+          5
+        ],
+        [
+          29,
+          30,
+          12,
+          3
+        ],
+        [
+          47,
+          39,
+          8,
+          2
+        ],
+        [
+          57,
+          29,
+          4,
+          2
+        ],
+        [
+          22,
+          11,
+          13,
+          5
+        ]
+      ],
+      "shortest_path_distance": 73.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        49
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 39.306640625,
+      "actual_obstacle_density": 0.39306640625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "d8a5573a856fabc08e545d44743b6005d42440a0",
+      "generation_seed": 13413653531988230289,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        7
+      ],
+      "layout_hash": "47fba9ae3676ea7158953e0888262f6784a908be",
+      "map_id": "ood_pilot_D6_0002",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 486,
+      "reachable": true,
+      "rectangle_count": 29,
+      "rectangles_top_left_height_width": [
+        [
+          27,
+          40,
+          7,
+          3
+        ],
+        [
+          25,
+          13,
+          12,
+          13
+        ],
+        [
+          3,
+          3,
+          2,
+          3
+        ],
+        [
+          8,
+          7,
+          12,
+          6
+        ],
+        [
+          8,
+          49,
+          12,
+          12
+        ],
+        [
+          43,
+          58,
+          3,
+          5
+        ],
+        [
+          33,
+          10,
+          9,
+          14
+        ],
+        [
+          4,
+          44,
+          8,
+          7
+        ],
+        [
+          9,
+          27,
+          13,
+          13
+        ],
+        [
+          10,
+          42,
+          14,
+          9
+        ],
+        [
+          17,
+          35,
+          11,
+          2
+        ],
+        [
+          10,
+          50,
+          14,
+          11
+        ],
+        [
+          3,
+          9,
+          9,
+          10
+        ],
+        [
+          10,
+          29,
+          4,
+          3
+        ],
+        [
+          41,
+          21,
+          12,
+          6
+        ],
+        [
+          20,
+          51,
+          11,
+          9
+        ],
+        [
+          10,
+          26,
+          4,
+          10
+        ],
+        [
+          14,
+          5,
+          11,
+          13
+        ],
+        [
+          43,
+          30,
+          5,
+          10
+        ],
+        [
+          3,
+          10,
+          7,
+          3
+        ],
+        [
+          18,
+          21,
+          6,
+          8
+        ],
+        [
+          58,
+          36,
+          6,
+          10
+        ],
+        [
+          54,
+          40,
+          3,
+          8
+        ],
+        [
+          9,
+          23,
+          5,
+          2
+        ],
+        [
+          22,
+          30,
+          8,
+          12
+        ],
+        [
+          22,
+          9,
+          8,
+          10
+        ],
+        [
+          35,
+          37,
+          8,
+          8
+        ],
+        [
+          51,
+          40,
+          2,
+          12
+        ],
+        [
+          7,
+          15,
+          8,
+          12
+        ]
+      ],
+      "shortest_path_distance": 89.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        56
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.134765625,
+      "actual_obstacle_density": 0.38134765625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "f313822ba4f0a1569d21f6ef2c97227f8db059de",
+      "generation_seed": 8664054576499703880,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        23,
+        0
+      ],
+      "layout_hash": "847c115a2a7234db3514c4c6e34a6b9275560ecf",
+      "map_id": "ood_pilot_D6_0003",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 433,
+      "reachable": true,
+      "rectangle_count": 34,
+      "rectangles_top_left_height_width": [
+        [
+          36,
+          25,
+          8,
+          6
+        ],
+        [
+          26,
+          38,
+          5,
+          10
+        ],
+        [
+          43,
+          31,
+          13,
+          11
+        ],
+        [
+          23,
+          23,
+          5,
+          6
+        ],
+        [
+          30,
+          4,
+          3,
+          4
+        ],
+        [
+          15,
+          21,
+          10,
+          3
+        ],
+        [
+          14,
+          20,
+          6,
+          10
+        ],
+        [
+          11,
+          36,
+          11,
+          11
+        ],
+        [
+          34,
+          5,
+          12,
+          2
+        ],
+        [
+          55,
+          48,
+          2,
+          11
+        ],
+        [
+          25,
+          36,
+          13,
+          4
+        ],
+        [
+          21,
+          29,
+          8,
+          11
+        ],
+        [
+          25,
+          49,
+          8,
+          6
+        ],
+        [
+          24,
+          38,
+          12,
+          11
+        ],
+        [
+          4,
+          39,
+          10,
+          12
+        ],
+        [
+          10,
+          12,
+          9,
+          7
+        ],
+        [
+          23,
+          18,
+          8,
+          10
+        ],
+        [
+          38,
+          40,
+          2,
+          5
+        ],
+        [
+          47,
+          11,
+          12,
+          8
+        ],
+        [
+          57,
+          31,
+          7,
+          8
+        ],
+        [
+          42,
+          57,
+          9,
+          6
+        ],
+        [
+          31,
+          53,
+          2,
+          3
+        ],
+        [
+          25,
+          43,
+          6,
+          9
+        ],
+        [
+          26,
+          21,
+          3,
+          11
+        ],
+        [
+          36,
+          33,
+          4,
+          5
+        ],
+        [
+          40,
+          10,
+          5,
+          13
+        ],
+        [
+          39,
+          7,
+          2,
+          5
+        ],
+        [
+          15,
+          17,
+          8,
+          8
+        ],
+        [
+          34,
+          56,
+          10,
+          7
+        ],
+        [
+          6,
+          47,
+          3,
+          6
+        ],
+        [
+          23,
+          3,
+          13,
+          9
+        ],
+        [
+          28,
+          15,
+          12,
+          2
+        ],
+        [
+          32,
+          24,
+          10,
+          14
+        ],
+        [
+          38,
+          16,
+          7,
+          5
+        ]
+      ],
+      "shortest_path_distance": 76.0,
+      "split": "ood_pilot",
+      "start": [
+        25,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.37890625,
+      "actual_obstacle_density": 0.3837890625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "38a8f952684c2d71be36f6d22bf55f14842339b9",
+      "generation_seed": 8583352695147107967,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        9
+      ],
+      "layout_hash": "05f1b876afdb08da33809e12b841c27be1d88fd6",
+      "map_id": "ood_pilot_D6_0004",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 188,
+      "reachable": true,
+      "rectangle_count": 30,
+      "rectangles_top_left_height_width": [
+        [
+          41,
+          13,
+          3,
+          11
+        ],
+        [
+          27,
+          26,
+          2,
+          5
+        ],
+        [
+          41,
+          48,
+          10,
+          12
+        ],
+        [
+          8,
+          15,
+          6,
+          4
+        ],
+        [
+          6,
+          26,
+          3,
+          9
+        ],
+        [
+          16,
+          21,
+          2,
+          6
+        ],
+        [
+          34,
+          50,
+          4,
+          9
+        ],
+        [
+          31,
+          27,
+          7,
+          12
+        ],
+        [
+          17,
+          5,
+          5,
+          10
+        ],
+        [
+          41,
+          23,
+          11,
+          13
+        ],
+        [
+          46,
+          29,
+          14,
+          14
+        ],
+        [
+          24,
+          26,
+          3,
+          10
+        ],
+        [
+          60,
+          40,
+          4,
+          8
+        ],
+        [
+          23,
+          35,
+          14,
+          6
+        ],
+        [
+          46,
+          41,
+          13,
+          2
+        ],
+        [
+          61,
+          5,
+          2,
+          10
+        ],
+        [
+          51,
+          6,
+          7,
+          10
+        ],
+        [
+          34,
+          3,
+          4,
+          5
+        ],
+        [
+          27,
+          16,
+          5,
+          3
+        ],
+        [
+          50,
+          23,
+          12,
+          6
+        ],
+        [
+          2,
+          25,
+          2,
+          2
+        ],
+        [
+          0,
+          27,
+          12,
+          14
+        ],
+        [
+          35,
+          42,
+          14,
+          4
+        ],
+        [
+          30,
+          6,
+          7,
+          13
+        ],
+        [
+          37,
+          16,
+          6,
+          2
+        ],
+        [
+          60,
+          9,
+          3,
+          5
+        ],
+        [
+          47,
+          3,
+          8,
+          7
+        ],
+        [
+          46,
+          18,
+          9,
+          6
+        ],
+        [
+          23,
+          42,
+          8,
+          4
+        ],
+        [
+          16,
+          47,
+          14,
+          12
+        ]
+      ],
+      "shortest_path_distance": 90.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        56
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 40.3564453125,
+      "actual_obstacle_density": 0.403564453125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "bca80628de3781f6641f05abca3f499483c9af31",
+      "generation_seed": 447291312662365675,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        25
+      ],
+      "layout_hash": "e33177246e91df9cd6cf2193405f13065e8bdc61",
+      "map_id": "ood_pilot_D6_0005",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 452,
+      "reachable": true,
+      "rectangle_count": 30,
+      "rectangles_top_left_height_width": [
+        [
+          10,
+          22,
+          12,
+          8
+        ],
+        [
+          40,
+          43,
+          8,
+          14
+        ],
+        [
+          30,
+          48,
+          6,
+          8
+        ],
+        [
+          34,
+          60,
+          7,
+          4
+        ],
+        [
+          33,
+          20,
+          13,
+          12
+        ],
+        [
+          51,
+          59,
+          2,
+          4
+        ],
+        [
+          2,
+          7,
+          7,
+          6
+        ],
+        [
+          45,
+          44,
+          5,
+          9
+        ],
+        [
+          26,
+          50,
+          8,
+          8
+        ],
+        [
+          54,
+          43,
+          3,
+          9
+        ],
+        [
+          26,
+          24,
+          10,
+          3
+        ],
+        [
+          51,
+          59,
+          13,
+          2
+        ],
+        [
+          2,
+          46,
+          5,
+          6
+        ],
+        [
+          61,
+          28,
+          3,
+          13
+        ],
+        [
+          35,
+          54,
+          13,
+          10
+        ],
+        [
+          49,
+          36,
+          13,
+          11
+        ],
+        [
+          2,
+          22,
+          10,
+          5
+        ],
+        [
+          0,
+          9,
+          5,
+          10
+        ],
+        [
+          43,
+          30,
+          6,
+          11
+        ],
+        [
+          36,
+          8,
+          11,
+          11
+        ],
+        [
+          59,
+          3,
+          5,
+          10
+        ],
+        [
+          42,
+          28,
+          7,
+          14
+        ],
+        [
+          17,
+          42,
+          7,
+          14
+        ],
+        [
+          20,
+          29,
+          4,
+          9
+        ],
+        [
+          32,
+          50,
+          10,
+          2
+        ],
+        [
+          21,
+          1,
+          4,
+          9
+        ],
+        [
+          12,
+          40,
+          11,
+          8
+        ],
+        [
+          30,
+          23,
+          14,
+          14
+        ],
+        [
+          15,
+          46,
+          10,
+          6
+        ],
+        [
+          16,
+          13,
+          14,
+          8
+        ]
+      ],
+      "shortest_path_distance": 77.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        41
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 39.2333984375,
+      "actual_obstacle_density": 0.392333984375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "c29cbe63ccbe125d827d8cf3b0413fc6d10987ee",
+      "generation_seed": 309268729087287857,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        34,
+        63
+      ],
+      "layout_hash": "2ceff5b69e86a8d0f1caf543f9a1f6ed5842f844",
+      "map_id": "ood_pilot_D6_0006",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 370,
+      "reachable": true,
+      "rectangle_count": 26,
+      "rectangles_top_left_height_width": [
+        [
+          44,
+          22,
+          9,
+          8
+        ],
+        [
+          29,
+          4,
+          6,
+          10
+        ],
+        [
+          4,
+          13,
+          14,
+          4
+        ],
+        [
+          47,
+          5,
+          14,
+          11
+        ],
+        [
+          35,
+          5,
+          11,
+          5
+        ],
+        [
+          36,
+          44,
+          8,
+          3
+        ],
+        [
+          32,
+          28,
+          12,
+          12
+        ],
+        [
+          7,
+          39,
+          10,
+          13
+        ],
+        [
+          4,
+          32,
+          3,
+          13
+        ],
+        [
+          27,
+          48,
+          2,
+          14
+        ],
+        [
+          53,
+          14,
+          10,
+          14
+        ],
+        [
+          18,
+          5,
+          2,
+          5
+        ],
+        [
+          6,
+          16,
+          14,
+          13
+        ],
+        [
+          25,
+          39,
+          5,
+          4
+        ],
+        [
+          2,
+          38,
+          6,
+          4
+        ],
+        [
+          35,
+          13,
+          11,
+          14
+        ],
+        [
+          36,
+          0,
+          6,
+          9
+        ],
+        [
+          49,
+          0,
+          12,
+          7
+        ],
+        [
+          34,
+          17,
+          9,
+          8
+        ],
+        [
+          40,
+          55,
+          8,
+          2
+        ],
+        [
+          40,
+          55,
+          3,
+          5
+        ],
+        [
+          39,
+          4,
+          11,
+          7
+        ],
+        [
+          29,
+          47,
+          4,
+          11
+        ],
+        [
+          18,
+          38,
+          7,
+          10
+        ],
+        [
+          4,
+          34,
+          12,
+          11
+        ],
+        [
+          11,
+          23,
+          11,
+          11
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 39.0380859375,
+      "actual_obstacle_density": 0.390380859375,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "515567b38c1626dbe91fff2164a5e8e44feba0ae",
+      "generation_seed": 3704878002529475579,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        15
+      ],
+      "layout_hash": "404764877af4de52cc35640cb3d2a4a2172bf9b0",
+      "map_id": "ood_pilot_D6_0007",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 287,
+      "reachable": true,
+      "rectangle_count": 28,
+      "rectangles_top_left_height_width": [
+        [
+          20,
+          10,
+          10,
+          2
+        ],
+        [
+          39,
+          19,
+          3,
+          5
+        ],
+        [
+          10,
+          35,
+          11,
+          11
+        ],
+        [
+          1,
+          47,
+          10,
+          10
+        ],
+        [
+          4,
+          17,
+          4,
+          12
+        ],
+        [
+          17,
+          22,
+          12,
+          5
+        ],
+        [
+          18,
+          34,
+          3,
+          13
+        ],
+        [
+          48,
+          4,
+          13,
+          3
+        ],
+        [
+          57,
+          27,
+          6,
+          11
+        ],
+        [
+          6,
+          14,
+          11,
+          8
+        ],
+        [
+          2,
+          3,
+          8,
+          13
+        ],
+        [
+          30,
+          11,
+          5,
+          10
+        ],
+        [
+          24,
+          28,
+          6,
+          6
+        ],
+        [
+          13,
+          29,
+          11,
+          13
+        ],
+        [
+          34,
+          39,
+          2,
+          6
+        ],
+        [
+          48,
+          7,
+          6,
+          10
+        ],
+        [
+          57,
+          14,
+          2,
+          3
+        ],
+        [
+          41,
+          17,
+          11,
+          13
+        ],
+        [
+          13,
+          53,
+          6,
+          8
+        ],
+        [
+          13,
+          33,
+          2,
+          8
+        ],
+        [
+          12,
+          20,
+          5,
+          8
+        ],
+        [
+          9,
+          23,
+          5,
+          8
+        ],
+        [
+          22,
+          36,
+          10,
+          13
+        ],
+        [
+          37,
+          24,
+          14,
+          13
+        ],
+        [
+          31,
+          7,
+          7,
+          7
+        ],
+        [
+          14,
+          5,
+          5,
+          8
+        ],
+        [
+          42,
+          56,
+          8,
+          6
+        ],
+        [
+          25,
+          19,
+          11,
+          13
+        ]
+      ],
+      "shortest_path_distance": 85.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        61
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.57421875,
+      "actual_obstacle_density": 0.3857421875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "0776608c05789d3eff48179eecc5b2df22f394c7",
+      "generation_seed": 12591051810018987972,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        27
+      ],
+      "layout_hash": "08587e9ec5b5f5781440f715dfb2ddbe345d96ab",
+      "map_id": "ood_pilot_D6_0008",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 591,
+      "reachable": true,
+      "rectangle_count": 37,
+      "rectangles_top_left_height_width": [
+        [
+          42,
+          21,
+          4,
+          7
+        ],
+        [
+          40,
+          48,
+          10,
+          3
+        ],
+        [
+          5,
+          3,
+          14,
+          4
+        ],
+        [
+          9,
+          17,
+          12,
+          14
+        ],
+        [
+          4,
+          3,
+          12,
+          14
+        ],
+        [
+          29,
+          23,
+          6,
+          8
+        ],
+        [
+          24,
+          11,
+          3,
+          4
+        ],
+        [
+          29,
+          28,
+          4,
+          12
+        ],
+        [
+          54,
+          30,
+          8,
+          5
+        ],
+        [
+          0,
+          11,
+          11,
+          8
+        ],
+        [
+          32,
+          8,
+          5,
+          3
+        ],
+        [
+          4,
+          40,
+          14,
+          5
+        ],
+        [
+          36,
+          51,
+          13,
+          9
+        ],
+        [
+          52,
+          36,
+          6,
+          6
+        ],
+        [
+          28,
+          51,
+          2,
+          11
+        ],
+        [
+          49,
+          54,
+          7,
+          10
+        ],
+        [
+          47,
+          16,
+          6,
+          4
+        ],
+        [
+          40,
+          38,
+          3,
+          4
+        ],
+        [
+          29,
+          46,
+          4,
+          8
+        ],
+        [
+          52,
+          38,
+          4,
+          10
+        ],
+        [
+          32,
+          33,
+          5,
+          3
+        ],
+        [
+          52,
+          44,
+          10,
+          9
+        ],
+        [
+          26,
+          3,
+          10,
+          6
+        ],
+        [
+          33,
+          56,
+          7,
+          4
+        ],
+        [
+          5,
+          3,
+          5,
+          10
+        ],
+        [
+          40,
+          41,
+          12,
+          6
+        ],
+        [
+          5,
+          40,
+          14,
+          7
+        ],
+        [
+          22,
+          40,
+          2,
+          4
+        ],
+        [
+          1,
+          36,
+          11,
+          9
+        ],
+        [
+          49,
+          57,
+          11,
+          7
+        ],
+        [
+          4,
+          37,
+          6,
+          8
+        ],
+        [
+          32,
+          14,
+          2,
+          7
+        ],
+        [
+          14,
+          22,
+          7,
+          7
+        ],
+        [
+          39,
+          46,
+          6,
+          14
+        ],
+        [
+          35,
+          47,
+          6,
+          11
+        ],
+        [
+          11,
+          46,
+          12,
+          12
+        ],
+        [
+          44,
+          4,
+          5,
+          9
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        23
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 39.0869140625,
+      "actual_obstacle_density": 0.390869140625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "cdbdce85c9e5efd4de2b99c8360d057723ac80f1",
+      "generation_seed": 11779631810472605590,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        5
+      ],
+      "layout_hash": "5d7d85a4c3467e265ea5217ae12c1b2076b740ee",
+      "map_id": "ood_pilot_D6_0009",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 410,
+      "reachable": true,
+      "rectangle_count": 32,
+      "rectangles_top_left_height_width": [
+        [
+          10,
+          6,
+          11,
+          8
+        ],
+        [
+          4,
+          39,
+          4,
+          12
+        ],
+        [
+          54,
+          34,
+          9,
+          2
+        ],
+        [
+          50,
+          33,
+          10,
+          5
+        ],
+        [
+          31,
+          10,
+          14,
+          10
+        ],
+        [
+          52,
+          38,
+          7,
+          14
+        ],
+        [
+          26,
+          36,
+          7,
+          10
+        ],
+        [
+          42,
+          23,
+          9,
+          5
+        ],
+        [
+          0,
+          45,
+          4,
+          8
+        ],
+        [
+          43,
+          15,
+          3,
+          5
+        ],
+        [
+          28,
+          2,
+          10,
+          2
+        ],
+        [
+          15,
+          49,
+          14,
+          13
+        ],
+        [
+          8,
+          19,
+          8,
+          13
+        ],
+        [
+          21,
+          34,
+          9,
+          6
+        ],
+        [
+          27,
+          5,
+          14,
+          12
+        ],
+        [
+          2,
+          54,
+          5,
+          8
+        ],
+        [
+          9,
+          13,
+          3,
+          4
+        ],
+        [
+          13,
+          12,
+          14,
+          2
+        ],
+        [
+          47,
+          16,
+          8,
+          11
+        ],
+        [
+          38,
+          9,
+          5,
+          9
+        ],
+        [
+          6,
+          14,
+          12,
+          3
+        ],
+        [
+          50,
+          33,
+          4,
+          4
+        ],
+        [
+          35,
+          54,
+          9,
+          2
+        ],
+        [
+          51,
+          16,
+          9,
+          14
+        ],
+        [
+          32,
+          37,
+          3,
+          7
+        ],
+        [
+          13,
+          34,
+          3,
+          9
+        ],
+        [
+          5,
+          7,
+          3,
+          8
+        ],
+        [
+          44,
+          21,
+          4,
+          12
+        ],
+        [
+          50,
+          31,
+          14,
+          9
+        ],
+        [
+          2,
+          57,
+          8,
+          3
+        ],
+        [
+          52,
+          53,
+          10,
+          10
+        ],
+        [
+          46,
+          53,
+          10,
+          10
+        ]
+      ],
+      "shortest_path_distance": 79.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        59
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 39.013671875,
+      "actual_obstacle_density": 0.39013671875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "3aa27008af1651b9a1ffe41562053bed52883b85",
+      "generation_seed": 5221034335523872125,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        30,
+        0
+      ],
+      "layout_hash": "90481ebf3933771a67274dfee894f203c8ff3ea9",
+      "map_id": "ood_pilot_D6_0010",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 495,
+      "reachable": true,
+      "rectangle_count": 26,
+      "rectangles_top_left_height_width": [
+        [
+          15,
+          21,
+          13,
+          9
+        ],
+        [
+          9,
+          34,
+          12,
+          12
+        ],
+        [
+          23,
+          44,
+          13,
+          6
+        ],
+        [
+          33,
+          53,
+          3,
+          7
+        ],
+        [
+          25,
+          11,
+          8,
+          3
+        ],
+        [
+          23,
+          47,
+          11,
+          14
+        ],
+        [
+          14,
+          49,
+          3,
+          7
+        ],
+        [
+          47,
+          25,
+          14,
+          8
+        ],
+        [
+          20,
+          8,
+          10,
+          8
+        ],
+        [
+          13,
+          44,
+          5,
+          3
+        ],
+        [
+          20,
+          62,
+          13,
+          2
+        ],
+        [
+          38,
+          7,
+          12,
+          12
+        ],
+        [
+          7,
+          58,
+          8,
+          6
+        ],
+        [
+          14,
+          32,
+          10,
+          5
+        ],
+        [
+          33,
+          18,
+          14,
+          5
+        ],
+        [
+          36,
+          31,
+          14,
+          7
+        ],
+        [
+          50,
+          27,
+          4,
+          9
+        ],
+        [
+          7,
+          27,
+          7,
+          14
+        ],
+        [
+          41,
+          41,
+          14,
+          9
+        ],
+        [
+          46,
+          27,
+          13,
+          8
+        ],
+        [
+          25,
+          19,
+          5,
+          10
+        ],
+        [
+          27,
+          52,
+          13,
+          10
+        ],
+        [
+          41,
+          23,
+          6,
+          11
+        ],
+        [
+          18,
+          33,
+          10,
+          9
+        ],
+        [
+          22,
+          10,
+          11,
+          13
+        ],
+        [
+          9,
+          7,
+          4,
+          12
+        ]
+      ],
+      "shortest_path_distance": 79.0,
+      "split": "ood_pilot",
+      "start": [
+        40,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.9892578125,
+      "actual_obstacle_density": 0.389892578125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "aa4f30101871cff852d1c043f5410af95547d276",
+      "generation_seed": 10011745743678935615,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        46
+      ],
+      "layout_hash": "57263898443a34c000f1184a573d25f65d2564cc",
+      "map_id": "ood_pilot_D6_0011",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 532,
+      "reachable": true,
+      "rectangle_count": 25,
+      "rectangles_top_left_height_width": [
+        [
+          0,
+          49,
+          8,
+          14
+        ],
+        [
+          2,
+          15,
+          14,
+          6
+        ],
+        [
+          25,
+          35,
+          13,
+          9
+        ],
+        [
+          10,
+          11,
+          4,
+          13
+        ],
+        [
+          23,
+          23,
+          14,
+          14
+        ],
+        [
+          25,
+          35,
+          6,
+          9
+        ],
+        [
+          55,
+          30,
+          9,
+          4
+        ],
+        [
+          51,
+          43,
+          8,
+          11
+        ],
+        [
+          43,
+          31,
+          7,
+          11
+        ],
+        [
+          23,
+          46,
+          6,
+          10
+        ],
+        [
+          20,
+          45,
+          2,
+          4
+        ],
+        [
+          11,
+          4,
+          13,
+          11
+        ],
+        [
+          35,
+          46,
+          14,
+          13
+        ],
+        [
+          15,
+          29,
+          3,
+          10
+        ],
+        [
+          54,
+          1,
+          7,
+          11
+        ],
+        [
+          13,
+          10,
+          12,
+          11
+        ],
+        [
+          24,
+          26,
+          11,
+          5
+        ],
+        [
+          24,
+          0,
+          3,
+          9
+        ],
+        [
+          23,
+          31,
+          2,
+          11
+        ],
+        [
+          57,
+          50,
+          7,
+          7
+        ],
+        [
+          36,
+          41,
+          12,
+          8
+        ],
+        [
+          34,
+          35,
+          6,
+          8
+        ],
+        [
+          13,
+          45,
+          14,
+          10
+        ],
+        [
+          16,
+          7,
+          9,
+          10
+        ],
+        [
+          21,
+          8,
+          11,
+          14
+        ]
+      ],
+      "shortest_path_distance": 66.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        41
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.525390625,
+      "actual_obstacle_density": 0.38525390625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "eb1c6dc9b7cbfaf3705024ecb60f63933c3f711c",
+      "generation_seed": 4872153300350900886,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        13,
+        0
+      ],
+      "layout_hash": "c2553ed5d5073d38f0dfa60851dc0402bdfe0adc",
+      "map_id": "ood_pilot_D6_0012",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 599,
+      "reachable": true,
+      "rectangle_count": 31,
+      "rectangles_top_left_height_width": [
+        [
+          49,
+          4,
+          8,
+          12
+        ],
+        [
+          12,
+          54,
+          7,
+          8
+        ],
+        [
+          42,
+          25,
+          11,
+          11
+        ],
+        [
+          19,
+          36,
+          14,
+          9
+        ],
+        [
+          36,
+          12,
+          2,
+          4
+        ],
+        [
+          59,
+          43,
+          4,
+          11
+        ],
+        [
+          22,
+          56,
+          9,
+          5
+        ],
+        [
+          29,
+          55,
+          2,
+          6
+        ],
+        [
+          18,
+          10,
+          10,
+          14
+        ],
+        [
+          20,
+          8,
+          2,
+          8
+        ],
+        [
+          9,
+          28,
+          6,
+          7
+        ],
+        [
+          42,
+          33,
+          2,
+          6
+        ],
+        [
+          6,
+          25,
+          11,
+          12
+        ],
+        [
+          54,
+          23,
+          5,
+          2
+        ],
+        [
+          2,
+          33,
+          13,
+          8
+        ],
+        [
+          48,
+          49,
+          6,
+          11
+        ],
+        [
+          54,
+          32,
+          7,
+          13
+        ],
+        [
+          31,
+          4,
+          11,
+          5
+        ],
+        [
+          42,
+          55,
+          14,
+          5
+        ],
+        [
+          6,
+          31,
+          10,
+          4
+        ],
+        [
+          56,
+          32,
+          8,
+          10
+        ],
+        [
+          41,
+          22,
+          11,
+          5
+        ],
+        [
+          30,
+          18,
+          14,
+          4
+        ],
+        [
+          47,
+          35,
+          11,
+          9
+        ],
+        [
+          39,
+          6,
+          11,
+          5
+        ],
+        [
+          26,
+          8,
+          14,
+          12
+        ],
+        [
+          12,
+          33,
+          14,
+          6
+        ],
+        [
+          53,
+          55,
+          4,
+          8
+        ],
+        [
+          55,
+          44,
+          9,
+          9
+        ],
+        [
+          43,
+          12,
+          4,
+          3
+        ],
+        [
+          46,
+          27,
+          13,
+          13
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        4,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.671875,
+      "actual_obstacle_density": 0.38671875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "bb416efc96f2b9bfbba7d3eee48724dc9830887e",
+      "generation_seed": 18355220838452587304,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        54
+      ],
+      "layout_hash": "b0379acf6bd0e2509b8ab9862c1a7e43691dfd8f",
+      "map_id": "ood_pilot_D6_0013",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 420,
+      "reachable": true,
+      "rectangle_count": 28,
+      "rectangles_top_left_height_width": [
+        [
+          14,
+          3,
+          6,
+          9
+        ],
+        [
+          26,
+          1,
+          7,
+          6
+        ],
+        [
+          47,
+          31,
+          8,
+          6
+        ],
+        [
+          9,
+          23,
+          14,
+          14
+        ],
+        [
+          46,
+          1,
+          7,
+          6
+        ],
+        [
+          27,
+          16,
+          11,
+          7
+        ],
+        [
+          31,
+          23,
+          10,
+          9
+        ],
+        [
+          45,
+          51,
+          2,
+          11
+        ],
+        [
+          31,
+          11,
+          12,
+          9
+        ],
+        [
+          13,
+          40,
+          9,
+          8
+        ],
+        [
+          17,
+          11,
+          13,
+          8
+        ],
+        [
+          4,
+          34,
+          12,
+          12
+        ],
+        [
+          61,
+          15,
+          2,
+          10
+        ],
+        [
+          8,
+          19,
+          5,
+          9
+        ],
+        [
+          5,
+          8,
+          8,
+          12
+        ],
+        [
+          33,
+          13,
+          8,
+          10
+        ],
+        [
+          34,
+          17,
+          6,
+          13
+        ],
+        [
+          38,
+          30,
+          10,
+          6
+        ],
+        [
+          15,
+          24,
+          13,
+          2
+        ],
+        [
+          43,
+          58,
+          2,
+          3
+        ],
+        [
+          20,
+          4,
+          6,
+          7
+        ],
+        [
+          32,
+          19,
+          6,
+          6
+        ],
+        [
+          52,
+          14,
+          9,
+          7
+        ],
+        [
+          19,
+          26,
+          11,
+          13
+        ],
+        [
+          5,
+          7,
+          11,
+          2
+        ],
+        [
+          26,
+          4,
+          12,
+          8
+        ],
+        [
+          39,
+          37,
+          9,
+          8
+        ],
+        [
+          44,
+          20,
+          10,
+          12
+        ]
+      ],
+      "shortest_path_distance": 86.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        7
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.5498046875,
+      "actual_obstacle_density": 0.385498046875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "2b2bef2b66fff3733a726c01d4956e77d8091545",
+      "generation_seed": 9818970031698477521,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        15,
+        63
+      ],
+      "layout_hash": "9c273b1a3ad73a713afc4cef9ee1ce6a671d3ca3",
+      "map_id": "ood_pilot_D6_0014",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 558,
+      "reachable": true,
+      "rectangle_count": 34,
+      "rectangles_top_left_height_width": [
+        [
+          39,
+          55,
+          11,
+          9
+        ],
+        [
+          30,
+          9,
+          6,
+          14
+        ],
+        [
+          50,
+          11,
+          9,
+          4
+        ],
+        [
+          18,
+          16,
+          12,
+          7
+        ],
+        [
+          40,
+          22,
+          8,
+          9
+        ],
+        [
+          39,
+          47,
+          4,
+          9
+        ],
+        [
+          58,
+          23,
+          5,
+          13
+        ],
+        [
+          38,
+          37,
+          8,
+          8
+        ],
+        [
+          38,
+          17,
+          9,
+          11
+        ],
+        [
+          17,
+          20,
+          2,
+          2
+        ],
+        [
+          37,
+          47,
+          11,
+          11
+        ],
+        [
+          15,
+          21,
+          8,
+          14
+        ],
+        [
+          50,
+          52,
+          5,
+          11
+        ],
+        [
+          36,
+          27,
+          4,
+          5
+        ],
+        [
+          14,
+          18,
+          14,
+          11
+        ],
+        [
+          11,
+          28,
+          8,
+          7
+        ],
+        [
+          29,
+          0,
+          11,
+          6
+        ],
+        [
+          24,
+          12,
+          5,
+          14
+        ],
+        [
+          55,
+          17,
+          7,
+          6
+        ],
+        [
+          44,
+          11,
+          7,
+          9
+        ],
+        [
+          42,
+          52,
+          14,
+          6
+        ],
+        [
+          51,
+          19,
+          3,
+          3
+        ],
+        [
+          3,
+          5,
+          10,
+          6
+        ],
+        [
+          31,
+          12,
+          13,
+          9
+        ],
+        [
+          28,
+          49,
+          4,
+          9
+        ],
+        [
+          20,
+          49,
+          12,
+          2
+        ],
+        [
+          29,
+          17,
+          7,
+          2
+        ],
+        [
+          37,
+          55,
+          2,
+          2
+        ],
+        [
+          18,
+          1,
+          2,
+          5
+        ],
+        [
+          15,
+          54,
+          12,
+          9
+        ],
+        [
+          8,
+          36,
+          2,
+          4
+        ],
+        [
+          18,
+          26,
+          7,
+          9
+        ],
+        [
+          31,
+          28,
+          8,
+          11
+        ],
+        [
+          17,
+          4,
+          11,
+          10
+        ]
+      ],
+      "shortest_path_distance": 88.0,
+      "split": "ood_pilot",
+      "start": [
+        49,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 39.404296875,
+      "actual_obstacle_density": 0.39404296875,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "584427f1e4049bc9c5465928c70101b3ec7d41aa",
+      "generation_seed": 1006458413631521656,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        0,
+        57
+      ],
+      "layout_hash": "84f3e89097b924008c9e95c46599d8ebfe5ef70b",
+      "map_id": "ood_pilot_D6_0015",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 528,
+      "reachable": true,
+      "rectangle_count": 39,
+      "rectangles_top_left_height_width": [
+        [
+          28,
+          43,
+          7,
+          8
+        ],
+        [
+          23,
+          46,
+          9,
+          2
+        ],
+        [
+          54,
+          12,
+          5,
+          9
+        ],
+        [
+          11,
+          52,
+          7,
+          2
+        ],
+        [
+          40,
+          26,
+          12,
+          6
+        ],
+        [
+          24,
+          48,
+          11,
+          11
+        ],
+        [
+          52,
+          9,
+          3,
+          13
+        ],
+        [
+          12,
+          52,
+          9,
+          9
+        ],
+        [
+          6,
+          15,
+          4,
+          10
+        ],
+        [
+          52,
+          50,
+          3,
+          2
+        ],
+        [
+          10,
+          2,
+          13,
+          12
+        ],
+        [
+          22,
+          33,
+          7,
+          10
+        ],
+        [
+          2,
+          14,
+          7,
+          13
+        ],
+        [
+          56,
+          3,
+          2,
+          7
+        ],
+        [
+          42,
+          41,
+          11,
+          7
+        ],
+        [
+          6,
+          48,
+          9,
+          14
+        ],
+        [
+          16,
+          49,
+          7,
+          14
+        ],
+        [
+          3,
+          41,
+          10,
+          4
+        ],
+        [
+          28,
+          49,
+          4,
+          14
+        ],
+        [
+          45,
+          28,
+          3,
+          3
+        ],
+        [
+          37,
+          37,
+          8,
+          8
+        ],
+        [
+          23,
+          58,
+          11,
+          5
+        ],
+        [
+          5,
+          26,
+          14,
+          8
+        ],
+        [
+          15,
+          31,
+          4,
+          9
+        ],
+        [
+          45,
+          46,
+          10,
+          8
+        ],
+        [
+          54,
+          38,
+          6,
+          11
+        ],
+        [
+          45,
+          46,
+          2,
+          14
+        ],
+        [
+          43,
+          54,
+          8,
+          2
+        ],
+        [
+          32,
+          21,
+          13,
+          2
+        ],
+        [
+          2,
+          23,
+          3,
+          7
+        ],
+        [
+          9,
+          17,
+          3,
+          8
+        ],
+        [
+          34,
+          47,
+          2,
+          4
+        ],
+        [
+          8,
+          26,
+          10,
+          12
+        ],
+        [
+          40,
+          20,
+          10,
+          3
+        ],
+        [
+          13,
+          29,
+          9,
+          11
+        ],
+        [
+          25,
+          60,
+          10,
+          2
+        ],
+        [
+          4,
+          20,
+          2,
+          4
+        ],
+        [
+          26,
+          34,
+          7,
+          4
+        ],
+        [
+          44,
+          7,
+          6,
+          12
+        ]
+      ],
+      "shortest_path_distance": 78.0,
+      "split": "ood_pilot",
+      "start": [
+        63,
+        31
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.28125,
+      "actual_obstacle_density": 0.3828125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "0b9ad9e81b9356484e5c2a535b1b93ba305ab09c",
+      "generation_seed": 8663495815521813354,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        52,
+        0
+      ],
+      "layout_hash": "6198a904e6410adc06dfd9a16feb2ab4c58e3a26",
+      "map_id": "ood_pilot_D6_0016",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 447,
+      "reachable": true,
+      "rectangle_count": 31,
+      "rectangles_top_left_height_width": [
+        [
+          6,
+          12,
+          6,
+          6
+        ],
+        [
+          16,
+          44,
+          8,
+          9
+        ],
+        [
+          42,
+          45,
+          9,
+          11
+        ],
+        [
+          18,
+          14,
+          5,
+          10
+        ],
+        [
+          48,
+          25,
+          10,
+          3
+        ],
+        [
+          39,
+          37,
+          3,
+          7
+        ],
+        [
+          18,
+          7,
+          9,
+          5
+        ],
+        [
+          18,
+          27,
+          9,
+          4
+        ],
+        [
+          38,
+          19,
+          4,
+          7
+        ],
+        [
+          23,
+          1,
+          2,
+          13
+        ],
+        [
+          7,
+          44,
+          4,
+          2
+        ],
+        [
+          15,
+          31,
+          3,
+          13
+        ],
+        [
+          21,
+          17,
+          6,
+          3
+        ],
+        [
+          3,
+          45,
+          11,
+          14
+        ],
+        [
+          15,
+          34,
+          13,
+          7
+        ],
+        [
+          24,
+          51,
+          13,
+          7
+        ],
+        [
+          5,
+          0,
+          14,
+          5
+        ],
+        [
+          6,
+          49,
+          6,
+          2
+        ],
+        [
+          36,
+          3,
+          8,
+          3
+        ],
+        [
+          15,
+          22,
+          2,
+          13
+        ],
+        [
+          3,
+          3,
+          13,
+          5
+        ],
+        [
+          27,
+          22,
+          11,
+          13
+        ],
+        [
+          41,
+          0,
+          7,
+          6
+        ],
+        [
+          31,
+          14,
+          12,
+          12
+        ],
+        [
+          48,
+          23,
+          14,
+          9
+        ],
+        [
+          50,
+          24,
+          2,
+          9
+        ],
+        [
+          21,
+          5,
+          5,
+          11
+        ],
+        [
+          50,
+          2,
+          10,
+          11
+        ],
+        [
+          32,
+          51,
+          9,
+          11
+        ],
+        [
+          27,
+          16,
+          12,
+          10
+        ],
+        [
+          4,
+          43,
+          13,
+          9
+        ]
+      ],
+      "shortest_path_distance": 89.0,
+      "split": "ood_pilot",
+      "start": [
+        16,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 39.306640625,
+      "actual_obstacle_density": 0.39306640625,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "7b318309f270b1b84c13c16d74cff28899f6c221",
+      "generation_seed": 3271588336936793258,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        57,
+        0
+      ],
+      "layout_hash": "f588400a3aa3c387c0a35ecbbcb63f0d6df9b3bc",
+      "map_id": "ood_pilot_D6_0017",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 453,
+      "reachable": true,
+      "rectangle_count": 31,
+      "rectangles_top_left_height_width": [
+        [
+          8,
+          42,
+          5,
+          2
+        ],
+        [
+          4,
+          2,
+          6,
+          7
+        ],
+        [
+          49,
+          34,
+          5,
+          5
+        ],
+        [
+          18,
+          28,
+          14,
+          7
+        ],
+        [
+          50,
+          37,
+          5,
+          4
+        ],
+        [
+          51,
+          12,
+          10,
+          13
+        ],
+        [
+          8,
+          18,
+          2,
+          13
+        ],
+        [
+          25,
+          5,
+          12,
+          4
+        ],
+        [
+          11,
+          13,
+          14,
+          14
+        ],
+        [
+          54,
+          56,
+          5,
+          6
+        ],
+        [
+          18,
+          50,
+          12,
+          14
+        ],
+        [
+          26,
+          9,
+          12,
+          6
+        ],
+        [
+          46,
+          8,
+          10,
+          11
+        ],
+        [
+          59,
+          9,
+          4,
+          8
+        ],
+        [
+          30,
+          0,
+          8,
+          9
+        ],
+        [
+          30,
+          21,
+          6,
+          12
+        ],
+        [
+          3,
+          22,
+          11,
+          8
+        ],
+        [
+          22,
+          25,
+          12,
+          5
+        ],
+        [
+          45,
+          25,
+          2,
+          4
+        ],
+        [
+          57,
+          19,
+          7,
+          3
+        ],
+        [
+          41,
+          12,
+          13,
+          6
+        ],
+        [
+          39,
+          15,
+          5,
+          7
+        ],
+        [
+          31,
+          19,
+          12,
+          10
+        ],
+        [
+          39,
+          42,
+          10,
+          6
+        ],
+        [
+          49,
+          54,
+          13,
+          4
+        ],
+        [
+          29,
+          22,
+          8,
+          13
+        ],
+        [
+          8,
+          39,
+          5,
+          9
+        ],
+        [
+          10,
+          42,
+          6,
+          8
+        ],
+        [
+          28,
+          48,
+          13,
+          2
+        ],
+        [
+          45,
+          41,
+          10,
+          9
+        ],
+        [
+          9,
+          47,
+          7,
+          11
+        ]
+      ],
+      "shortest_path_distance": 156.0,
+      "split": "ood_pilot",
+      "start": [
+        41,
+        63
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.7939453125,
+      "actual_obstacle_density": 0.387939453125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "9ec50f963386c191626089c03fd771a625b78153",
+      "generation_seed": 9225946239829896093,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        63,
+        30
+      ],
+      "layout_hash": "2bc850902ae49d468ed908931de330655ced61c5",
+      "map_id": "ood_pilot_D6_0018",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 467,
+      "reachable": true,
+      "rectangle_count": 29,
+      "rectangles_top_left_height_width": [
+        [
+          8,
+          36,
+          12,
+          14
+        ],
+        [
+          30,
+          32,
+          11,
+          8
+        ],
+        [
+          11,
+          47,
+          13,
+          8
+        ],
+        [
+          29,
+          29,
+          4,
+          13
+        ],
+        [
+          40,
+          35,
+          13,
+          7
+        ],
+        [
+          37,
+          12,
+          10,
+          5
+        ],
+        [
+          5,
+          23,
+          12,
+          2
+        ],
+        [
+          19,
+          57,
+          4,
+          6
+        ],
+        [
+          1,
+          9,
+          13,
+          7
+        ],
+        [
+          52,
+          36,
+          5,
+          7
+        ],
+        [
+          44,
+          52,
+          6,
+          6
+        ],
+        [
+          32,
+          15,
+          5,
+          4
+        ],
+        [
+          39,
+          56,
+          14,
+          4
+        ],
+        [
+          35,
+          48,
+          6,
+          13
+        ],
+        [
+          8,
+          13,
+          6,
+          3
+        ],
+        [
+          7,
+          27,
+          11,
+          10
+        ],
+        [
+          35,
+          40,
+          10,
+          5
+        ],
+        [
+          30,
+          23,
+          4,
+          10
+        ],
+        [
+          12,
+          44,
+          14,
+          6
+        ],
+        [
+          11,
+          4,
+          3,
+          12
+        ],
+        [
+          25,
+          38,
+          8,
+          4
+        ],
+        [
+          8,
+          42,
+          4,
+          9
+        ],
+        [
+          41,
+          47,
+          5,
+          11
+        ],
+        [
+          52,
+          16,
+          11,
+          13
+        ],
+        [
+          39,
+          29,
+          13,
+          5
+        ],
+        [
+          19,
+          22,
+          3,
+          12
+        ],
+        [
+          12,
+          29,
+          14,
+          11
+        ],
+        [
+          7,
+          12,
+          9,
+          14
+        ],
+        [
+          27,
+          40,
+          11,
+          14
+        ]
+      ],
+      "shortest_path_distance": 85.0,
+      "split": "ood_pilot",
+      "start": [
+        0,
+        15
+      ],
+      "start_goal_chebyshev": 63
+    },
+    {
+      "accepted_generation_attempt": 0,
+      "actual_density_percent": 38.720703125,
+      "actual_obstacle_density": 0.38720703125,
+      "channel_order": [
+        "obstacle_occupancy",
+        "start_one_hot",
+        "goal_one_hot"
+      ],
+      "distribution": "D6",
+      "endpoint_hash": "55dfb0c05eb223f8afe0478d2fe47db4d0b3db10",
+      "generation_seed": 8499373166669680203,
+      "generator_version": "rectangles-v1",
+      "goal": [
+        15,
+        63
+      ],
+      "layout_hash": "f098a3d1ad0d5d0af4c4a96cdb26379ffbaafda9",
+      "map_id": "ood_pilot_D6_0019",
+      "map_shape": [
+        64,
+        64
+      ],
+      "overlap_placements": 251,
+      "reachable": true,
+      "rectangle_count": 30,
+      "rectangles_top_left_height_width": [
+        [
+          33,
+          10,
+          2,
+          8
+        ],
+        [
+          28,
+          11,
+          14,
+          9
+        ],
+        [
+          28,
+          41,
+          4,
+          6
+        ],
+        [
+          35,
+          57,
+          12,
+          4
+        ],
+        [
+          32,
+          30,
+          2,
+          6
+        ],
+        [
+          33,
+          41,
+          5,
+          8
+        ],
+        [
+          19,
+          1,
+          7,
+          9
+        ],
+        [
+          51,
+          8,
+          8,
+          11
+        ],
+        [
+          58,
+          37,
+          3,
+          11
+        ],
+        [
+          16,
+          5,
+          5,
+          6
+        ],
+        [
+          1,
+          45,
+          12,
+          13
+        ],
+        [
+          7,
+          24,
+          9,
+          10
+        ],
+        [
+          59,
+          24,
+          5,
+          2
+        ],
+        [
+          3,
+          22,
+          6,
+          6
+        ],
+        [
+          2,
+          10,
+          8,
+          10
+        ],
+        [
+          51,
+          46,
+          8,
+          6
+        ],
+        [
+          32,
+          26,
+          5,
+          4
+        ],
+        [
+          55,
+          29,
+          4,
+          14
+        ],
+        [
+          8,
+          18,
+          12,
+          13
+        ],
+        [
+          41,
+          32,
+          10,
+          3
+        ],
+        [
+          7,
+          42,
+          5,
+          5
+        ],
+        [
+          23,
+          22,
+          11,
+          11
+        ],
+        [
+          30,
+          34,
+          9,
+          14
+        ],
+        [
+          20,
+          30,
+          2,
+          10
+        ],
+        [
+          46,
+          53,
+          6,
+          11
+        ],
+        [
+          20,
+          61,
+          4,
+          3
+        ],
+        [
+          20,
+          51,
+          8,
+          11
+        ],
+        [
+          35,
+          48,
+          10,
+          3
+        ],
+        [
+          27,
+          33,
+          3,
+          11
+        ],
+        [
+          31,
+          19,
+          11,
+          14
+        ]
+      ],
+      "shortest_path_distance": 63.0,
+      "split": "ood_pilot",
+      "start": [
+        34,
+        0
+      ],
+      "start_goal_chebyshev": 63
+    }
+  ],
+  "movement": {
+    "model": "unit_move_count",
+    "prevent_diagonal_corner_cutting": true
+  },
+  "run_id": "64x64_rectangles_v1",
+  "splits": {
+    "ood_pilot": {
+      "D4": 20,
+      "D5": 20,
+      "D6": 20
+    }
+  },
+  "total_maps": 60
+}

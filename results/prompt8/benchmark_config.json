@@ -1,0 +1,83 @@
+{
+  "base_seed": 20261106,
+  "bootstrap_repetitions": 10000,
+  "cpu_threads": 4,
+  "device": "cpu",
+  "height": 32,
+  "heuristic_batch_size": 16,
+  "heuristic_epochs": 50,
+  "id_holdout_count": 90,
+  "k_bounds": [
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      16
+    ],
+    [
+      8,
+      32
+    ]
+  ],
+  "map_generation": {
+    "allow_unreachable": false,
+    "cluster_count": 6,
+    "cluster_size": 7,
+    "corridor_spacing": null,
+    "corridor_width": 2,
+    "distribution": "D1",
+    "height": 32,
+    "max_attempts": 128,
+    "obstacle_density": null,
+    "seed": 0,
+    "width": 32
+  },
+  "neural_astar_batch_size": 1,
+  "neural_astar_epochs": 10,
+  "ood_batch_size": 32,
+  "ood_epochs": 40,
+  "ood_test_count": 90,
+  "original_seeastar_k": 16,
+  "output_directory": "results/prompt8",
+  "permutation_repetitions": 100000,
+  "pilot_maps_per_distribution": 3,
+  "pilot_sampling_seeds": [
+    11,
+    23
+  ],
+  "primary_fixed_ks": [
+    4,
+    5,
+    10,
+    16
+  ],
+  "primary_heuristic": "H1",
+  "primary_k_bounds": [
+    4,
+    16
+  ],
+  "sampling_seeds": [
+    11,
+    23,
+    47,
+    89,
+    131
+  ],
+  "secondary_heuristics": [
+    "H2",
+    "H3"
+  ],
+  "smooth_adaptive_k_note": "Finite smooth scores stay below 1; for (4,16), adaptive K is 5..16. K=4 is retained as the nominal lower-bound reference.",
+  "split_counts": {
+    "id_holdout": 90,
+    "ood_test": 90,
+    "train": 300,
+    "validation_calibration": 90
+  },
+  "timeout_seconds": null,
+  "train_count": 300,
+  "validation_count": 90,
+  "width": 32
+}

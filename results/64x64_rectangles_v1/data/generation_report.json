@@ -1,0 +1,2529 @@
+{
+  "all_density_groups": {
+    "D1": {
+      "actual_density_percent": {
+        "max": 14.599609375,
+        "mean": 11.071056019176137,
+        "median": 10.8154296875,
+        "min": 10.009765625
+      },
+      "count": 440,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 253,
+        "11": 114,
+        "12": 53,
+        "13": 17,
+        "14": 3,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 13,
+        "mean": 7.420454545454546,
+        "median": 7.0,
+        "min": 3
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 80.0,
+        "mean": 64.00454545454545,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "D2": {
+      "actual_density_percent": {
+        "max": 21.38671875,
+        "mean": 17.94100674715909,
+        "median": 17.7734375,
+        "min": 17.0166015625
+      },
+      "count": 440,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 273,
+        "18": 129,
+        "19": 30,
+        "2": 0,
+        "20": 5,
+        "21": 3,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 22,
+        "mean": 12.74090909090909,
+        "median": 13.0,
+        "min": 7
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 87.0,
+        "mean": 65.06590909090909,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "D3": {
+      "actual_density_percent": {
+        "max": 28.1005859375,
+        "mean": 24.978526722301137,
+        "median": 24.7802734375,
+        "min": 24.0234375
+      },
+      "count": 440,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 262,
+        "25": 129,
+        "26": 42,
+        "27": 6,
+        "28": 1,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 29,
+        "mean": 18.720454545454544,
+        "median": 19.0,
+        "min": 11
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 128.0,
+        "mean": 67.10681818181818,
+        "median": 64.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "D4": {
+      "actual_density_percent": {
+        "max": 7.3974609375,
+        "mean": 4.23797607421875,
+        "median": 3.99169921875,
+        "min": 3.0029296875
+      },
+      "count": 80,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 40,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 25,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 11,
+        "50": 0,
+        "6": 3,
+        "7": 1,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 8,
+        "mean": 2.75,
+        "median": 3.0,
+        "min": 1
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 69.0,
+        "mean": 63.25,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "D5": {
+      "actual_density_percent": {
+        "max": 35.9375,
+        "mean": 33.80035400390625,
+        "median": 33.6669921875,
+        "min": 33.0078125
+      },
+      "count": 80,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 54,
+        "34": 20,
+        "35": 6,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 35,
+        "mean": 26.45,
+        "median": 26.5,
+        "min": 18
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 95.0,
+        "mean": 70.4375,
+        "median": 68.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "D6": {
+      "actual_density_percent": {
+        "max": 41.5283203125,
+        "mean": 38.8623046875,
+        "median": 38.720703125,
+        "min": 38.0126953125
+      },
+      "count": 80,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 49,
+        "39": 26,
+        "4": 0,
+        "40": 4,
+        "41": 1,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 43,
+        "mean": 32.475,
+        "median": 32.0,
+        "min": 24
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 156.0,
+        "mean": 77.375,
+        "median": 75.5,
+        "min": 33.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 62.575,
+        "median": 63.0,
+        "min": 29.0
+      }
+    }
+  },
+  "archive_paths": {
+    "id_holdout": "id_holdout.npz",
+    "id_pilot": "id_pilot.npz",
+    "ood_pilot": "ood_pilot.npz",
+    "ood_test_sealed": "ood_test_sealed.npz",
+    "training": "training.npz",
+    "validation_calibration": "validation_calibration.npz"
+  },
+  "generation_stats": {
+    "id_holdout/D1": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          10,
+          16
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 8724353156818551875,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    },
+    "id_holdout/D2": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          17,
+          23
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 17630083993742696392,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    },
+    "id_holdout/D3": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          24,
+          30
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 13081603985803869119,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    },
+    "id_pilot/D1": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 20,
+      "attempted_maps": 20,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          10,
+          16
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 14725450822693187230,
+      "rejected_maps": 0,
+      "requested_maps": 20
+    },
+    "id_pilot/D2": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 20,
+      "attempted_maps": 20,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          17,
+          23
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 995987069074290872,
+      "rejected_maps": 0,
+      "requested_maps": 20
+    },
+    "id_pilot/D3": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 20,
+      "attempted_maps": 20,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          24,
+          30
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 11730033548847704815,
+      "rejected_maps": 0,
+      "requested_maps": 20
+    },
+    "ood_pilot/D4": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 20,
+      "attempted_maps": 20,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          3,
+          8
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 7681297589444333554,
+      "rejected_maps": 0,
+      "requested_maps": 20
+    },
+    "ood_pilot/D5": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 20,
+      "attempted_maps": 20,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          33,
+          37
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 6517594731589751867,
+      "rejected_maps": 0,
+      "requested_maps": 20
+    },
+    "ood_pilot/D6": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 20,
+      "attempted_maps": 20,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          38,
+          42
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 18274729326292942981,
+      "rejected_maps": 0,
+      "requested_maps": 20
+    },
+    "ood_test_sealed/D4": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          3,
+          8
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 5254616716956598452,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    },
+    "ood_test_sealed/D5": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          33,
+          37
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 8226285446997345827,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    },
+    "ood_test_sealed/D6": {
+      "acceptance_rate": 0.9836065573770492,
+      "accepted_maps": 60,
+      "attempted_maps": 61,
+      "connectivity_failures": 0,
+      "density_target_failures": 1,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          38,
+          42
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 13926107420111979324,
+      "rejected_maps": 1,
+      "requested_maps": 60
+    },
+    "training/D1": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 300,
+      "attempted_maps": 300,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          10,
+          16
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 16106265794696114073,
+      "rejected_maps": 0,
+      "requested_maps": 300
+    },
+    "training/D2": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 300,
+      "attempted_maps": 300,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          17,
+          23
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 3608419879634306349,
+      "rejected_maps": 0,
+      "requested_maps": 300
+    },
+    "training/D3": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 300,
+      "attempted_maps": 300,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          24,
+          30
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 4135156302913920805,
+      "rejected_maps": 0,
+      "requested_maps": 300
+    },
+    "validation_calibration/D1": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          10,
+          16
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 9335239978790693552,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    },
+    "validation_calibration/D2": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          17,
+          23
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 14509008401233046691,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    },
+    "validation_calibration/D3": {
+      "acceptance_rate": 1.0,
+      "accepted_maps": 60,
+      "attempted_maps": 60,
+      "connectivity_failures": 0,
+      "density_target_failures": 0,
+      "duplicate_layout_failures": 0,
+      "endpoint_selection_failures": 0,
+      "generator_config": {
+        "density_interval_percent": [
+          24,
+          30
+        ],
+        "movement": {
+          "model": "unit_move_count",
+          "prevent_diagonal_corner_cutting": true
+        },
+        "overlap": "allowed; obstacle union counted once for density",
+        "rectangle_height_uniform_inclusive": [
+          2,
+          14
+        ],
+        "rectangle_position": "uniform among valid top-left coordinates",
+        "rectangle_width_uniform_inclusive": [
+          2,
+          14
+        ]
+      },
+      "group_seed": 1617787197612733055,
+      "rejected_maps": 0,
+      "requested_maps": 60
+    }
+  },
+  "map_count": 1560,
+  "run_id": "64x64_rectangles_v1",
+  "split_distribution_summaries": {
+    "id_holdout/D1": {
+      "actual_density_percent": {
+        "max": 14.0625,
+        "mean": 11.058756510416666,
+        "median": 10.693359375,
+        "min": 10.009765625
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 37,
+        "11": 14,
+        "12": 5,
+        "13": 3,
+        "14": 1,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 12,
+        "mean": 7.833333333333333,
+        "median": 8.0,
+        "min": 4
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 70.0,
+        "mean": 63.86666666666667,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "id_holdout/D2": {
+      "actual_density_percent": {
+        "max": 21.2646484375,
+        "mean": 17.894694010416668,
+        "median": 17.51708984375,
+        "min": 17.0654296875
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 40,
+        "18": 13,
+        "19": 5,
+        "2": 0,
+        "20": 1,
+        "21": 1,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 22,
+        "mean": 12.433333333333334,
+        "median": 12.0,
+        "min": 7
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 82.0,
+        "mean": 65.88333333333334,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "id_holdout/D3": {
+      "actual_density_percent": {
+        "max": 27.9541015625,
+        "mean": 24.78759765625,
+        "median": 24.57275390625,
+        "min": 24.0478515625
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 45,
+        "25": 10,
+        "26": 4,
+        "27": 1,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 27,
+        "mean": 18.633333333333333,
+        "median": 18.5,
+        "min": 12
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 84.0,
+        "mean": 67.03333333333333,
+        "median": 64.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "id_pilot/D1": {
+      "actual_density_percent": {
+        "max": 13.5986328125,
+        "mean": 11.1669921875,
+        "median": 10.92529296875,
+        "min": 10.0341796875
+      },
+      "count": 20,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 11,
+        "11": 5,
+        "12": 2,
+        "13": 2,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 12,
+        "mean": 7.45,
+        "median": 7.0,
+        "min": 4
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 68.0,
+        "mean": 63.45,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "id_pilot/D2": {
+      "actual_density_percent": {
+        "max": 19.677734375,
+        "mean": 17.891845703125,
+        "median": 17.73681640625,
+        "min": 17.0166015625
+      },
+      "count": 20,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 14,
+        "18": 5,
+        "19": 1,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 18,
+        "mean": 13.0,
+        "median": 13.0,
+        "min": 9
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 78.0,
+        "mean": 65.8,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "id_pilot/D3": {
+      "actual_density_percent": {
+        "max": 27.05078125,
+        "mean": 24.869384765625,
+        "median": 24.6337890625,
+        "min": 24.12109375
+      },
+      "count": 20,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 13,
+        "25": 5,
+        "26": 1,
+        "27": 1,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 26,
+        "mean": 19.05,
+        "median": 19.0,
+        "min": 13
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 77.0,
+        "mean": 66.55,
+        "median": 64.5,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "ood_pilot/D4": {
+      "actual_density_percent": {
+        "max": 5.810546875,
+        "mean": 4.4384765625,
+        "median": 4.55322265625,
+        "min": 3.076171875
+      },
+      "count": 20,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 7,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 7,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 6,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 6,
+        "mean": 2.95,
+        "median": 3.0,
+        "min": 1
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 64.0,
+        "mean": 63.05,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "ood_pilot/D5": {
+      "actual_density_percent": {
+        "max": 35.009765625,
+        "mean": 33.775634765625,
+        "median": 33.6181640625,
+        "min": 33.154296875
+      },
+      "count": 20,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 15,
+        "34": 4,
+        "35": 1,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 35,
+        "mean": 26.4,
+        "median": 26.5,
+        "min": 21
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 89.0,
+        "mean": 72.7,
+        "median": 71.5,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "ood_pilot/D6": {
+      "actual_density_percent": {
+        "max": 40.3564453125,
+        "mean": 38.890380859375,
+        "median": 38.78173828125,
+        "min": 38.134765625
+      },
+      "count": 20,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 12,
+        "39": 7,
+        "4": 0,
+        "40": 1,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 40,
+        "mean": 30.9,
+        "median": 30.0,
+        "min": 25
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 156.0,
+        "mean": 80.55,
+        "median": 78.5,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "ood_test_sealed/D4": {
+      "actual_density_percent": {
+        "max": 7.3974609375,
+        "mean": 4.171142578125,
+        "median": 3.80859375,
+        "min": 3.0029296875
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 33,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 18,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 5,
+        "50": 0,
+        "6": 3,
+        "7": 1,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 8,
+        "mean": 2.683333333333333,
+        "median": 2.5,
+        "min": 1
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 69.0,
+        "mean": 63.31666666666667,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "ood_test_sealed/D5": {
+      "actual_density_percent": {
+        "max": 35.9375,
+        "mean": 33.80859375,
+        "median": 33.7158203125,
+        "min": 33.0078125
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 39,
+        "34": 16,
+        "35": 5,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 35,
+        "mean": 26.466666666666665,
+        "median": 26.5,
+        "min": 18
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 95.0,
+        "mean": 69.68333333333334,
+        "median": 67.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "ood_test_sealed/D6": {
+      "actual_density_percent": {
+        "max": 41.5283203125,
+        "mean": 38.852945963541664,
+        "median": 38.65966796875,
+        "min": 38.0126953125
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 37,
+        "39": 19,
+        "4": 0,
+        "40": 3,
+        "41": 1,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 43,
+        "mean": 33.0,
+        "median": 33.0,
+        "min": 24
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 127.0,
+        "mean": 76.31666666666666,
+        "median": 73.0,
+        "min": 33.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 62.43333333333333,
+        "median": 63.0,
+        "min": 29.0
+      }
+    },
+    "training/D1": {
+      "actual_density_percent": {
+        "max": 14.599609375,
+        "mean": 11.071614583333334,
+        "median": 10.82763671875,
+        "min": 10.009765625
+      },
+      "count": 300,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 170,
+        "11": 80,
+        "12": 38,
+        "13": 10,
+        "14": 2,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 13,
+        "mean": 7.246666666666667,
+        "median": 7.0,
+        "min": 3
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 80.0,
+        "mean": 64.0,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "training/D2": {
+      "actual_density_percent": {
+        "max": 21.38671875,
+        "mean": 17.948160807291668,
+        "median": 17.78564453125,
+        "min": 17.0166015625
+      },
+      "count": 300,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 180,
+        "18": 97,
+        "19": 18,
+        "2": 0,
+        "20": 4,
+        "21": 1,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 19,
+        "mean": 12.84,
+        "median": 13.0,
+        "min": 7
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 87.0,
+        "mean": 65.00333333333333,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "training/D3": {
+      "actual_density_percent": {
+        "max": 28.1005859375,
+        "mean": 24.9892578125,
+        "median": 24.8291015625,
+        "min": 24.0234375
+      },
+      "count": 300,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 176,
+        "25": 88,
+        "26": 32,
+        "27": 3,
+        "28": 1,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 29,
+        "mean": 18.626666666666665,
+        "median": 18.0,
+        "min": 11
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 128.0,
+        "mean": 67.38,
+        "median": 65.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "validation_calibration/D1": {
+      "actual_density_percent": {
+        "max": 13.720703125,
+        "mean": 11.048583984375,
+        "median": 10.70556640625,
+        "min": 10.0830078125
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 35,
+        "11": 15,
+        "12": 8,
+        "13": 2,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 13,
+        "mean": 7.866666666666666,
+        "median": 8.0,
+        "min": 4
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 75.0,
+        "mean": 64.35,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "validation_calibration/D2": {
+      "actual_density_percent": {
+        "max": 21.044921875,
+        "mean": 17.967936197916668,
+        "median": 17.81005859375,
+        "min": 17.0166015625
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 39,
+        "18": 14,
+        "19": 6,
+        "2": 0,
+        "20": 0,
+        "21": 1,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 19,
+        "mean": 12.466666666666667,
+        "median": 12.0,
+        "min": 8
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 76.0,
+        "mean": 64.31666666666666,
+        "median": 63.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    },
+    "validation_calibration/D3": {
+      "actual_density_percent": {
+        "max": 27.1484375,
+        "mean": 25.152180989583332,
+        "median": 25.0732421875,
+        "min": 24.12109375
+      },
+      "count": 60,
+      "density_histogram_1_percent_bins": {
+        "0": 0,
+        "1": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 0,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 28,
+        "25": 26,
+        "26": 5,
+        "27": 1,
+        "28": 0,
+        "29": 0,
+        "3": 0,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 0,
+        "50": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "rectangle_count": {
+        "max": 27,
+        "mean": 19.166666666666668,
+        "median": 20.0,
+        "min": 13
+      },
+      "shortest_path_distance_unit_moves": {
+        "max": 84.0,
+        "mean": 66.0,
+        "median": 64.0,
+        "min": 63.0
+      },
+      "start_goal_chebyshev": {
+        "max": 63.0,
+        "mean": 63.0,
+        "median": 63.0,
+        "min": 63.0
+      }
+    }
+  },
+  "unique_endpoint_hashes": 1560,
+  "unique_layout_hashes": 1560,
+  "validation": {
+    "all_channel_tensors_3x64x64": true,
+    "all_density_intervals_pass": true,
+    "all_distance_maps_float64_with_infinity_masks": true,
+    "all_maps_64x64": true,
+    "all_minimum_chebyshev_separations_pass": true,
+    "all_start_goal_paths_reachable": true,
+    "generator_settings_shared_across_density_groups": true,
+    "no_duplicate_endpoint_instances": true,
+    "no_duplicate_obstacle_layouts_across_any_split": true,
+    "ood_pilot_and_sealed_test_layouts_disjoint": true,
+    "ood_test_opened_only_during_generation_and_validation": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "logical_cpu_count": 4,
+  "matplotlib_version": "3.6.3",
+  "numpy_version": "1.24.1",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "ram_note": "Not available from the restricted Windows system-information API.",
+  "ram_total_bytes": null,
+  "thread_environment": {
+    "MKL_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "torch": {
+    "configured_cpu_threads": 4,
+    "cuda_available": false,
+    "cuda_device_count": 0,
+    "version": "2.14.1+cpu"
+  }
+}

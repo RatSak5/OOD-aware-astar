@@ -1,0 +1,37 @@
+{
+  "cpu_model": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+  "cuda_available": false,
+  "cuda_version": null,
+  "determinism": {
+    "hardware_nondeterminism_note": "CUDA kernels may have hardware or library-specific nondeterminism; the active device and package versions are recorded above.",
+    "seed_policy": "Python, NumPy, PyTorch, and CUDA seeded per stage",
+    "torch_deterministic_algorithms": true
+  },
+  "gpu_memory_bytes": null,
+  "gpu_model": null,
+  "is_kaggle": false,
+  "kaggle_input_read_only_root": null,
+  "kaggle_working_root": null,
+  "logical_cpu_count": 4,
+  "packages": {
+    "ipykernel": "6.30.1",
+    "matplotlib": "3.6.3",
+    "nbformat": "5.10.4",
+    "numpy": "1.24.1",
+    "pandas": null,
+    "psutil": "7.0.0",
+    "scikit-learn": null,
+    "scipy": null,
+    "torch": "2.14.1+cpu",
+    "tqdm": null
+  },
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python_executable": "C:\\Users\\ratul\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "pytorch_version": "2.14.1+cpu",
+  "run_id": "64x64_rectangles_v1",
+  "system_memory": {
+    "available_bytes": 1258569728,
+    "total_bytes": 8416063488
+  }
+}

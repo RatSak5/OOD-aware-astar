@@ -1,0 +1,49 @@
+{
+  "run_id": "64x64_rectangles_v1",
+  "status": "prepared_not_run",
+  "primary": {
+    "name": "smooth_reverse_budget",
+    "score": "1 - exp(-DM / D95)",
+    "direction": "higher_ood_smaller_k",
+    "k_min": 4,
+    "k_max": 16
+  },
+  "ablations": [
+    {
+      "name": "smooth_bounds_4_8",
+      "score": "1 - exp(-DM / D95)",
+      "direction": "higher_ood_smaller_k",
+      "k_min": 4,
+      "k_max": 8
+    },
+    {
+      "name": "smooth_bounds_8_32",
+      "score": "1 - exp(-DM / D95)",
+      "direction": "higher_ood_smaller_k",
+      "k_min": 8,
+      "k_max": 32
+    },
+    {
+      "name": "reverse_direction_4_16",
+      "score": "1 - exp(-DM / D95)",
+      "direction": "higher_ood_larger_k",
+      "k_min": 4,
+      "k_max": 16,
+      "k_formula": "Kmin + floor(score * (Kmax - Kmin))"
+    },
+    {
+      "name": "clipped_score_4_16",
+      "score": "min(DM / D95, 1)",
+      "direction": "higher_ood_smaller_k",
+      "k_min": 4,
+      "k_max": 16,
+      "k_formula": "Kmax - floor(score * (Kmax - Kmin))",
+      "source": "adaptive.ood_adaptive_seeastar.clipped_ood_score"
+    }
+  ],
+  "notes": [
+    "These are separate sensitivity arms and do not replace the primary method.",
+    "All methods retain uniform sampling without replacement and the shared Neural A* guidance-search core.",
+    "The primary ID/OOD pilot runner evaluates primary comparisons only; these ablations are reserved for the later approved benchmark."
+  ]
+}

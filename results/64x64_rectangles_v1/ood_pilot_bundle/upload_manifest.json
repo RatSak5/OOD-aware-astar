@@ -1,0 +1,28 @@
+{
+  "bundle_type": "gated_ood_pilot",
+  "excluded": [
+    "training.npz",
+    "validation_calibration.npz",
+    "id_pilot.npz",
+    "id_holdout.npz",
+    "ood_test_sealed.npz"
+  ],
+  "files": {
+    "README_ood_pilot.md": {
+      "bytes": 651,
+      "sha256": "d34229220ed2c359551e81089d7a06eeb2711deb4f4a66814c294b6e80c8e9a8"
+    },
+    "dataset/manifest.json": {
+      "bytes": 156418,
+      "sha256": "1fa98c4e670e83dedcb75d2fa35d45e1e83a9210973aec9b5b8d66f976b46fab"
+    },
+    "dataset/ood_pilot.npz": {
+      "bytes": 101256,
+      "sha256": "ddfd02b5a8af2db0f0f9df59211ae1fc7afcb735a27399767efd1bafcfeee6fa"
+    }
+  },
+  "npz_handling": "opaque byte copy and SHA-256 only",
+  "premature_header_inspection": "yes; no evaluation, training, detector fitting, or D95 calibration used it",
+  "release_status": "prepared locally; not uploaded or attached",
+  "run_id": "64x64_rectangles_v1"
+}
