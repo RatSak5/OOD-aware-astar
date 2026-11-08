@@ -139,7 +139,10 @@ class AStarCorrectnessTests(unittest.TestCase):
         self.assertEqual(result.reexpansions, 0)
         self.assertGreaterEqual(result.max_open_size, result.final_open_size)
         self.assertGreaterEqual(result.final_open_size, 0)
-        self.assertEqual(result.closed_size, result.expanded_nodes)
+        self.assertTrue(result.found)
+        # The valid OPEN removal for the goal is counted as expanded, but the
+        # search returns before adding the goal to CLOSED.
+        self.assertEqual(result.expanded_nodes, result.closed_size + 1)
         self.assertGreaterEqual(result.search_time_seconds, 0.0)
 
     def test_better_paths_reopen_closed_states_and_update_parents(self) -> None:
