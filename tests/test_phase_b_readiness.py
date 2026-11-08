@@ -33,6 +33,30 @@ class PhaseBReadinessTests(unittest.TestCase):
         self.assertNotIn("HeuristicCNN", train_source)
         self.assertNotIn("train_heuristic", train_source)
 
+    def test_neural_astar_pipeline_uses_measured_stable_candidate(self):
+        pipeline = Path("experiments/rectangle_pipeline.py").read_text(encoding="utf-8")
+        tree = ast.parse(pipeline)
+        train_function = next(
+            node for node in tree.body
+            if isinstance(node, ast.FunctionDef) and node.name == "train_models"
+        )
+        config_call = next(
+            node.value
+            for node in train_function.body
+            if isinstance(node, ast.Assign)
+            and any(
+                isinstance(target, ast.Name) and target.id == "neural_config"
+                for target in node.targets
+            )
+        )
+        self.assertIsInstance(config_call, ast.Call)
+        settings = {
+            keyword.arg: ast.literal_eval(keyword.value)
+            for keyword in config_call.keywords
+            if keyword.arg in {"epochs", "batch_size", "learning_rate"}
+        }
+        self.assertEqual(settings, {"epochs": 10, "batch_size": 1, "learning_rate": 0.0003})
+
     def test_notebook_bootstrap_allocates_a_unique_run_root(self):
         source = _bootstrap_cell()
         ast.parse(source)
