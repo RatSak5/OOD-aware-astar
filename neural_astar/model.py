@@ -28,6 +28,7 @@ if torch is not None:
                             kernel_size=3,
                             padding=1,
                         ),
+                        nn.GroupNorm(num_groups=8, num_channels=output_channels),
                         nn.ReLU(inplace=True),
                     )
                 )
@@ -56,11 +57,12 @@ if torch is not None:
         """Fully convolutional two-channel U-Net with VGG16 encoder blocks.
 
         The five encoder blocks use the VGG16 convolution counts and channels
-        (64, 128, 256, 512, 512). The project-local decoder mirrors those
-        levels with bilinear resizing and a final sigmoid produces Phi in
-        [0, 1]. Ceil-mode pooling preserves very small and odd-sized maps.
-        Weights use PyTorch defaults; pretrained VGG16 weights are not assumed
-        or downloaded.
+        (64, 128, 256, 512, 512). GroupNorm with eight groups follows every
+        convolution in the encoder and decoder blocks. The project-local
+        decoder mirrors the encoder levels with bilinear resizing and a final
+        sigmoid produces Phi in [0, 1]. Ceil-mode pooling preserves very small
+        and odd-sized maps. Convolution and normalization parameters use
+        PyTorch defaults; pretrained VGG16 weights are not assumed or downloaded.
         """
 
         def __init__(self, input_channels: int = 2) -> None:

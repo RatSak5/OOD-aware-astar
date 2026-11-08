@@ -261,12 +261,40 @@ def train_models(
         raise FileExistsError(
             f"Pilot already completed in {root}; choose a new run directory to preserve it."
         )
+    neural_config = NeuralAStarTrainingConfig(
+        epochs=10,
+        batch_size=1,
+        learning_rate=0.001,
+        seed=BASE_SEED + 200,
+        device=actual_device,
+    )
     ready_path = _model_ready_path(root)
     summary_path = models_root / "training_summary.json"
     if ready_path.is_file():
         ready = json.loads(ready_path.read_text(encoding="utf-8"))
         if ready.get("training_complete") and summary_path.is_file():
-            return json.loads(summary_path.read_text(encoding="utf-8"))
+            summary = json.loads(summary_path.read_text(encoding="utf-8"))
+            neural_summary = summary.get("models", {}).get("NeuralAStar", {})
+            saved_configuration = neural_summary.get("configuration")
+            expected_configuration = asdict(neural_config)
+            if saved_configuration != expected_configuration:
+                raise ValueError(
+                    "Completed Neural A* results were produced with a different or unknown "
+                    "training configuration. Select a fresh run directory; do not reuse a "
+                    "collapsed or legacy checkpoint."
+                )
+            config_path = models_root / "neural_astar" / "training_config.json"
+            if not config_path.is_file():
+                raise ValueError(
+                    "Completed Neural A* results have no training_config.json; use a fresh run directory."
+                )
+            config_payload = json.loads(config_path.read_text(encoding="utf-8"))
+            if any(config_payload.get(key) != value for key, value in expected_configuration.items()):
+                raise ValueError(
+                    "Completed Neural A* training_config.json does not match this pipeline; "
+                    "use a fresh run directory."
+                )
+            return summary
     seed_runtime(BASE_SEED)
     models_root.mkdir(parents=True, exist_ok=True)
     config_root.mkdir(parents=True, exist_ok=True)
@@ -281,12 +309,6 @@ def train_models(
     model_summaries: dict[str, Any] = {}
     training_started = perf_counter()
     neural_directory = models_root / "neural_astar"
-    neural_config = NeuralAStarTrainingConfig(
-        epochs=10,
-        batch_size=1,
-        seed=BASE_SEED + 200,
-        device=actual_device,
-    )
     _, neural_history = train_neural_astar(
         train_samples,
         validation_samples,
@@ -304,6 +326,9 @@ def train_models(
         "best_checkpoint": str(neural_directory / "best_checkpoint.pt"),
         "last_checkpoint": str(neural_directory / "last_checkpoint.pt"),
         "configuration": asdict(neural_config),
+        "training_configuration": json.loads(
+            (neural_directory / "training_config.json").read_text(encoding="utf-8")
+        ),
     }
 
     ood_directory = models_root / "ood_feature_extractor"
