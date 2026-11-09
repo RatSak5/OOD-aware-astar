@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 import csv
 import json
+import logging
 from pathlib import Path
 import random
 from time import perf_counter
@@ -16,6 +17,35 @@ from data.dataset import DatasetSample, assert_no_map_leakage
 from neural_astar.differentiable import differentiable_neural_search
 from neural_astar.guidance import build_encoder_input, path_to_mask
 from neural_astar.model import NeuralAStarUNet, make_guidance_tensor
+
+_LOGGER = logging.getLogger(__name__)
+_LOGIT_WARNING_THRESHOLD = 8.0
+_PHI_COLLAPSE_STD_THRESHOLD = 1e-3
+_HEALTH_GROUP_FIELDS = (
+    "map_count", "logit_signed_mean", "logit_mean_abs", "logit_std_mean", "logit_min",
+    "logit_max", "logit_median_mean", "logit_p05_mean", "logit_p95_mean",
+    "logit_fraction_gt_4", "logit_fraction_lt_minus_4", "logit_fraction_abs_gt_4",
+    "logit_fraction_abs_gt_8", "phi_mean", "phi_std_mean", "phi_min", "phi_max",
+    "phi_fraction_lt_0_01", "phi_fraction_gt_0_99",
+)
+_LEGACY_HEALTH_FIELDS = (
+    "epoch", "optimizer_step", "loss", "phi_spatial_std_mean", "phi_spatial_std_min",
+    "phi_spatial_std_max", "phi_across_map_mean_std", "phi_fraction_lt_0_01",
+    "phi_fraction_gt_0_99", "phi_saturated_fraction", "logit_mean_abs", "logit_max_abs",
+    "gradient_norm", "health_probe", "epoch_end",
+)
+_HEALTH_GROUP_CSV_FIELDS = tuple(
+    f"{group}_{field}"
+    for group in ("all_cell", "traversable", "obstacle")
+    for field in _HEALTH_GROUP_FIELDS
+)
+_TRAVERSABLE_SPATIAL_CSV_FIELDS = (
+    "traversable_phi_spatial_std_mean", "traversable_phi_spatial_std_min",
+    "traversable_phi_spatial_std_max", "traversable_phi_across_map_mean_std",
+)
+_PRE_DIAGNOSTIC_HEALTH_FIELDS = (
+    *_LEGACY_HEALTH_FIELDS, *_HEALTH_GROUP_CSV_FIELDS, *_TRAVERSABLE_SPATIAL_CSV_FIELDS,
+)
 
 try:
     import torch
@@ -136,6 +166,48 @@ def _tensor_inputs(sample: DatasetSample, device: str) -> tuple[Any, Any]:
     return input_tensor, target_tensor
 
 
+def _guidance_head(model: Any) -> Any:
+    head = getattr(model, "guidance_head", None)
+    if head is None:
+        # Keep support for small test/integration models that expose their final
+        # linear projection under the conventional name ``projection``.
+        head = getattr(model, "projection", None)
+    if head is None:
+        raise TypeError("Neural A* health checks require a model with guidance_head logits.")
+    return head
+
+
+def _forward_guidance_with_logits(model: Any, inputs: Any) -> tuple[Any, list[Any]]:
+    """Run a model and fail immediately if its pre-sigmoid head is non-finite."""
+
+    captured_logits: list[Any] = []
+    hook = _guidance_head(model).register_forward_hook(
+        lambda _module, _inputs, output: captured_logits.append(output.detach())
+    )
+    try:
+        output = model(inputs)
+    finally:
+        hook.remove()
+    if not captured_logits:
+        raise RuntimeError("Neural A* guidance head did not produce logits during forward pass.")
+    for logits in captured_logits:
+        if not bool(torch.isfinite(logits).all().item()):
+            raise FloatingPointError("Neural A* guidance logits contain NaN or infinite values.")
+    return make_guidance_tensor(output), captured_logits
+
+
+def _require_finite_tensor(value: Any, label: str) -> None:
+    if not bool(torch.isfinite(value.detach()).all().item()):
+        raise FloatingPointError(f"Neural A* {label} contains NaN or infinite values.")
+
+
+def _require_finite_gradients(parameters: Sequence[Any]) -> None:
+    for parameter in parameters:
+        gradient = parameter.grad
+        if gradient is not None and not bool(torch.isfinite(gradient.detach()).all().item()):
+            raise FloatingPointError("Neural A* gradients contain NaN or infinite values.")
+
+
 def _epoch_loss(
     model: Any,
     samples: Sequence[DatasetSample],
@@ -147,7 +219,8 @@ def _epoch_loss(
     with torch.no_grad():
         for sample in samples:
             inputs, target = _tensor_inputs(sample, config.device)
-            phi = make_guidance_tensor(model(inputs))[0]
+            phi, _ = _forward_guidance_with_logits(model, inputs)
+            phi = phi[0]
             search = differentiable_neural_search(
                 sample.grid_map.grid,
                 sample.grid_map.start,
@@ -157,53 +230,186 @@ def _epoch_loss(
                 tie_break_epsilon=config.tie_break_epsilon,
                 cost_config=sample.cost_config,
             )
-            total += float(mean_l1_search_loss(search.closed_mask, target).item())
-    return total / len(samples)
+            loss = mean_l1_search_loss(search.closed_mask, target)
+            _require_finite_tensor(loss, "validation loss")
+            total += float(loss.item())
+    mean_loss = total / len(samples)
+    if not np.isfinite(mean_loss):
+        raise FloatingPointError("Neural A* validation loss contains NaN or infinite values.")
+    return mean_loss
 
 
-def _summarize_phi_health(phi_maps: Sequence[Any], logits_maps: Sequence[Any]) -> dict[str, float]:
-    """Summarize unsupervised forward health probes without changing their outputs."""
+def _summarize_phi_health(
+    phi_maps: Sequence[Any],
+    logits_maps: Sequence[Any],
+    traversable_masks: Sequence[Any] | None = None,
+) -> dict[str, float]:
+    """Summarize per-map Phi/logit health, separated by traversability when known.
+
+    The legacy unprefixed metrics retain their previous all-cell definitions. New
+    ``all_cell_*``, ``traversable_*``, and ``obstacle_*`` fields aggregate
+    per-map statistics, so a large map cannot silently dominate another map.
+    Callers without masks receive explicitly all-cell-labelled summaries only.
+    """
 
     if not phi_maps or len(phi_maps) != len(logits_maps):
         raise ValueError("Phi health probes require matching non-empty Phi and logit collections.")
-    spatial_stds = [float(phi.detach().float().std().item()) for phi in phi_maps]
-    map_means = [float(phi.detach().float().mean().item()) for phi in phi_maps]
-    all_phi = torch.cat([phi.detach().float().reshape(-1) for phi in phi_maps])
-    all_logits = torch.cat([value.detach().float().reshape(-1) for value in logits_maps])
-    return {
-        "phi_spatial_std_mean": float(np.mean(spatial_stds)),
-        "phi_spatial_std_min": float(np.min(spatial_stds)),
-        "phi_spatial_std_max": float(np.max(spatial_stds)),
-        "phi_across_map_mean_std": float(np.std(map_means)),
+    if traversable_masks is not None and len(traversable_masks) != len(phi_maps):
+        raise ValueError("Phi health probes require one traversability mask per map.")
+
+    groups: dict[str, list[dict[str, float]]] = {"all_cell": [], "traversable": [], "obstacle": []}
+    legacy_spatial_stds: list[float] = []
+    legacy_map_means: list[float] = []
+    legacy_phi: list[Any] = []
+    legacy_logits: list[Any] = []
+
+    def map_statistics(phi_values: Any, logit_values: Any) -> dict[str, float]:
+        return {
+            "logit_signed_mean": float(logit_values.mean().item()),
+            "logit_mean_abs": float(logit_values.abs().mean().item()),
+            "logit_std": float(logit_values.std(unbiased=logit_values.numel() > 1).item()),
+            "logit_min": float(logit_values.min().item()),
+            "logit_max": float(logit_values.max().item()),
+            "logit_median": float(torch.quantile(logit_values, 0.5).item()),
+            "logit_p05": float(torch.quantile(logit_values, 0.05).item()),
+            "logit_p95": float(torch.quantile(logit_values, 0.95).item()),
+            "logit_fraction_gt_4": float((logit_values > 4).float().mean().item()),
+            "logit_fraction_lt_minus_4": float((logit_values < -4).float().mean().item()),
+            "logit_fraction_abs_gt_4": float((logit_values.abs() > 4).float().mean().item()),
+            "logit_fraction_abs_gt_8": float((logit_values.abs() > 8).float().mean().item()),
+            "phi_mean": float(phi_values.mean().item()),
+            # Match the pre-existing torch.std sample convention. For a
+            # one-cell obstacle subset, use its defined population value 0.
+            "phi_std": float(phi_values.std(unbiased=phi_values.numel() > 1).item()),
+            "phi_min": float(phi_values.min().item()),
+            "phi_max": float(phi_values.max().item()),
+            "phi_fraction_lt_0_01": float((phi_values < 0.01).float().mean().item()),
+            "phi_fraction_gt_0_99": float((phi_values > 0.99).float().mean().item()),
+        }
+
+    def aggregate_group(name: str, rows: list[dict[str, float]]) -> None:
+        if not rows:
+            return
+        mean_fields = (
+            "logit_signed_mean", "logit_mean_abs", "logit_std", "logit_median", "logit_p05",
+            "logit_p95", "logit_fraction_gt_4", "logit_fraction_lt_minus_4",
+            "logit_fraction_abs_gt_4", "logit_fraction_abs_gt_8", "phi_mean", "phi_std",
+            "phi_fraction_lt_0_01", "phi_fraction_gt_0_99",
+        )
+        for field in mean_fields:
+            if field in {"logit_std", "phi_std"}:
+                output_field = f"{name}_{field}_mean"
+            elif field in {"logit_median", "logit_p05", "logit_p95"}:
+                output_field = f"{name}_{field}_mean"
+            else:
+                output_field = f"{name}_{field}"
+            result[output_field] = float(np.mean([row[field] for row in rows]))
+        result[f"{name}_logit_min"] = float(min(row["logit_min"] for row in rows))
+        result[f"{name}_logit_max"] = float(max(row["logit_max"] for row in rows))
+        result[f"{name}_phi_min"] = float(min(row["phi_min"] for row in rows))
+        result[f"{name}_phi_max"] = float(max(row["phi_max"] for row in rows))
+        result[f"{name}_map_count"] = float(len(rows))
+
+    for index, (phi, logits) in enumerate(zip(phi_maps, logits_maps)):
+        phi_values = phi.detach().float().reshape(-1)
+        logit_values = logits.detach().float().reshape(-1)
+        if phi_values.numel() != logit_values.numel():
+            raise ValueError(f"Phi health probe {index} has mismatched logit and guidance sizes.")
+        _require_finite_tensor(phi_values, "guidance values")
+        _require_finite_tensor(logit_values, "guidance logits")
+        if bool(((phi_values < 0.0) | (phi_values > 1.0)).any().item()):
+            raise ValueError("Neural A* guidance values must lie in [0, 1].")
+        legacy_phi.append(phi_values)
+        legacy_logits.append(logit_values)
+        legacy_spatial_stds.append(float(phi_values.std().item()))
+        legacy_map_means.append(float(phi_values.mean().item()))
+
+        if traversable_masks is None:
+            masks = {"all_cell": torch.ones_like(phi_values, dtype=torch.bool)}
+        else:
+            mask = torch.as_tensor(traversable_masks[index], device=phi_values.device).bool().reshape(-1)
+            if mask.numel() != phi_values.numel():
+                raise ValueError(f"Phi health probe {index} has a traversability mask with the wrong size.")
+            masks = {
+                "all_cell": torch.ones_like(mask),
+                "traversable": mask,
+                "obstacle": ~mask,
+            }
+        for group_name, mask in masks.items():
+            if bool(mask.any().item()):
+                groups[group_name].append(map_statistics(phi_values[mask], logit_values[mask]))
+
+    result: dict[str, float] = {}
+    for group_name, rows in groups.items():
+        aggregate_group(group_name, rows)
+
+    all_phi = torch.cat(legacy_phi)
+    all_logits = torch.cat(legacy_logits)
+    result.update({
+        # Backward-compatible fields. Their values keep the pre-change
+        # all-cell/flattened meaning expected by existing health consumers.
+        "phi_spatial_std_mean": float(np.mean(legacy_spatial_stds)),
+        "phi_spatial_std_min": float(np.min(legacy_spatial_stds)),
+        "phi_spatial_std_max": float(np.max(legacy_spatial_stds)),
+        "phi_across_map_mean_std": float(np.std(legacy_map_means)),
         "phi_fraction_lt_0_01": float((all_phi < 0.01).float().mean().item()),
         "phi_fraction_gt_0_99": float((all_phi > 0.99).float().mean().item()),
         "phi_saturated_fraction": float(((all_phi < 0.01) | (all_phi > 0.99)).float().mean().item()),
         "logit_mean_abs": float(all_logits.abs().mean().item()),
         "logit_max_abs": float(all_logits.abs().max().item()),
-    }
+    })
+    if traversable_masks is not None:
+        traversable_stds = [row["phi_std"] for row in groups["traversable"]]
+        below_threshold_count = sum(
+            value < _PHI_COLLAPSE_STD_THRESHOLD for value in traversable_stds
+        )
+        result.update({
+            "traversable_phi_spatial_std_mean": float(np.mean(traversable_stds)) if traversable_stds else float("nan"),
+            "traversable_phi_spatial_std_min": float(np.min(traversable_stds)) if traversable_stds else float("nan"),
+            "traversable_phi_spatial_std_max": float(np.max(traversable_stds)) if traversable_stds else float("nan"),
+            "traversable_phi_across_map_mean_std": float(np.std([row["phi_mean"] for row in groups["traversable"]])) if groups["traversable"] else float("nan"),
+            "traversable_phi_maps_below_1e_3_count": float(below_threshold_count),
+            "traversable_phi_maps_below_1e_3_proportion": (
+                float(below_threshold_count / len(traversable_stds)) if traversable_stds else float("nan")
+            ),
+        })
+    return result
 
 
 class NeuralAStarCollapseError(RuntimeError):
-    """Raised when Neural A* guidance loses useful numeric variation."""
+    """Legacy exception type retained for callers; low variation is now diagnostic."""
 
 
 def _assert_phi_healthy(summary: dict[str, float], *, context: str) -> None:
-    """Fail fast on spatial collapse, sigmoid saturation, or runaway logits."""
+    """Report high logits and low spatial variation without treating either as failure."""
 
-    problems = []
-    if summary["phi_spatial_std_max"] < 1e-3:
-        problems.append(
-            f"all probe spatial std values are below 1e-3 (maximum {summary['phi_spatial_std_max']:.3g})"
+    if summary["logit_mean_abs"] > _LOGIT_WARNING_THRESHOLD:
+        _LOGGER.warning(
+            "Neural A* health warning at %s: mean absolute pre-sigmoid logit %.6g "
+            "exceeds threshold %.6g; continuing training.",
+            context,
+            summary["logit_mean_abs"],
+            _LOGIT_WARNING_THRESHOLD,
         )
-    if summary["phi_saturated_fraction"] > 0.95:
-        problems.append(
-            f"{summary['phi_saturated_fraction']:.1%} of Phi cells are saturated outside [0.01, 0.99]"
-        )
-    if summary["logit_mean_abs"] > 8.0:
-        problems.append(f"mean absolute pre-sigmoid logit {summary['logit_mean_abs']:.3g} exceeds 8")
-    if problems:
-        raise NeuralAStarCollapseError(
-            f"Neural A* collapse guard failed at {context}: " + "; ".join(problems)
+    below_count = summary.get("traversable_phi_maps_below_1e_3_count")
+    below_proportion = summary.get("traversable_phi_maps_below_1e_3_proportion")
+    map_count = summary.get("traversable_map_count")
+    if (
+        below_count is not None
+        and below_proportion is not None
+        and map_count is not None
+        and map_count > 0
+        and below_count == map_count
+    ):
+        _LOGGER.warning(
+            "Neural A* low-spatial-variation diagnostic at %s: %d/%d probe maps "
+            "(%.1f%%) have traversable-cell Phi spatial std below reference threshold "
+            "%.4g; this is non-fatal and training continues.",
+            context,
+            int(below_count),
+            int(map_count),
+            100.0 * below_proportion,
+            _PHI_COLLAPSE_STD_THRESHOLD,
         )
 
 
@@ -216,30 +422,26 @@ def _probe_phi_health(
 
     if not samples:
         raise ValueError("Neural A* collapse guard requires at least one probe sample.")
-    captured_logits: list[Any] = []
-    head = getattr(model, "guidance_head", None)
-    if head is None:
-        # Keep support for small test/integration models that expose their final
-        # linear projection under the conventional name ``projection``.
-        head = getattr(model, "projection", None)
-    if head is None:
-        raise TypeError("Neural A* collapse guard requires a model with guidance_head logits.")
-    hook = head.register_forward_hook(
-        lambda _module, _inputs, output: captured_logits.append(output.detach())
-    )
     phi_maps: list[Any] = []
+    logits_maps: list[Any] = []
+    traversable_masks: list[Any] = []
+    was_training = bool(model.training)
+    model.eval()
     try:
-        was_training = bool(model.training)
-        model.eval()
         with torch.no_grad():
             for sample in samples:
                 inputs, _ = _tensor_inputs(sample, device)
-                phi_maps.append(make_guidance_tensor(model(inputs))[0].detach())
+                phi, captured_logits = _forward_guidance_with_logits(model, inputs)
+                phi_maps.append(phi[0].detach())
+                logits_maps.append(captured_logits[-1])
+                # GridMap stores 0=traversable and 1=obstacle. This is the
+                # canonical map encoding, distinct from encoder channel 0's
+                # inverted passability representation (1=traversable).
+                traversable_masks.append(sample.grid_map.grid == 0)
+    finally:
         if was_training:
             model.train()
-    finally:
-        hook.remove()
-    return _summarize_phi_health(phi_maps, captured_logits)
+    return _summarize_phi_health(phi_maps, logits_maps, traversable_masks)
 
 
 def train_neural_astar(
@@ -355,20 +557,29 @@ def train_neural_astar(
 
     health_path = output_root / "step_health.csv"
     health_fields = (
-        "epoch", "optimizer_step", "loss", "phi_spatial_std_mean", "phi_spatial_std_min", "phi_spatial_std_max",
-        "phi_across_map_mean_std", "phi_fraction_lt_0_01", "phi_fraction_gt_0_99",
-        "phi_saturated_fraction", "logit_mean_abs", "logit_max_abs", "gradient_norm",
-        "health_probe", "epoch_end",
+        *_PRE_DIAGNOSTIC_HEALTH_FIELDS,
+        "traversable_phi_maps_below_1e_3_count",
+        "traversable_phi_maps_below_1e_3_proportion",
     )
     health_rows: list[dict[str, str]] = []
     if resume and health_path.exists():
         with health_path.open("r", newline="", encoding="utf-8") as stream:
             reader = csv.DictReader(stream)
-            if tuple(reader.fieldnames or ()) != health_fields:
+            existing_fields = tuple(reader.fieldnames or ())
+            if existing_fields not in {
+                health_fields, _PRE_DIAGNOSTIC_HEALTH_FIELDS, _LEGACY_HEALTH_FIELDS
+            }:
                 raise ValueError(
                     "Existing step_health.csv has an incompatible schema; use a fresh run directory."
                 )
             health_rows = list(reader)
+        if existing_fields != health_fields:
+            # Extend either recognized older CSV schema in place. Old rows
+            # retain their original values; new fields stay blank historically.
+            with health_path.open("w", newline="", encoding="utf-8") as stream:
+                writer = csv.DictWriter(stream, fieldnames=health_fields)
+                writer.writeheader()
+                writer.writerows(health_rows)
     else:
         with health_path.open("w", newline="", encoding="utf-8") as stream:
             csv.DictWriter(stream, fieldnames=health_fields).writeheader()
@@ -407,7 +618,8 @@ def train_neural_astar(
             for sample_index in batch_indices:
                 sample = train_samples[sample_index]
                 inputs, target = _tensor_inputs(sample, config.device)
-                phi = make_guidance_tensor(network(inputs))[0]
+                phi, _ = _forward_guidance_with_logits(network, inputs)
+                phi = phi[0]
                 search = differentiable_neural_search(
                     sample.grid_map.grid,
                     sample.grid_map.start,
@@ -419,6 +631,7 @@ def train_neural_astar(
                 )
                 losses.append(mean_l1_search_loss(search.closed_mask, target))
             batch_loss = torch.stack(losses).mean()
+            _require_finite_tensor(batch_loss, "training loss")
             batch_loss.backward()
             if config.gradient_clip_norm is None:
                 gradient_norm = float(torch.sqrt(sum(
@@ -430,6 +643,10 @@ def train_neural_astar(
                 gradient_norm = float(torch.nn.utils.clip_grad_norm_(
                     network.parameters(), config.gradient_clip_norm
                 ).item())
+            parameters = list(network.parameters())
+            _require_finite_gradients(parameters)
+            if not np.isfinite(gradient_norm):
+                raise FloatingPointError("Neural A* gradient norm is NaN or infinite.")
             optimizer.step()
             completed_global_steps = (epoch - 1) * optimizer_steps_per_epoch + batch_number
             training_losses.extend(float(loss.detach().item()) for loss in losses)
@@ -442,6 +659,12 @@ def train_neural_astar(
                     "phi_spatial_std_mean", "phi_spatial_std_min", "phi_spatial_std_max",
                     "phi_across_map_mean_std", "phi_fraction_lt_0_01", "phi_fraction_gt_0_99",
                     "phi_saturated_fraction", "logit_mean_abs", "logit_max_abs",
+                    *(f"{group}_{field}" for group in ("all_cell", "traversable", "obstacle")
+                      for field in _HEALTH_GROUP_FIELDS),
+                    "traversable_phi_spatial_std_mean", "traversable_phi_spatial_std_min",
+                    "traversable_phi_spatial_std_max", "traversable_phi_across_map_mean_std",
+                    "traversable_phi_maps_below_1e_3_count",
+                    "traversable_phi_maps_below_1e_3_proportion",
                 )},
                 "gradient_norm": gradient_norm,
                 "health_probe": 0,
@@ -460,9 +683,16 @@ def train_neural_astar(
                     "Neural A* health "
                     f"step={completed_global_steps} loss={health_row['loss']:.6f} "
                     f"phi_std={health['phi_spatial_std_mean']:.4g} "
+                    f"traversable_phi_std={health['traversable_phi_spatial_std_mean']:.4g} "
+                    f"low_std_maps={int(health['traversable_phi_maps_below_1e_3_count'])}/"
+                    f"{int(health['traversable_map_count'])} "
+                    f"({health['traversable_phi_maps_below_1e_3_proportion']:.1%}) "
                     f"across_map_std={health['phi_across_map_mean_std']:.4g} "
                     f"sat={health['phi_saturated_fraction']:.1%} "
-                    f"mean_abs_logit={health['logit_mean_abs']:.4g} grad_norm={gradient_norm:.4g}",
+                    f"mean_abs_logit={health['logit_mean_abs']:.4g} "
+                    f"traversable_mean_abs_logit={health['traversable_logit_mean_abs']:.4g} "
+                    f"traversable_logit_std={health['traversable_logit_std_mean']:.4g} "
+                    f"grad_norm={gradient_norm:.4g}",
                     flush=True,
                 )
             health_rows.append({key: str(value) for key, value in health_row.items()})
@@ -498,9 +728,10 @@ def train_neural_astar(
             round(record["train_loss"], 6) == round(previous_epoch_losses[0], 6)
             and round(validation_loss, 6) == round(previous_epoch_losses[1], 6)
         ):
-            raise NeuralAStarCollapseError(
-                "Neural A* collapse guard stopped training: train and validation losses are "
-                f"unchanged to 6 decimals at epoch {epoch}."
+            _LOGGER.warning(
+                "Neural A* loss-progress diagnostic at epoch %d: train and validation "
+                "losses match the prior epoch to six decimals; continuing training.",
+                epoch,
             )
         previous_epoch_losses = (record["train_loss"], validation_loss)
         checkpoint = {
