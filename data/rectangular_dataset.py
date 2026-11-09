@@ -42,12 +42,12 @@ DENSITY_INTERVALS_PERCENT: dict[str, tuple[int, int]] = {
 }
 
 SPLIT_COUNTS: dict[str, dict[str, int]] = {
-    "training": {"D1": 300, "D2": 300, "D3": 300},
-    "validation_calibration": {"D1": 60, "D2": 60, "D3": 60},
-    "id_pilot": {"D1": 20, "D2": 20, "D3": 20},
-    "id_holdout": {"D1": 60, "D2": 60, "D3": 60},
-    "ood_pilot": {"D4": 20, "D5": 20, "D6": 20},
-    "ood_test_sealed": {"D4": 60, "D5": 60, "D6": 60},
+    "training": {"D1": 1000, "D2": 1000, "D3": 1000},
+    "validation_calibration": {"D1": 200, "D2": 200, "D3": 200},
+    "id_pilot": {"D1": 67, "D2": 67, "D3": 66},
+    "id_holdout": {"D1": 200, "D2": 200, "D3": 200},
+    "ood_pilot": {"D4": 67, "D5": 67, "D6": 66},
+    "ood_test_sealed": {"D4": 200, "D5": 200, "D6": 200},
 }
 
 

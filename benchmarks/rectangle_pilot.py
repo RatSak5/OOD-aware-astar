@@ -669,8 +669,8 @@ def run_pilot(
             expected_checkpoint_hash=str(ready["model_checkpoint_sha256"]["NeuralAStar"]),
             d95=float(ready["d95"]),
         )
-    if len(split_samples["id_pilot"]) != 60 or len(split_samples["ood_pilot"]) != 60:
-        raise ValueError("The ID and OOD pilot must each contain exactly 60 maps.")
+    if len(split_samples["id_pilot"]) != 200 or len(split_samples["ood_pilot"]) != 200:
+        raise ValueError("The ID and OOD pilot must each contain exactly 200 maps.")
     detector = load_detector(root / "detectors" / "mahalanobis_detector.npz")
     d95 = float(detector.d95)
     if not math.isfinite(d95) or d95 <= 0 or d95 != float(ready["d95"]):
@@ -877,7 +877,7 @@ def run_pilot(
         "run_id": RUN_ID,
         "run_variant": root.name,
         "pilot_complete": True,
-        "pilot_map_counts": {"id_pilot": 60, "ood_pilot": 60},
+        "pilot_map_counts": {"id_pilot": 200, "ood_pilot": 200},
         "sampling_seeds": list(SAMPLING_SEEDS),
         "mandatory_algorithms": [
             "Dijkstra", "A* / Chebyshev", "A* / Euclidean",

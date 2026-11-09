@@ -69,17 +69,17 @@ Do not rewrite or mathematically change Phase A2.
 
 ## 4. Dataset — generated and validated
 
-The complete intended dataset has 1,560 maps, all 64×64:
+The current planned dataset has 5,200 maps, all 64×64. Training has 1,000 maps per ID distribution; the other split counts were proportionally scaled from the earlier 900-map training plan:
 
 | Split | D1 | D2 | D3 | D4 | D5 | D6 | Total |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Training | 300 | 300 | 300 | 0 | 0 | 0 | 900 |
-| Validation/calibration | 60 | 60 | 60 | 0 | 0 | 0 | 180 |
-| ID pilot | 20 | 20 | 20 | 0 | 0 | 0 | 60 |
-| ID holdout | 60 | 60 | 60 | 0 | 0 | 0 | 180 |
-| OOD pilot | 0 | 0 | 0 | 20 | 20 | 20 | 60 |
-| Sealed OOD test | 0 | 0 | 0 | 60 | 60 | 60 | 180 |
-| **Total** | **440** | **440** | **440** | **80** | **80** | **80** | **1560** |
+| Training | 1000 | 1000 | 1000 | 0 | 0 | 0 | 3000 |
+| Validation/calibration | 200 | 200 | 200 | 0 | 0 | 0 | 600 |
+| ID pilot | 67 | 67 | 66 | 0 | 0 | 0 | 200 |
+| ID holdout | 200 | 200 | 200 | 0 | 0 | 0 | 600 |
+| OOD pilot | 0 | 0 | 0 | 67 | 67 | 66 | 200 |
+| Sealed OOD test | 0 | 0 | 0 | 200 | 200 | 200 | 600 |
+| **Total** | **1467** | **1467** | **1466** | **267** | **267** | **266** | **5200** |
 
 Density ranges:
 
@@ -94,13 +94,13 @@ Rectangles have independently sampled integer width and height from 2 to 14 cell
 
 Movement and labels use eight-connected movement, no diagonal corner-cutting, unit transition cost including diagonals, float64 Dijkstra distances and explicit reachability masks.
 
-The following three archives independently passed validation:
+The checked-in `data/64x64_rectangles_v1` archives are the previous 1,560-map generated snapshot (including 900 training maps). The Kaggle notebook regenerates the new 5,200-map configuration before loading data. The following three old-snapshot archives passed validation:
 
 - `data/64x64_rectangles_v1/training.npz`: 900 maps (300 per D1/D2/D3).
 - `data/64x64_rectangles_v1/validation_calibration.npz`: 180 maps (60 per D1/D2/D3).
 - `data/64x64_rectangles_v1/id_pilot.npz`: 60 maps (20 per D1/D2/D3).
 
-Validated tensors have shape `(N, 3, 64, 64)` and channel order obstacle occupancy, start one-hot, goal one-hot. The report confirmed map dimensions, endpoints, density metadata, rectangle reconstruction/overlap metadata, paths, ground-truth distance maps and unique obstacle layouts across the 1,140 records.
+The old-snapshot validation confirmed tensors of shape `(N, 3, 64, 64)` and channel order obstacle occupancy, start one-hot, goal one-hot, along with map dimensions, endpoints, density metadata, rectangle reconstruction/overlap metadata, paths, ground-truth distance maps, and unique obstacle layouts across those 1,140 records.
 
 The ID-holdout and sealed OOD-test archives must not be accessed for the pilot or training. They are reserved for a later final benchmark requiring separate approval.
 
@@ -120,7 +120,7 @@ Reported SHA-256:
 
 `1bc52b8e783c7d498f6c8c08de30c46bddcbb9eb888342fa843042a273fbfbc5`
 
-It contains training, validation/calibration and ID-pilot data (1,140 records), filtered manifest, source package, notebook, configs and documentation. It excludes OOD pilot, ID holdout and sealed OOD test.
+This is the earlier 1,140-record bundle built from the old 900/180/60 training, validation and ID-pilot counts. It contains a filtered manifest, source package, notebook, configs and documentation; it excludes OOD pilot, ID holdout and sealed OOD test. Rebuild it with `experiments/prepare_kaggle_bundle.py` before any future upload to package the current 3,000/600/200 ID splits.
 
 Separate OOD-pilot ZIP:
 
@@ -214,7 +214,7 @@ Do not claim fewer expansions necessarily means lower runtime. Do not compare Ph
 
 Primary training:
 
-- Neural A*: up to 10 epochs on the 900 D1-D3 training maps.
+- Neural A*: up to 20 epochs on the 3,000 D1-D3 training maps, batch size 1 and RMSprop learning rate `1e-4`.
 - Independent OOD feature extractor: up to 40 epochs on D1-D3 training maps.
 - H1/H2/H3: optional; do not train by default for this run.
 
@@ -251,7 +251,7 @@ Save a completed Kaggle notebook version with outputs. Results must be downloada
 - Do not upload until account owner and Private visibility can be verified.
 - Do not put credentials in prompts or handoff files; user signs in manually.
 - If Kaggle browser automation is unsupported, stop and give manual steps rather than repeatedly retrying.
-- Do not launch the final 360-map benchmark (180 ID holdout + 180 sealed OOD test) without separate explicit approval.
+- Do not launch the final 1,200-map benchmark (600 ID holdout + 600 sealed OOD test) without separate explicit approval.
 
 ## 14. Immediate instruction for the new Codex account
 
