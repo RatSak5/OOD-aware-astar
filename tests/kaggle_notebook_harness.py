@@ -62,7 +62,7 @@ def run():
             def tiny_generate(destination):
                 destination = Path(destination); destination.mkdir(parents=True, exist_ok=True)
                 for name, source in sources.items(): shutil.copyfile(source, destination / f"{name}.npz")
-                return {"map_count": 1560, "unique_layout_hashes": 1560}
+                return {"map_count": 5200, "unique_layout_hashes": 5200}
 
             def small_load(folder, split):
                 if split not in AUTHORIZED: raise AssertionError(f"blocked unauthorized split: {split}")
@@ -134,6 +134,12 @@ def run():
             for index, cell in enumerate(nb["cells"]):
                 if cell.get("cell_type") != "code": continue
                 source = "".join(cell.get("source", []))
+                # The checked-in notebook has explicit pilot approval enabled;
+                # exercise only its safe skip branch in this local harness.
+                source = source.replace(
+                    "OOD_PILOT_RELEASE_APPROVED = True",
+                    "OOD_PILOT_RELEASE_APPROVED = False",
+                )
                 if index == 2:
                     source = source.replace('GITHUB_REPO_URL = "https://github.com/RatSak5/OOD-aware-astar.git"',
                                             f"GITHUB_REPO_URL = {str(source_copy)!r}")
@@ -168,13 +174,13 @@ def run():
                 source = source.replace('training_report.get("device") == "cuda"',
                                         'training_report.get("device") == "cpu"')
                 if source.startswith("train_samples = load_samples"):
-                    source = source.replace("== (900, 180, 60)", "== (24, 8, 6)")
+                    source = source.replace("== (3000, 600, 200)", "== (24, 8, 6)")
                 if source.startswith("# Evaluation-only Phi health check"):
-                    source = source.replace("health_samples = val_samples[:60]", "health_samples = val_samples[:4]")
-                    source = source.replace("if len(health_samples) != 60:", "if len(health_samples) != 4:")
+                    source = source.replace("health_samples = val_samples[:200]", "health_samples = val_samples[:4]")
+                    source = source.replace("if len(health_samples) != 200:", "if len(health_samples) != 4:")
                     source = source.replace('_tensor_inputs(sample, "cuda")', '_tensor_inputs(sample, "cpu")')
                 if index == 41:
-                    if ns["INTEGRATION_CHECKS"]["maps_checked"] == 60:
+                    if ns["INTEGRATION_CHECKS"]["maps_checked"] == 200:
                         raise AssertionError("The tiny harness unexpectedly satisfied the full ID-map prerequisite.")
                 if index == 41:
                     captured = io.StringIO()

@@ -21,7 +21,7 @@ SOURCE_DIRS = (
     "heuristics", "models", "neural_astar", "ood", "seeastar", "training",
 )
 INITIAL_SPLITS = ("training", "validation_calibration", "id_pilot")
-INITIAL_COUNTS = {"training": 900, "validation_calibration": 180, "id_pilot": 60}
+INITIAL_COUNTS = {"training": 3000, "validation_calibration": 600, "id_pilot": 200}
 
 
 def _sha256(path: Path) -> str:
@@ -373,8 +373,8 @@ with zipfile.ZipFile(ood_bundles[0]) as bundle:
     bundle.extractall(release_root)
 manifest = json.loads((release_root / "dataset" / "manifest.json").read_text(encoding="utf-8"))
 records = manifest.get("maps", [])
-if len(records) != 60 or any(row.get("split") != "ood_pilot" for row in records):
-    raise ValueError("OOD manifest must contain exactly 60 OOD-pilot records.")
+if len(records) != 200 or any(row.get("split") != "ood_pilot" for row in records):
+    raise ValueError("OOD manifest must contain exactly 200 OOD-pilot records.")
 shutil.copyfile(release_root / "dataset" / "ood_pilot.npz", DATA_ROOT / "ood_pilot.npz")
 inference_caches = cache_pilot_inference(DATA_ROOT, RESULT_ROOT, device=DEVICE_REQUEST)
 print(json.dumps({"ood_pilot_release_gate_passed": True,
@@ -396,7 +396,7 @@ def _make_initial(root: Path, data_root: Path, notebook_path: Path) -> tuple[Pat
         data_root / "manifest.json", set(INITIAL_SPLITS),
         "training, validation_calibration, and ID pilot only",
     )
-    if counts != Counter(INITIAL_COUNTS) or len(manifest["maps"]) != 1140:
+    if counts != Counter(INITIAL_COUNTS) or len(manifest["maps"]) != 3800:
         raise ValueError(f"Initial manifest counts mismatch: {dict(counts)}")
     _write_json(data_out / "manifest.json", manifest)
     with zipfile.ZipFile(output / "project_code.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
@@ -410,7 +410,7 @@ def _make_initial(root: Path, data_root: Path, notebook_path: Path) -> tuple[Pat
     (output / "README_upload.md").write_text(
         f"""# Initial Kaggle training bundle — {RUN_ID}
 
-This bundle contains 1,140 manifest records: training (900), validation/calibration (180), and ID pilot (60). The filtered manifest includes only these splits and D1-D3.
+This bundle contains 3,800 manifest records: training (3,000), validation/calibration (600), and ID pilot (200). The filtered manifest includes only these splits and D1-D3.
 
 The notebook requires CUDA and checks forward/backward/optimizer execution only for Neural A* and the independent OOD encoder. H1/H2/H3 remain optional secondary baselines. Each notebook startup allocates a unique output directory beneath `results/{RUN_ID}/runs/`; outputs from distinct runs are isolated.
 
@@ -635,7 +635,7 @@ def _write_initial_bundle_manifest(
 
 No Kaggle upload or execution occurred.
 
-The rebuilt initial training bundle is `{bundle.name}`, {record['bytes']} bytes, SHA-256 `{record['sha256']}`. It contains 1,140 records: training (900), validation/calibration (180), and ID pilot (60). It excludes OOD pilot, ID holdout, and sealed OOD test data.
+The rebuilt initial training bundle is `{bundle.name}`, {record['bytes']} bytes, SHA-256 `{record['sha256']}`. It contains 3,800 records: training (3,000), validation/calibration (600), and ID pilot (200). It excludes OOD pilot, ID holdout, and sealed OOD test data.
 
 The packaged notebook and Python source inventory match the current local files. Opaque NPZ bytes were copied and hashed without parsing or loading arrays. See `initial_training_bundle_manifest.md` and `.json` for the full inventory and verification results.
 
@@ -653,13 +653,13 @@ def _make_ood(root: Path, data_root: Path) -> tuple[Path, dict, Counter[str]]:
     manifest, counts = _filter_manifest(
         data_root / "manifest.json", {"ood_pilot"}, "separate gated OOD pilot only"
     )
-    if counts != Counter({"ood_pilot": 60}) or len(manifest["maps"]) != 60:
+    if counts != Counter({"ood_pilot": 200}) or len(manifest["maps"]) != 200:
         raise ValueError(f"OOD-pilot manifest count mismatch: {dict(counts)}")
     _write_json(data_out / "manifest.json", manifest)
     (output / "README_ood_pilot.md").write_text(
         f"""# Separate OOD-pilot bundle — {RUN_ID}
 
-Contains the OOD-pilot archive and its 60 OOD-pilot-only manifest records. Its raw NPZ bytes were copied and SHA-256 hashed; the NPZ container and arrays were not inspected or parsed in this correction.
+Contains the OOD-pilot archive and its 200 OOD-pilot-only manifest records. Its raw NPZ bytes were copied and SHA-256 hashed; the NPZ container and arrays were not inspected or parsed in this correction.
 
 Its headers and array shapes were inspected prematurely in an earlier turn. No map evaluation, model training, detector fitting, or D95 calibration used the OOD pilot.
 
@@ -765,7 +765,7 @@ def _write_manifests(root: Path, initial: Path, initial_files: dict, initial_cou
 
 No Kaggle upload or execution occurred.
 
-Initial bundle: {initial.name}, {initial_record['bytes']} bytes, SHA-256 {initial_record['sha256']}; 1,140 records across training (900), validation/calibration (180), and ID pilot (60). It excludes OOD pilot and its per-map records, ID holdout, and sealed OOD test.
+Initial bundle: {initial.name}, {initial_record['bytes']} bytes, SHA-256 {initial_record['sha256']}; 3,800 records across training (3,000), validation/calibration (600), and ID pilot (200). It excludes OOD pilot and its per-map records, ID holdout, and sealed OOD test.
 
 Separate OOD pilot bundle: {ood.name}, {ood_record['bytes']} bytes, SHA-256 {ood_record['sha256']}. It remains local and unattached. Headers and array shapes were inspected prematurely earlier; no evaluation, training, detector fitting, or D95 calibration used it.
 
@@ -780,7 +780,7 @@ def _update_phase_report(root: Path) -> None:
     text = path.read_text(encoding="utf-8")
     text = text.replace(
         "The uploaded manifest is filtered to 1,200 records from only the four permitted training/calibration/pilot splits. The complete outer and nested file inventory, SHA-256 hashes, and credential/path scan results are in [complete_bundle_manifest.md](complete_bundle_manifest.md) and [complete_bundle_manifest.json](complete_bundle_manifest.json). Kaggle authentication is the only current access blocker. Upload and execution remain gated on your review and approval.",
-        "The initial bundle manifest contains 1,140 records from training, validation/calibration, and ID pilot only. OOD pilot is in a separate local bundle and is not uploaded or attached. The complete file inventory and SHA-256 hashes are in [complete_bundle_manifest.md](complete_bundle_manifest.md) and [complete_bundle_manifest.json](complete_bundle_manifest.json). The previous Windows browser attempt was blocked by URL policy enforcement; account and private visibility remain unverified. Upload and execution remain gated on review and approval.",
+        "The initial bundle manifest contains 3,800 records from training, validation/calibration, and ID pilot only. OOD pilot is in a separate local bundle and is not uploaded or attached. The complete file inventory and SHA-256 hashes are in [complete_bundle_manifest.md](complete_bundle_manifest.md) and [complete_bundle_manifest.json](complete_bundle_manifest.json). The previous Windows browser attempt was blocked by URL policy enforcement; account and private visibility remain unverified. Upload and execution remain gated on review and approval.",
     )
     text = text.replace(
         "**No pilot has run, so there are no ID/OOD performance metrics to report.**",

@@ -300,8 +300,8 @@ def train_models(
     config_root.mkdir(parents=True, exist_ok=True)
     train_samples = load_samples(data_directory, "training")
     validation_samples = load_samples(data_directory, "validation_calibration")
-    if len(train_samples) != 900 or len(validation_samples) != 180:
-        raise ValueError("Primary training requires exactly 900 training and 180 validation maps.")
+    if len(train_samples) != 3000 or len(validation_samples) != 600:
+        raise ValueError("Primary training requires exactly 3000 training and 600 validation maps.")
     if {sample.grid_map.distribution for sample in train_samples} != {"D1", "D2", "D3"}:
         raise ValueError("Model training may use only D1-D3.")
 
@@ -566,7 +566,7 @@ def run_integration_tests(
         if (
             existing.get("status") == "passed"
             and not existing.get("ood_pilot_loaded")
-            and existing.get("integration_case_count") == 240
+            and existing.get("integration_case_count") == 800
         ):
             return existing
     neural, extractor, detector = _load_finalized_models(root, actual_device)
