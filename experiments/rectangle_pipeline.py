@@ -262,7 +262,7 @@ def train_models(
             f"Pilot already completed in {root}; choose a new run directory to preserve it."
         )
     neural_config = NeuralAStarTrainingConfig(
-        epochs=10,
+        epochs=20,
         batch_size=1,
         learning_rate=0.0003,
         seed=BASE_SEED + 200,
