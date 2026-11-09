@@ -264,7 +264,7 @@ def train_models(
     neural_config = NeuralAStarTrainingConfig(
         epochs=20,
         batch_size=1,
-        learning_rate=0.0003,
+        learning_rate=0.0001,
         seed=BASE_SEED + 200,
         device=actual_device,
     )

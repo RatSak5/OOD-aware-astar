@@ -55,7 +55,7 @@ class PhaseBReadinessTests(unittest.TestCase):
             for keyword in config_call.keywords
             if keyword.arg in {"epochs", "batch_size", "learning_rate"}
         }
-        self.assertEqual(settings, {"epochs": 20, "batch_size": 1, "learning_rate": 0.0003})
+        self.assertEqual(settings, {"epochs": 20, "batch_size": 1, "learning_rate": 0.0001})
 
     def test_notebook_bootstrap_allocates_a_unique_run_root(self):
         source = _bootstrap_cell()
