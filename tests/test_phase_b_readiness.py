@@ -56,7 +56,7 @@ class PhaseBReadinessTests(unittest.TestCase):
             for keyword in config_call.keywords
             if keyword.arg in {"epochs", "batch_size", "learning_rate"}
         }
-        self.assertEqual(settings, {"epochs": 20, "batch_size": 1, "learning_rate": 0.0001})
+        self.assertEqual(settings, {"epochs": 20, "batch_size": 4, "learning_rate": 0.0001})
 
     def test_split_counts_scale_with_training_data(self):
         self.assertEqual(SPLIT_COUNTS["training"], {"D1": 1000, "D2": 1000, "D3": 1000})

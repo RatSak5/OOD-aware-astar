@@ -214,7 +214,7 @@ Do not claim fewer expansions necessarily means lower runtime. Do not compare Ph
 
 Primary training:
 
-- Neural A*: up to 20 epochs on the 3,000 D1-D3 training maps, batch size 1 and RMSprop learning rate `1e-4`.
+- Neural A*: up to 20 epochs on the 3,000 D1-D3 training maps, batch size 4 and RMSprop learning rate `1e-4` (batch-4 experiment branch).
 - Independent OOD feature extractor: up to 40 epochs on D1-D3 training maps.
 - H1/H2/H3: optional; do not train by default for this run.
 
