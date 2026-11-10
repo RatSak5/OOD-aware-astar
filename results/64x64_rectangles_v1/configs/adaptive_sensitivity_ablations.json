@@ -6,7 +6,7 @@
     "score": "1 - exp(-DM / D95)",
     "direction": "higher_ood_smaller_k",
     "k_min": 4,
-    "k_max": 16
+    "k_max": 300
   },
   "ablations": [
     {
@@ -24,19 +24,19 @@
       "k_max": 32
     },
     {
-      "name": "reverse_direction_4_16",
+      "name": "reverse_direction_4_300",
       "score": "1 - exp(-DM / D95)",
       "direction": "higher_ood_larger_k",
       "k_min": 4,
-      "k_max": 16,
+      "k_max": 300,
       "k_formula": "Kmin + floor(score * (Kmax - Kmin))"
     },
     {
-      "name": "clipped_score_4_16",
+      "name": "clipped_score_4_300",
       "score": "min(DM / D95, 1)",
       "direction": "higher_ood_smaller_k",
       "k_min": 4,
-      "k_max": 16,
+      "k_max": 300,
       "k_formula": "Kmax - floor(score * (Kmax - Kmin))",
       "source": "adaptive.ood_adaptive_seeastar.clipped_ood_score"
     }

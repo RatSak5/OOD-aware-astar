@@ -376,7 +376,12 @@ records = manifest.get("maps", [])
 if len(records) != 200 or any(row.get("split") != "ood_pilot" for row in records):
     raise ValueError("OOD manifest must contain exactly 200 OOD-pilot records.")
 shutil.copyfile(release_root / "dataset" / "ood_pilot.npz", DATA_ROOT / "ood_pilot.npz")
-inference_caches = cache_pilot_inference(DATA_ROOT, RESULT_ROOT, device=DEVICE_REQUEST)
+inference_caches = cache_pilot_inference(
+    DATA_ROOT,
+    RESULT_ROOT,
+    device=DEVICE_REQUEST,
+    ood_pilot_release_approved=OOD_PILOT_RELEASE_APPROVED,
+)
 print(json.dumps({"ood_pilot_release_gate_passed": True,
                   "ood_pilot_records": len(records),
                   "inference_caches": inference_caches}, indent=2))'''

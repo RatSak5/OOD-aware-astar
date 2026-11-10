@@ -29,9 +29,9 @@ class BenchmarkConfig:
     ood_test_count: int = 90
     base_seed: int = 20261106
     sampling_seeds: tuple[int, ...] = (11, 23, 47, 89, 131)
-    k_bounds: tuple[tuple[int, int], ...] = ((4, 8), (4, 16), (8, 32))
-    primary_k_bounds: tuple[int, int] = (4, 16)
-    primary_fixed_ks: tuple[int, ...] = (4, 5, 10, 16)
+    k_bounds: tuple[tuple[int, int], ...] = ((4, 8), (4, 300), (8, 32))
+    primary_k_bounds: tuple[int, int] = (4, 300)
+    primary_fixed_ks: tuple[int, ...] = (4, 5, 10, 300)
     original_seeastar_k: int = 16
     primary_heuristic: str = "H1"
     secondary_heuristics: tuple[str, ...] = ("H2", "H3")
@@ -138,7 +138,7 @@ class BenchmarkConfig:
             "ood_test": self.ood_test_count,
         }
         payload["smooth_adaptive_k_note"] = (
-            "Finite smooth scores stay below 1; for (4,16), adaptive K is 5..16. "
+            "Finite smooth scores stay below 1; for (4,300), adaptive K is 5..300. "
             "K=4 is retained as the nominal lower-bound reference."
         )
         payload["neural_guidance_search"] = {

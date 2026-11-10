@@ -170,13 +170,13 @@ def _task_methods() -> list[dict[str, Any]]:
     for seed in SAMPLING_SEEDS:
         tasks.append({
             "method": "neural_guidance_adaptive",
-            "method_name": "neural_guidance_adaptive_k4_16",
-            "algorithm": "Neural-guidance SeeA* / adaptive K=4..16",
+            "method_name": "neural_guidance_adaptive_k4_20",
+            "algorithm": "Neural-guidance SeeA* / adaptive K=4..20",
             "method_family": "neural_guidance_adaptive",
             "heuristic": "Chebyshev + 0.001 Euclidean; accumulated Phi g",
             "seed": seed,
             "k_min": 4,
-            "k_max": 16,
+            "k_max": 20,
         })
     return tasks
 
@@ -363,7 +363,7 @@ def _warmup_tasks() -> list[dict[str, Any]]:
         {**base, "method": "neural_astar", "phi": phi},
         {**base, "method": "neural_guidance_fixed", "phi": phi, "k": 4, "seed": 11},
         {**base, "method": "neural_guidance_adaptive", "phi": phi,
-         "mahalanobis_distance": 0.0, "d95": 1.0, "k_min": 4, "k_max": 16, "seed": 11},
+         "mahalanobis_distance": 0.0, "d95": 1.0, "k_min": 4, "k_max": 20, "seed": 11},
     ]
     return tasks
 
@@ -525,9 +525,9 @@ def _pilot_statistics(per_map: list[dict[str, Any]], *, seed: int) -> dict[str, 
     method_pairs = [
         ("astar_chebyshev", f"neural_guidance_fixed_k{k}") for k in PRIMARY_FIXED_K
     ] + [
-        ("astar_chebyshev", "neural_guidance_adaptive_k4_16")
+        ("astar_chebyshev", "neural_guidance_adaptive_k4_20")
     ] + [
-        (f"neural_guidance_fixed_k{k}", "neural_guidance_adaptive_k4_16")
+        (f"neural_guidance_fixed_k{k}", "neural_guidance_adaptive_k4_20")
         for k in PRIMARY_FIXED_K
     ]
     metric_fields = (
@@ -648,10 +648,21 @@ def run_pilot(
     ready = json.loads((root / "models" / "model_ready.json").read_text(encoding="utf-8"))
     integration = json.loads((root / "integration_tests" / "inference_to_search.json").read_text(encoding="utf-8"))
     cache_manifest = json.loads((root / "guidance_maps" / "pilot_inference_manifest.json").read_text(encoding="utf-8"))
+    guidance_checkpoint_sha256 = str(
+        cache_manifest.get("guidance_weights_sha256")
+        or ready["model_checkpoint_sha256"]["NeuralAStar"]
+    )
     if not (ready.get("training_complete") and ready.get("d95_calibrated")):
         raise PermissionError("The pilot requires finalized training and D95 calibration.")
     if integration.get("status") != "passed" or integration.get("ood_pilot_loaded"):
         raise PermissionError("The all-ID integration gate must pass before OOD-pilot loading.")
+    integration_guidance_hash = integration.get("guidance_weights_sha256")
+    default_checkpoint_hash = ready["model_checkpoint_sha256"]["NeuralAStar"]
+    if integration_guidance_hash != guidance_checkpoint_sha256 and not (
+        integration_guidance_hash is None
+        and guidance_checkpoint_sha256 == default_checkpoint_hash
+    ):
+        raise PermissionError("Integration and pilot caches use different guidance checkpoints.")
     if cache_manifest.get("cache_splits") != ["id_pilot", "ood_pilot"]:
         raise PermissionError("Pilot caches must be generated only after the OOD release gate.")
     if not cache_manifest.get("models_and_detector_finalized_before_ood_pilot"):
@@ -666,7 +677,7 @@ def run_pilot(
         caches[split] = _load_cache(
             root / "guidance_maps" / f"{split}_inference.npz",
             expected_ids,
-            expected_checkpoint_hash=str(ready["model_checkpoint_sha256"]["NeuralAStar"]),
+            expected_checkpoint_hash=guidance_checkpoint_sha256,
             d95=float(ready["d95"]),
         )
     if len(split_samples["id_pilot"]) != 200 or len(split_samples["ood_pilot"]) != 200:
@@ -879,11 +890,13 @@ def run_pilot(
         "pilot_complete": True,
         "pilot_map_counts": {"id_pilot": 200, "ood_pilot": 200},
         "sampling_seeds": list(SAMPLING_SEEDS),
+        "guidance_weights_file": cache_manifest.get("guidance_weights_file"),
+        "guidance_weights_sha256": guidance_checkpoint_sha256,
         "mandatory_algorithms": [
             "Dijkstra", "A* / Chebyshev", "A* / Euclidean",
             "Neural-guidance SeeA* / fixed K=4", "Neural-guidance SeeA* / fixed K=5",
             "Neural-guidance SeeA* / fixed K=10", "Neural-guidance SeeA* / fixed K=16",
-            "Neural-guidance SeeA* / adaptive K=4..16",
+            "Neural-guidance SeeA* / adaptive K=4..20",
         ],
         "optional_baselines": {
             "Original Neural A*": "included; actual implementation uses cached Neural A* Phi",

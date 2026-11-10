@@ -54,12 +54,12 @@ class BenchmarkConfigTests(unittest.TestCase):
         self.assertEqual((config.height, config.width), (32, 32))
         self.assertEqual(config.base_seed, 20261106)
         self.assertEqual(config.sampling_seeds, (11, 23, 47, 89, 131))
-        self.assertEqual(config.primary_fixed_ks, (4, 5, 10, 16))
+        self.assertEqual(config.primary_fixed_ks, (4, 5, 10, 300))
         guidance = config.to_dict()["neural_guidance_search"]
         self.assertEqual(guidance["fixed_method_identifier"], "neural_guidance_fixed")
         self.assertEqual(guidance["adaptive_method_identifier"], "neural_guidance_adaptive")
-        self.assertEqual(guidance["fixed_k_values"], [4, 5, 10, 16])
-        self.assertEqual(guidance["adaptive_k_bounds"], [4, 16])
+        self.assertEqual(guidance["fixed_k_values"], [4, 5, 10, 300])
+        self.assertEqual(guidance["adaptive_k_bounds"], [4, 300])
 
     def test_configuration_round_trips_without_manual_edits(self) -> None:
         config = BenchmarkConfig()
@@ -187,9 +187,9 @@ class BenchmarkStatisticsTests(unittest.TestCase):
         self.assertTrue(conventional_adaptive)
         self.assertTrue(all(arm["search_implementation"] == "uniform_fixed" for arm in conventional_adaptive))
         self.assertFalse(any("cluster" in arm["method"] or "uct" in arm["method"] for arm in conventional_adaptive))
-        primary_h1 = [arm for arm in arms if arm["heuristic"] == "H1" and arm["k_min"] == 4 and arm["k_max"] == 16]
+        primary_h1 = [arm for arm in arms if arm["heuristic"] == "H1" and arm["k_min"] == 4 and arm["k_max"] == 300]
         fixed_ks = {arm["configured_k"] for arm in primary_h1 if arm["method_family"] == "fixed_k_uniform"}
-        self.assertEqual(fixed_ks, {4, 5, 10, 16})
+        self.assertEqual(fixed_ks, {4, 5, 10, 300})
         self.assertEqual(expected_search_count(config, full=True)["total_searches"], 34_560)
         self.assertEqual(expected_search_count(config, full=False)["total_searches"], 1_458)
 
@@ -303,7 +303,7 @@ class BenchmarkSearchDispatchTests(unittest.TestCase):
         adaptive_arm = next(
             arm
             for arm in arms
-            if arm["method"] == "neural_guidance_adaptive_k_bounds4_16"
+            if arm["method"] == "neural_guidance_adaptive_k_bounds4_300"
         )
         phi = np.full(sample.grid_map.grid.shape, 0.35, dtype=np.float64)
         maps = {
@@ -336,7 +336,7 @@ class BenchmarkSearchDispatchTests(unittest.TestCase):
         self.assertNotIn("heuristic_map", adaptive_task)
         self.assertEqual(adaptive_task["mahalanobis_distance"], 2.5)
         self.assertEqual(adaptive_task["d95"], 4.0)
-        self.assertEqual((adaptive_task["k_min"], adaptive_task["k_max"]), (4, 16))
+        self.assertEqual((adaptive_task["k_min"], adaptive_task["k_max"]), (4, 300))
         self.assertEqual(adaptive_task["seed"], 19)
         fixed_task["capture_guidance_trace"] = True
         adaptive_task["capture_guidance_trace"] = True
@@ -363,7 +363,7 @@ class BenchmarkSearchDispatchTests(unittest.TestCase):
         self.assertEqual(adaptive_args[4], 2.5)
         self.assertEqual(adaptive_args[5], 4.0)
         self.assertEqual(adaptive_kwargs["k_min"], 4)
-        self.assertEqual(adaptive_kwargs["k_max"], 16)
+        self.assertEqual(adaptive_kwargs["k_max"], 300)
         self.assertEqual(adaptive_kwargs["seed"], 19)
         self.assertTrue(fixed["found"])
         self.assertTrue(adaptive["found"])
@@ -436,9 +436,9 @@ class BenchmarkSearchDispatchTests(unittest.TestCase):
         identifiers = {arm["method"]: arm for arm in all_arms}
         self.assertEqual(identifiers["neural_astar"]["search_implementation"], "neural_astar")
         self.assertIn("original_seeastar_uniform_H1_k16", identifiers)
-        self.assertIn("uniform_H1_adaptive_smooth_smallk_bounds4_16", identifiers)
+        self.assertIn("uniform_H1_adaptive_smooth_smallk_bounds4_300", identifiers)
         self.assertNotEqual(
-            identifiers["uniform_H1_adaptive_smooth_smallk_bounds4_16"]["search_implementation"],
+            identifiers["uniform_H1_adaptive_smooth_smallk_bounds4_300"]["search_implementation"],
             "neural_guidance_adaptive",
         )
 

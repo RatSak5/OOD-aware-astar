@@ -100,6 +100,22 @@ model, history = train_neural_astar(
 )
 ```
 
+For the staged 64x64 rectangle pipeline, pass a custom Neural A* guidance
+checkpoint or raw state-dictionary file with `--guidance-weights` on both the
+ID-only integration stage and the pilot-cache stage. Use the same file for
+both stages so the integration check and cached Phi maps have matching
+provenance:
+
+```powershell
+python -m experiments.rectangle_pipeline integrate --result-root "results/64x64_rectangles_v1/runs/<run>" --guidance-weights "C:/path/to/guidance_weights.pt"
+python -m experiments.rectangle_pipeline cache-pilot --result-root "results/64x64_rectangles_v1/runs/<run>" --guidance-weights "C:/path/to/guidance_weights.pt" --release-ood-pilot
+```
+
+Complete the pipeline's `train` and `calibrate` stages first; the flag replaces
+the CNN used for guidance-map inference, while the finalized OOD feature model
+and calibrated detector are still required. The selected guidance checkpoint
+path and SHA-256 are recorded in the integration and pilot-cache manifests.
+
 The OOD test split is deliberately not passed to the training or validation
 function. `plan_with_neural_astar` reports CNN inference time separately from
 search time and includes both in its total runtime.

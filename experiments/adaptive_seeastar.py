@@ -41,7 +41,7 @@ except ImportError:  # pragma: no cover - optional dependency
 class AdaptiveSeeAStarExperimentConfig:
     """Predeclared conventional unit-cost adaptive SeeA* K sweep."""
 
-    k_bounds: tuple[tuple[int, int], ...] = ((4, 8), (4, 16), (8, 32))
+    k_bounds: tuple[tuple[int, int], ...] = ((4, 8), (4, 300), (8, 32))
     seed: int = 0
     device: str = "cpu"
 
@@ -70,7 +70,7 @@ class NeuralGuidanceSeeAStarExperimentConfig:
 
     fixed_ks: tuple[int, ...] = (4, 5, 10, 16)
     k_min: int = 4
-    k_max: int = 16
+    k_max: int = 300
     seed: int = 0
 
     def __post_init__(self) -> None:

@@ -43,10 +43,20 @@ def load_neural_astar_checkpoint(
     checkpoint = torch.load(
         Path(checkpoint_path), map_location=device, weights_only=True
     )
-    if not isinstance(checkpoint, dict) or "model_state_dict" not in checkpoint:
-        raise ValueError("Checkpoint does not contain a Neural A* model state.")
+    if not isinstance(checkpoint, dict):
+        raise ValueError("Checkpoint must contain a Neural A* state dictionary.")
+    state_dict = checkpoint.get("model_state_dict", checkpoint.get("state_dict"))
+    if state_dict is None and checkpoint and all(
+        isinstance(value, torch.Tensor) for value in checkpoint.values()
+    ):
+        state_dict = checkpoint
+    if not isinstance(state_dict, dict):
+        raise ValueError(
+            "Checkpoint must be a raw Neural A* state dictionary or contain "
+            "'model_state_dict' or 'state_dict'."
+        )
     network = (model or NeuralAStarUNet()).to(device)
-    network.load_state_dict(checkpoint["model_state_dict"])
+    network.load_state_dict(state_dict)
     network.eval()
     return network, checkpoint
 

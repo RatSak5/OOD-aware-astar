@@ -496,7 +496,28 @@ def calibrate_detector(
     return calibration
 
 
-def _load_finalized_models(result_root: Path, device: str) -> tuple[Any, Any, Any]:
+def _guidance_checkpoint_path(
+    result_root: Path,
+    guidance_weights_file: str | Path | None = None,
+) -> Path:
+    checkpoint_path = (
+        Path(guidance_weights_file).expanduser()
+        if guidance_weights_file is not None
+        else result_root / "models" / "neural_astar" / "best_checkpoint.pt"
+    ).resolve()
+    if not checkpoint_path.is_file():
+        raise FileNotFoundError(
+            f"Neural A* guidance checkpoint does not exist: {checkpoint_path}"
+        )
+    return checkpoint_path
+
+
+def _load_finalized_models(
+    result_root: Path,
+    device: str,
+    *,
+    guidance_weights_file: str | Path | None = None,
+) -> tuple[Any, Any, Any]:
     ready_path = _model_ready_path(result_root)
     if not ready_path.is_file():
         raise PermissionError("Models are not finalized.")
@@ -504,7 +525,7 @@ def _load_finalized_models(result_root: Path, device: str) -> tuple[Any, Any, An
     if not (ready.get("training_complete") and ready.get("d95_calibrated")):
         raise PermissionError("Models and D95 must be finalized before OOD pilot use.")
     neural, _ = load_neural_astar_checkpoint(
-        result_root / "models" / "neural_astar" / "best_checkpoint.pt",
+        _guidance_checkpoint_path(result_root, guidance_weights_file),
         device=device,
     )
     extractor, _ = load_feature_extractor(
@@ -551,6 +572,7 @@ def run_integration_tests(
     result_root: str | Path,
     *,
     device: str = "auto",
+    guidance_weights_file: str | Path | None = None,
 ) -> dict[str, Any]:
     """Exercise inference-to-search using validation and ID-pilot maps only."""
 
@@ -560,6 +582,8 @@ def run_integration_tests(
         raise FileExistsError(
             f"Pilot already completed in {root}; completed run artifacts are immutable."
         )
+    checkpoint_path = _guidance_checkpoint_path(root, guidance_weights_file)
+    checkpoint_sha256 = _sha256(checkpoint_path)
     integration_path = root / "integration_tests" / "inference_to_search.json"
     if integration_path.is_file():
         existing = json.loads(integration_path.read_text(encoding="utf-8"))
@@ -567,9 +591,17 @@ def run_integration_tests(
             existing.get("status") == "passed"
             and not existing.get("ood_pilot_loaded")
             and existing.get("integration_case_count") == 800
+            and (
+                existing.get("guidance_weights_sha256") == checkpoint_sha256
+                or (guidance_weights_file is None and "guidance_weights_sha256" not in existing)
+            )
         ):
             return existing
-    neural, extractor, detector = _load_finalized_models(root, actual_device)
+    neural, extractor, detector = _load_finalized_models(
+        root,
+        actual_device,
+        guidance_weights_file=checkpoint_path,
+    )
     validation_samples = load_samples(data_directory, "validation_calibration")
     id_pilot_samples = load_samples(data_directory, "id_pilot")
     samples = [*validation_samples, *id_pilot_samples]
@@ -629,7 +661,7 @@ def run_integration_tests(
                 raw_distance,
                 float(detector.d95),
                 k_min=4,
-                k_max=16,
+                k_max=20,
                 seed=11,
                 capture_trace=True,
             )
@@ -638,7 +670,7 @@ def run_integration_tests(
         if not np.isclose(adaptive.ood_score, score, atol=1e-12):
             raise AssertionError("Adaptive search score differs from independent detector score.")
         if adaptive.selected_k != original_decision(
-            raw_distance, float(detector.d95), k_min=4, k_max=16
+            raw_distance, float(detector.d95), k_min=4, k_max=20
         ).selected_k:
             raise AssertionError("Adaptive K formula mismatch.")
 
@@ -646,10 +678,10 @@ def run_integration_tests(
             max(raw_distance, float(detector.d95) * 100.0),
             float(detector.d95),
             k_min=4,
-            k_max=16,
+            k_max=20,
         )
         low_distance_decision = adaptive_search.compute_neural_guidance_adaptive_k(
-            0.0, float(detector.d95), k_min=4, k_max=16
+            0.0, float(detector.d95), k_min=4, k_max=20
         )
         same_phi_low = run_neural_guidance_seeastar(
             sample.grid_map.grid, sample.grid_map.start, sample.grid_map.goal,
@@ -681,7 +713,7 @@ def run_integration_tests(
             "distribution": sample.grid_map.distribution,
             "map_shape": list(sample.grid_map.grid.shape),
             "phi_shape": list(phi.shape),
-            "phi_source": "64x64 Neural A* best checkpoint",
+            "phi_source": "64x64 Neural A* guidance checkpoint",
             "phi_inference_seconds": phi_seconds,
             "ood_embedding_dim": int(embedding.shape[0]),
             "ood_feature_extractor_independent": True,
@@ -714,6 +746,8 @@ def run_integration_tests(
         "sealed_ood_test_loaded": False,
         "integration_case_count": len(cases),
         "adaptive_k_decision_call_count": adaptive_calls,
+        "guidance_weights_file": str(checkpoint_path),
+        "guidance_weights_sha256": checkpoint_sha256,
         "checks": {
             "phi_from_64x64_neural_astar": True,
             "h1_h2_h3_not_used_as_phi": True,
@@ -741,6 +775,7 @@ def cache_pilot_inference(
     *,
     device: str = "auto",
     ood_pilot_release_approved: bool = False,
+    guidance_weights_file: str | Path | None = None,
 ) -> dict[str, Any]:
     """Cache Phi and detector outputs for ID/OOD pilot maps only."""
 
@@ -750,20 +785,48 @@ def cache_pilot_inference(
     root = Path(result_root)
     if (root / "pilot" / "pilot_complete.json").is_file():
         raise FileExistsError("Completed pilot runs are immutable; choose a new run directory.")
+    checkpoint_path = _guidance_checkpoint_path(root, guidance_weights_file)
+    checkpoint_sha256 = _sha256(checkpoint_path)
     existing_manifest = root / "guidance_maps" / "pilot_inference_manifest.json"
+    cached_summary: dict[str, Any] | None = None
     if existing_manifest.is_file():
         saved = json.loads(existing_manifest.read_text(encoding="utf-8"))
         if saved.get("cache_splits") == ["id_pilot", "ood_pilot"]:
-            return saved.get("caches", {})
-        raise ValueError("An incompatible pilot inference manifest already exists.")
+            saved_sha256 = saved.get("guidance_weights_sha256")
+            if saved_sha256 == checkpoint_sha256 or (
+                guidance_weights_file is None and saved_sha256 is None
+            ):
+                cached_summary = saved.get("caches", {})
+            if guidance_weights_file is None:
+                if cached_summary is None:
+                    raise FileExistsError(
+                        "Pilot guidance maps were cached with different weights. "
+                        "Pass --guidance-weights to replace them or use a fresh run directory."
+                    )
+        else:
+            raise ValueError("An incompatible pilot inference manifest already exists.")
     integration_path = root / "integration_tests" / "inference_to_search.json"
     if not integration_path.is_file():
         raise PermissionError("Run and pass ID-only integration checks before pilot inference.")
     integration = json.loads(integration_path.read_text(encoding="utf-8"))
     if integration.get("status") != "passed" or integration.get("ood_pilot_loaded"):
         raise PermissionError("Integration checks must pass without loading the OOD pilot.")
+    integration_sha256 = integration.get("guidance_weights_sha256")
+    if integration_sha256 is None and guidance_weights_file is None:
+        integration_sha256 = checkpoint_sha256
+    if integration_sha256 != checkpoint_sha256:
+        raise PermissionError(
+            "The ID-only integration checks used different guidance weights. "
+            "Rerun the integrate stage with the same --guidance-weights path."
+        )
+    if cached_summary is not None:
+        return cached_summary
     model_load_started = perf_counter()
-    neural, extractor, detector = _load_finalized_models(root, actual_device)
+    neural, extractor, detector = _load_finalized_models(
+        root,
+        actual_device,
+        guidance_weights_file=checkpoint_path,
+    )
     model_loading_seconds = float(perf_counter() - model_load_started)
 
     cache_summary: dict[str, Any] = {}
@@ -818,9 +881,7 @@ def cache_pilot_inference(
                 ood_inference_seconds=np.asarray(ood_seconds, dtype=np.float64),
                 ood_feature_seconds=np.asarray(feature_seconds, dtype=np.float64),
                 mahalanobis_seconds=np.asarray(distance_seconds, dtype=np.float64),
-                neural_checkpoint_sha256=np.asarray(_sha256(
-                    root / "models" / "neural_astar" / "best_checkpoint.pt"
-                ), dtype=np.str_),
+                neural_checkpoint_sha256=np.asarray(checkpoint_sha256, dtype=np.str_),
             )
         cache_summary[split_name] = {
             "map_count": len(samples),
@@ -841,6 +902,8 @@ def cache_pilot_inference(
         "cache_splits": ["id_pilot", "ood_pilot"],
         "sealed_ood_test_loaded": False,
         "models_and_detector_finalized_before_ood_pilot": True,
+        "guidance_weights_file": str(checkpoint_path),
+        "guidance_weights_sha256": checkpoint_sha256,
         "caches": cache_summary,
     })
     return cache_summary
@@ -858,11 +921,30 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--results-parent", default=f"results/{RUN_ID}")
     parser.add_argument("--device", default="auto", choices=("auto", "cpu", "cuda"))
     parser.add_argument("--no-resume", action="store_true")
+    parser.add_argument(
+        "--guidance-weights",
+        default=None,
+        help=(
+            "Neural A* checkpoint or state-dictionary file to use for guidance-map "
+            "inference during integrate/cache-pilot; pass the same file to both stages."
+        ),
+    )
+    parser.add_argument(
+        "--release-ood-pilot",
+        action="store_true",
+        help="required acknowledgement before cache-pilot loads the OOD-pilot split",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = _parse_args()
+    if args.guidance_weights is not None and args.stage not in {"integrate", "cache-pilot"}:
+        raise SystemExit(
+            "--guidance-weights is supported only by the integrate and cache-pilot stages."
+        )
+    if args.release_ood_pilot and args.stage != "cache-pilot":
+        raise SystemExit("--release-ood-pilot is supported only by the cache-pilot stage.")
     if args.result_root is None:
         if args.stage not in {"environment", "train"}:
             raise SystemExit(
@@ -883,9 +965,20 @@ def main() -> None:
     elif args.stage == "calibrate":
         result = calibrate_detector(args.data_directory, result_root, device=args.device)
     elif args.stage == "integrate":
-        result = run_integration_tests(args.data_directory, result_root, device=args.device)
+        result = run_integration_tests(
+            args.data_directory,
+            result_root,
+            device=args.device,
+            guidance_weights_file=args.guidance_weights,
+        )
     else:
-        result = cache_pilot_inference(args.data_directory, result_root, device=args.device)
+        result = cache_pilot_inference(
+            args.data_directory,
+            result_root,
+            device=args.device,
+            ood_pilot_release_approved=args.release_ood_pilot,
+            guidance_weights_file=args.guidance_weights,
+        )
     result.setdefault("run_directory", str(result_root.resolve()))
     print(json.dumps(result, indent=2, sort_keys=True))
 
