@@ -100,6 +100,18 @@ model, history = train_neural_astar(
 )
 ```
 
+The 64x64 rectangle dataset v2 uses these obstacle-density bands:
+
+| Group | Density |
+| --- | ---: |
+| D1 | 20–26% |
+| D2 | 27–33% |
+| D3 | 34–40% |
+| D4 | 3–5% |
+| D5 | 48–52% |
+
+It omits D6. Its generator uses D4 and D5 for OOD maps.
+
 For the staged 64x64 rectangle pipeline, pass a custom Neural A* guidance
 checkpoint or raw state-dictionary file with `--guidance-weights` on both the
 ID-only integration stage and the pilot-cache stage. Use the same file for
@@ -107,8 +119,8 @@ both stages so the integration check and cached Phi maps have matching
 provenance:
 
 ```powershell
-python -m experiments.rectangle_pipeline integrate --result-root "results/64x64_rectangles_v1/runs/<run>" --guidance-weights "C:/path/to/guidance_weights.pt"
-python -m experiments.rectangle_pipeline cache-pilot --result-root "results/64x64_rectangles_v1/runs/<run>" --guidance-weights "C:/path/to/guidance_weights.pt" --release-ood-pilot
+python -m experiments.rectangle_pipeline integrate --result-root "results/64x64_rectangles_v2/runs/<run>" --guidance-weights "C:/path/to/guidance_weights.pt"
+python -m experiments.rectangle_pipeline cache-pilot --result-root "results/64x64_rectangles_v2/runs/<run>" --guidance-weights "C:/path/to/guidance_weights.pt" --release-ood-pilot
 ```
 
 Complete the pipeline's `train` and `calibrate` stages first; the flag replaces

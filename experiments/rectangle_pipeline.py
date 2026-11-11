@@ -912,7 +912,7 @@ def cache_pilot_inference(
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("environment", "train", "calibrate", "integrate", "cache-pilot"))
-    parser.add_argument("--data-directory", default="data/64x64_rectangles_v1")
+    parser.add_argument("--data-directory", default=f"data/{RUN_ID}")
     parser.add_argument(
         "--result-root",
         default=None,

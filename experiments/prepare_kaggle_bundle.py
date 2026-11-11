@@ -13,7 +13,7 @@ from pathlib import Path
 import shutil
 import zipfile
 
-RUN_ID = "64x64_rectangles_v1"
+RUN_ID = "64x64_rectangles_v2"
 INITIAL_BUNDLE = f"{RUN_ID}_kaggle_upload.zip"
 OOD_BUNDLE = f"{RUN_ID}_ood_pilot.zip"
 SOURCE_DIRS = (
@@ -106,8 +106,8 @@ ON_KAGGLE = Path("/kaggle/working").is_dir()
 INPUT_ROOT = Path("/kaggle/input") if ON_KAGGLE else Path.cwd()
 WORK_ROOT = Path("/kaggle/working") if ON_KAGGLE else Path.cwd()
 PREPARED_ROOT = WORK_ROOT / "phase_b_inputs"
-RUN_ID = "64x64_rectangles_v1"
-INITIAL_BUNDLE_NAME = "64x64_rectangles_v1_kaggle_upload.zip"
+RUN_ID = "64x64_rectangles_v2"
+INITIAL_BUNDLE_NAME = "64x64_rectangles_v2_kaggle_upload.zip"
 REQUIRED_INITIAL_ARCHIVES = ("training.npz", "validation_calibration.npz", "id_pilot.npz")
 
 def _safe_extract(archive_path, target):
@@ -353,7 +353,7 @@ if integration.get("status") != "passed" or integration.get("ood_pilot_loaded"):
 if not OOD_PILOT_RELEASE_APPROVED:
     raise PermissionError("Explicit approval for the separate OOD-pilot upload is required.")
 
-ood_name = "64x64_rectangles_v1_ood_pilot.zip"
+ood_name = "64x64_rectangles_v2_ood_pilot.zip"
 ood_bundles = sorted(INPUT_ROOT.rglob(ood_name))
 if len(ood_bundles) != 1:
     raise FileNotFoundError(f"Attach exactly one separately approved {ood_name}; found {len(ood_bundles)}.")
@@ -812,7 +812,7 @@ def _prepare_notebook(path: Path) -> None:
 
 Attach the initial private training bundle with training, validation/calibration, and ID-pilot data only. Startup requires these three archives and their filtered manifest. It does not generate data or extract/load OOD-pilot data.
 
-Each notebook startup allocates a unique directory under `results/64x64_rectangles_v1/runs/`. Checkpoints, histories, detector/calibration files, caches, pilot outputs, reports, and ZIPs remain inside that run directory.
+Each notebook startup allocates a unique directory under `results/64x64_rectangles_v2/runs/`. Checkpoints, histories, detector/calibration files, caches, pilot outputs, reports, and ZIPs remain inside that run directory.
 
 After model training, detector fitting, D95 calibration, and ID-only integration pass, obtain separate approval before uploading OOD pilot. Attach it and set OOD_PILOT_RELEASE_APPROVED to True before the gated release cell. ID holdout and sealed OOD test are never included.""")
     set_cell(find("ON_KAGGLE"), _bootstrap_cell(), True)
